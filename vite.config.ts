@@ -7,8 +7,11 @@ export default defineConfig({
     resolve: {
         alias: {
             "@": path.resolve(__dirname, './src'),
+            "icons": path.resolve(__dirname, './src/shared/assets/icons'),
+            // "@/shared": path.resolve(__dirname, './src/shared'),
+            // "@/shared": path.resolve(__dirname, './src/shared/assets'),
+            // "@/icons": path.resolve(__dirname, './src/shared/assets/icons'),
             // "@/components/": path.resolve(__dirname, './src/components'),
-            // "@/assets/": path.resolve(__dirname, './src/assets'),
         }
     },
     server: {

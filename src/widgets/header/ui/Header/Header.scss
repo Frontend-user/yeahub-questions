@@ -1,0 +1,38 @@
+.header {
+  border-bottom: 1px solid #E8E8E8;
+  height: 64px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &__inner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 46% auto 23%;
+  }
+
+  &__left {
+    display: flex;
+  }
+
+  &__icon {
+  }
+
+  &__nav {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--black-19);
+  }
+
+  &__auth {
+    display: flex;
+    max-width: 235px;
+  }
+}
+
+.wrapper {
+}

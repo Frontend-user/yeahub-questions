@@ -1,0 +1,9 @@
+.base-layout {
+  background-color: #F4F4F4;
+  width: 100vw;
+  height: 100vh;
+  &__wrapper {
+    max-width: 1216px;
+    margin: 0 auto;
+  }
+}
