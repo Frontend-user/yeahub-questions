@@ -14,10 +14,30 @@
   &:hover {
     cursor: pointer;
   }
+
   &__secondary {
     font-size: 16px;
     font-weight: 600;
     color: var(--purple);
     background-color: #fff;
+  }
+
+  &__arrow-right {
+    background-color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+    position: relative;
+
+    &:after {
+      content: "";
+      top: 16px;
+      right: -25px;
+      position: absolute;
+      width: 27px;
+      height: 23px;
+      background-repeat: no-repeat;
+      background-image: url("icons/arrow-right.svg");
+    }
   }
 }
