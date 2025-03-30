@@ -1,0 +1,15 @@
+.ui-select {
+  &__title {
+    color:var(--black-47);
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  &__list {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

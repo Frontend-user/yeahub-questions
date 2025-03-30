@@ -1,0 +1,23 @@
+.ui-select-item {
+  border: 1px solid #BABABA;
+  border-radius: 12px;
+  display: inline-block;
+  max-width: 492px;
+
+  &__inner {
+    display: flex;
+    padding: 10.5px 12px;
+    //justify-content: center;
+    //align-items: center;
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+  }
+
+  &__label {
+  }
+}
