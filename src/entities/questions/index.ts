@@ -1,0 +1,1 @@
+export {useGetQuestionsQuery, questionsApi} from "@/entities/questions/api/questionsApi.ts";
