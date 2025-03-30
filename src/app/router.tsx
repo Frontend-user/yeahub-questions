@@ -1,6 +1,6 @@
 import {createBrowserRouter, RouteObject,} from "react-router-dom";
-import QuestionsPage from "../pages/QuestionsPage.tsx";
-import App from "../App.tsx";
+import QuestionsPage from "@/pages/QuestionsPage.tsx";
+import App from "./App.tsx";
 
 // type RouteDefinition = {
 //     path: string;
