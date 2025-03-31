@@ -34,8 +34,7 @@ const UiSelect: React.FC<UiSelectProps> = ({
                 ))}
 
             </div>
-
-            <UiButton
+        <UiButton
                 onHandleClick={onHandleShowAllList}
                 type="text-link" text={showAllList ? 'Скрыть' : 'Посмотреть все'}/>
         </div>

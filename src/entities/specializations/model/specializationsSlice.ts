@@ -1,10 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
-
 const specializationsSlice = createSlice({
     name: 'specializations',
     initialState: {
         specializations: [],
-        formattedSpecializations: []
+        formattedSpecializations: [],
+        status:''
     },
     reducers: {
         setSpecializationsList: (state, action) => {
@@ -22,6 +22,7 @@ const specializationsSlice = createSlice({
         },
         setFormattedSpecializations: (state, action) => {
             state.formattedSpecializations = action.payload.map((_) => ({..._, selected: false}))
+            state.status = 'fulfilled'
         }
     }
 })

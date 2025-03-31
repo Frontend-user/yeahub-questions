@@ -1,6 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {API_ROUTES, API_TOKEN, API_URL} from "@/shared/constats/constats.ts";
 import {setQuestionsList} from "@/entities/questions/model/questionsSlice.ts";
+
 export const questionsApi = createApi({
     reducerPath: "questionsApi",
     baseQuery: fetchBaseQuery({baseUrl: API_URL}),
@@ -10,10 +11,8 @@ export const questionsApi = createApi({
                 return {
                     url: API_ROUTES.QUESTIONS,
                     headers: {Authorization: API_TOKEN},
-                    params:
-                        {...params,
-                            // skillFilterMode: 'ANY',
-                        }
+                    params:params
+                    // skillFilterMode: 'ANY',
                     // skillFilterMode:'ANY',
                     // skills:[27]
 

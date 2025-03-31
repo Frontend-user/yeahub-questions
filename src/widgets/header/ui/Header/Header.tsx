@@ -1,9 +1,13 @@
 import './Header.scss'
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
 import yeahubIcon from "icons/yeahub-icon.svg"
+import {useSearchParams} from "react-router-dom";
 
 const Header = () => {
-
+    const [searchParams, setSearchParams] = useSearchParams()
+    const resetQueries = () => {
+        setSearchParams({})
+    }
     return (
         <div className="header">
             <div className="header__inner wrapper">
@@ -11,7 +15,7 @@ const Header = () => {
                     <img src={yeahubIcon} alt="" className="header__icon"/>
                     <div className="header__nav">
                         <div className="header__nav-item">База вопросов</div>
-                        <div className="header__nav-item">Тренажер</div>
+                        <div className="header__nav-item" onClick={resetQueries}>Тренажер</div>
                     </div>
                 </div>
                 <div></div>
