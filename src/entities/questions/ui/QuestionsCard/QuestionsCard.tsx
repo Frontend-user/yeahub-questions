@@ -31,7 +31,7 @@ const QuestionsCard:
                 className={showCard
                     ? "questions-card__shortAnswer questions-card__shortAnswer_open"
                     : "questions-card__shortAnswer "}>
-                <div>{parse(shortAnswer)}
+                <div>{shortAnswer ? parse(shortAnswer) : ''}
 
                     <UiButton
                         className="questions-card__read-more-button"

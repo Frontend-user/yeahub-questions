@@ -22,6 +22,16 @@
     background-color: #fff;
   }
 
+  &__text-link {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--purple);
+    background-color: #fff;
+    width: fit-content;
+    text-decoration: underline;
+    padding: 0;
+  }
+
   &__arrow-right {
     background-color: #fff;
     font-size: 16px;

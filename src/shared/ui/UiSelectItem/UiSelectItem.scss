@@ -3,7 +3,10 @@
   border-radius: 12px;
   display: inline-block;
   max-width: 492px;
-
+  cursor: pointer;
+  &_selected{
+    border: 1px solid var(--purple);
+  }
   &__inner {
     display: flex;
     padding: 10.5px 12px;

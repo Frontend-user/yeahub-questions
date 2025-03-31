@@ -11,7 +11,7 @@ const UiButton: React.FC<UiButtonProps> = ({className, onHandleClick, text, type
     return (
         <button onClick={onHandleClick}
                 className={`ui-button ${className} ${type ? `ui-button__${type}` : ''}`}>
-            {text}
+           <span>{text}</span>
         </button>
     );
 };

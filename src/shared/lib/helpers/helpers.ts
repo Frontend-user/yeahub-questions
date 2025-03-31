@@ -1,4 +1,4 @@
-export function isImageExists(url?: string): Promise<boolean> {
+export function isImageExists(url?: string | null): Promise<boolean> {
     return new Promise((resolve) => {
         if (!url) return false
         const img = new Image();

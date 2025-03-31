@@ -1,11 +1,15 @@
 import React from 'react';
-import {STATIC_QUESTIONS_LIST} from "@/shared/constats/constats.ts";
 import QuestionsCard from "@/entities/questions/ui/QuestionsCard/QuestionsCard.tsx";
 import './QuestionsList.scss'
-const QuestionsList: React.FC = () => {
+import {IQuestion} from "@/entities/questions";
+
+type QuestionsProps = {
+    questions: IQuestion[];
+}
+const QuestionsList: React.FC<QuestionsProps> = ({questions}) => {
     return (
         <div className="questions-list">
-            {STATIC_QUESTIONS_LIST.map((question) => (
+            {questions.length && (questions.map((question: IQuestion) => (
                 <QuestionsCard
                     key={question.id}
                     id={question.id}
@@ -13,7 +17,8 @@ const QuestionsList: React.FC = () => {
                     shortAnswer={question.shortAnswer}
 
                 />
-            ))}
+            ))) ||
+            ''}
         </div>
     );
 };
