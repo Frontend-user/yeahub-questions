@@ -13,7 +13,7 @@ export const useResizeObserver = (ref: RefObject<HTMLDivElement>) => {
         return () => {
             observer.disconnect()
         }
-    }, []);
+    }, [ref]);
 
     return {height}
 }

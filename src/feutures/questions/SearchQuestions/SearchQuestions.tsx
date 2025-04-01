@@ -27,7 +27,7 @@ const SearchQuestions: React.FC = () => {
     }
     useEffect(() => {
         setSearchInput(searchParams.get('keywords') || '')
-    }, []);
+    },[]);
 
     return (
         <UiInput

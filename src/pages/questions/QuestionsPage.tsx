@@ -7,12 +7,15 @@ import {useGetSpecializationsQuery} from "@/entities/specializations";
 import {useSearchParams} from "react-router-dom";
 
 const QuestionsPage: React.FC = () => {
-    const [searchParams, setSearchParams] = useSearchParams()
-    useGetSpecializationsQuery()
-    const {data, refetch} = useGetQuestionsQuery(defineParams())
+    const [searchParams] = useSearchParams()
+    useGetSpecializationsQuery({})
+    const {refetch} = useGetQuestionsQuery(defineParams())
 
     function defineParams() {
-        let params = {}
+        const params: {
+            specialization?: number
+            keywords?: string | null
+        } = {}
         if (searchParams.get('specialization')) {
             params['specialization'] = Number(searchParams.get('specialization'))
         }
@@ -21,8 +24,9 @@ const QuestionsPage: React.FC = () => {
         }
         return params
     }
+
     useEffect(() => {
-        refetch(defineParams())
+        refetch()
     }, [searchParams])
     return (
         <div className="questions-page">

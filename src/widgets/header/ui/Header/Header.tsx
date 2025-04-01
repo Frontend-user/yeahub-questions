@@ -4,7 +4,7 @@ import yeahubIcon from "icons/yeahub-icon.svg"
 import {useSearchParams} from "react-router-dom";
 
 const Header = () => {
-    const [_, setSearchParams] = useSearchParams()
+    const [, setSearchParams] = useSearchParams()
     const resetQueries = () => {
         setSearchParams({})
     }

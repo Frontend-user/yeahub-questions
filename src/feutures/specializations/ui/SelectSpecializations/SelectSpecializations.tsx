@@ -8,7 +8,6 @@ import {AppStateType} from "@/app/AppStore.ts";
 
 const SelectSpecializations: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
-
     const dispatch = useDispatch()
     const list = useSelector((state: AppStateType) => state.specializations.formattedSpecializations)
     const status = useSelector((state: AppStateType) => state.specializations.status)
@@ -20,12 +19,19 @@ const SelectSpecializations: React.FC = () => {
                 dispatch(chooseSpecialization(+findSpecializationInQueryId))
             }
         }
-    }, [status])
 
+    }, [status])
+    useEffect(() => {
+        if (!list.some(_ => _.selected)) {
+            searchParams.delete('specialization')
+            setSearchParams(searchParams)
+        }
+    }, [list]);
     const onChooseItem = (id: number) => {
         dispatch(chooseSpecialization(id))
         searchParams.set('specialization', id.toString())
         setSearchParams(searchParams)
+
     }
     return (
         <div className="select-specializations">

@@ -1,4 +1,4 @@
-import { ISpecialization } from "@/entities/specializations";
+import {ISpecialization} from "@/entities/specializations";
 
 interface ICreatedBy {
     userId: string;
@@ -17,12 +17,15 @@ interface IQuestionSkill {
     specializations: ISpecialization[];
 }
 
+export interface IQuestionsSliceInitialState {
+    questions: IQuestion[]
+}
 
 interface IQuestion {
     id: number;
     title: string;
     description: string;
-    code?: any | null;
+    code?: null | string;
     imageSrc?: string | null;
     keywords?: string[];
     longAnswer: string;
@@ -37,4 +40,5 @@ interface IQuestion {
     questionSpecializations: ISpecialization[];
     questionSkills: IQuestionSkill[]
 }
+
 export type {IQuestion, ICreatedBy, ISpecialization};

@@ -1,13 +1,16 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {IQuestion} from "@/entities/questions";
+import {IQuestionsSliceInitialState} from "@/entities/questions/model/types.ts";
 
+const initialState: IQuestionsSliceInitialState = {
+    questions: []
+}
 
 const questionsSlice = createSlice({
     name: 'questions',
-    initialState: {
-        questions: []
-    },
+    initialState,
     reducers: {
-        addQuestion: (state, action) => {
+        addQuestion: (state, action: PayloadAction<IQuestion>) => {
             state.questions.push(action.payload);
         },
         setQuestionsList: (state, action) => {
@@ -15,5 +18,5 @@ const questionsSlice = createSlice({
         }
     }
 })
-export const {addQuestion,setQuestionsList} = questionsSlice.actions;
+export const {addQuestion, setQuestionsList} = questionsSlice.actions;
 export {questionsSlice}
