@@ -14,9 +14,9 @@ const SelectSkills: React.FC = () => {
     const status: string = useSelector((state: AppStateType) => state.skills.status)
     const onChooseItem = (id: number) => {
         dispatch(chooseSkills(id))
-        let querySkills = searchParams.getAll('skills')
+        const querySkills = searchParams.getAll('skills')
         if (querySkills.includes(id.toString())) {
-            let idxToDel = querySkills.findIndex(i => i === id.toString())
+            const idxToDel = querySkills.findIndex(i => i === id.toString())
 
             querySkills.splice(idxToDel, 1)
             searchParams.delete('skills')
@@ -30,7 +30,7 @@ const SelectSkills: React.FC = () => {
         }
     }
     useEffect(() => {
-            let querySkills = searchParams.getAll('skills')
+            const querySkills = searchParams.getAll('skills')
             if (querySkills.length) {
                 querySkills.forEach((id) => {
                     dispatch(chooseSkills(+id))

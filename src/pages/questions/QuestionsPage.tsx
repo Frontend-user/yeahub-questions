@@ -33,7 +33,7 @@ const QuestionsPage: React.FC = () => {
 
     useEffect(() => {
         refetch()
-    }, [searchParams])
+    }, [searchParams,refetch])
     return (
         <div className="questions-page">
             <QuestionsListWithPaginate/>
