@@ -41,6 +41,7 @@ const SelectSkills: React.FC = () => {
     return (
         <div className="select-skills">
             <UiSelect
+                sliceCount={6}
                 onHandleClick={onChooseItem}
                 title="Навыки" list={list}/>
         </div>

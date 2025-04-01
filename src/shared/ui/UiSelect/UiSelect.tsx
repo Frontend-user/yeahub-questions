@@ -7,9 +7,10 @@ import {ISelectItem} from "@/shared/model/types/types.ts";
 type UiSelectProps = {
     title: string,
     list: ISelectItem[],
+    sliceCount?: number
     onHandleClick: (id: number) => void
 }
-const UiSelect: React.FC<UiSelectProps> = ({
+const UiSelect: React.FC<UiSelectProps> = ({sliceCount=5,
                                                title, list, onHandleClick
                                            }) => {
     const [showAllList, setShowAllList] = useState(false)
@@ -20,7 +21,7 @@ const UiSelect: React.FC<UiSelectProps> = ({
         if (showAllList) {
             return list
         }
-        return list.slice(0, 5)
+        return list.slice(0, sliceCount)
     }, [list, showAllList])
     return (
         <div className="ui-select">
@@ -40,7 +41,7 @@ const UiSelect: React.FC<UiSelectProps> = ({
             </div>
             <UiButton
                 onHandleClick={onHandleShowAllList}
-                type="text-link" text={showAllList ? 'Скрыть' : 'Посмотреть все'}/>
+                type="text-link" text={showAllList ? 'Скрыть' : 'Показать все'}/>
         </div>
     );
 };

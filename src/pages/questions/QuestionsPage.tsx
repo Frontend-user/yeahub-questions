@@ -17,6 +17,7 @@ const QuestionsPage: React.FC = () => {
         const params: {
             specialization?: number
             keywords?: string | null
+            skills?: string[]
         } = {}
         if (searchParams.get('specialization')) {
             params['specialization'] = Number(searchParams.get('specialization'))
@@ -33,7 +34,7 @@ const QuestionsPage: React.FC = () => {
 
     useEffect(() => {
         refetch()
-    }, [searchParams,refetch])
+    }, [searchParams, refetch])
     return (
         <div className="questions-page">
             <QuestionsListWithPaginate/>

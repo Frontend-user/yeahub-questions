@@ -35,6 +35,7 @@ const SelectSpecializations: React.FC = () => {
     return (
         <div className="select-specializations">
             <UiSelect
+                sliceCount={3}
                 onHandleClick={onChooseItem}
                 title="Специализация" list={list}/>
         </div>
