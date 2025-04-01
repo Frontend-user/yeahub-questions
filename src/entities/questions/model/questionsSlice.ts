@@ -1,6 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IQuestion} from "@/entities/questions";
-import {IQuestionsSliceInitialState} from "@/entities/questions/model/types.ts";
+import {IQuestion, IQuestionsSliceInitialState} from "@/entities/questions";
 
 const initialState: IQuestionsSliceInitialState = {
     questions: []

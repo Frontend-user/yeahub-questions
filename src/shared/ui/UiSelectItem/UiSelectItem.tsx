@@ -1,32 +1,30 @@
 import React, {useState} from 'react';
 import './UiSelectItem.scss'
 import {isImageExists} from "@/shared/lib/helpers/helpers.ts";
+import {ISelectItem} from "@/shared/model/types/types.ts";
 
-export type UiSelectItemProps = {
-    iconSrc?: string | null
-    title: string
-    id: number
-    selected: boolean,
-    onHandleClick: (id:number) => void
+export interface UiSelectItemProps extends ISelectItem {
+    onHandleClick: (id: number) => void
 }
+
 const UiSelectItem: React.FC<UiSelectItemProps> = ({
                                                        selected,
                                                        id,
-                                                       title, iconSrc, onHandleClick
+                                                       title, imageSrc, onHandleClick
                                                    }) => {
 
     const [showIcon, setShowIcon] = useState(false);
 
-    isImageExists(iconSrc).then((exists) => {
+    isImageExists(imageSrc).then((exists) => {
         setShowIcon(!!exists)
     });
     return (
         <div onClick={() => onHandleClick(id)} className={`ui-select-item ${selected && 'ui-select-item_selected'}`}>
             <div className="ui-select-item__inner">
-                {iconSrc && showIcon && (
+                {imageSrc && showIcon && (
                     <img
                         className="ui-select-item__icon"
-                        src={iconSrc}/>
+                        src={imageSrc}/>
                 )}
                 <div className="ui-select-item__label">{title}</div>
             </div>

@@ -5,10 +5,12 @@ import QuestionsFilters from "@/pages/questions/ui/QuestionsFilters/QuestionsFil
 import './QuestionsPage.scss'
 import {useGetSpecializationsQuery} from "@/entities/specializations";
 import {useSearchParams} from "react-router-dom";
+import {useGetSkillsQuery} from "@/entities/skills";
 
 const QuestionsPage: React.FC = () => {
     const [searchParams] = useSearchParams()
     useGetSpecializationsQuery({})
+    useGetSkillsQuery({})
     const {refetch} = useGetQuestionsQuery(defineParams())
 
     function defineParams() {
@@ -22,6 +24,10 @@ const QuestionsPage: React.FC = () => {
         if (searchParams.get('keywords')) {
             params['keywords'] = searchParams.get('keywords')
         }
+        if (searchParams.get('skills')) {
+            params['skills'] = searchParams.getAll('skills')
+        }
+
         return params
     }
 

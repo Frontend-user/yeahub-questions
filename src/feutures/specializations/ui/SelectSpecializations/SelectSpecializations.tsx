@@ -3,7 +3,7 @@ import './SelectSpecializations.scss'
 import UiSelect from "@/shared/ui/UiSelect/UiSelect.tsx";
 import {useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {chooseSpecialization} from "@/entities/specializations/model/specializationsSlice.ts";
+import {chooseSpecialization} from "@/entities/specializations";
 import {AppStateType} from "@/app/AppStore.ts";
 
 const SelectSpecializations: React.FC = () => {
@@ -31,7 +31,6 @@ const SelectSpecializations: React.FC = () => {
         dispatch(chooseSpecialization(id))
         searchParams.set('specialization', id.toString())
         setSearchParams(searchParams)
-
     }
     return (
         <div className="select-specializations">

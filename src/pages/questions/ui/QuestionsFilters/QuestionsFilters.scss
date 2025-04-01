@@ -2,7 +2,11 @@
   max-width: 492px;
   background: #fff;
   border-radius:24px;
+  &__specialization {
+    margin-bottom: 20px;
+  }
   &__inner {
+    display: grid;
     padding: 24px;
   }
 }

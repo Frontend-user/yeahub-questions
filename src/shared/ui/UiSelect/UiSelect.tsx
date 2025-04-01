@@ -2,11 +2,11 @@ import React, {useMemo, useState} from 'react';
 import './UiSelect.scss'
 import UiSelectItem from "@/shared/ui/UiSelectItem/UiSelectItem.tsx";
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
-import {IFormattedSpecialization} from "@/entities/specializations";
+import {ISelectItem} from "@/shared/model/types/types.ts";
 
 type UiSelectProps = {
     title: string,
-    list: IFormattedSpecialization[],
+    list: ISelectItem[],
     onHandleClick: (id: number) => void
 }
 const UiSelect: React.FC<UiSelectProps> = ({
@@ -28,10 +28,13 @@ const UiSelect: React.FC<UiSelectProps> = ({
             <div className="ui-select__list">
 
                 {slicedList.map((item) => (
-                    <UiSelectItem key={item.id} id={item.id} iconSrc={item.imageSrc}
-                                  selected={item.selected}
-                                  onHandleClick={onHandleClick}
-                                  title={item.title}/>
+                    <UiSelectItem
+                        key={item.id}
+                        id={item.id}
+                        imageSrc={item.imageSrc}
+                        selected={item.selected}
+                        onHandleClick={onHandleClick}
+                        title={item.title}/>
                 ))}
 
             </div>
