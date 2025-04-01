@@ -3,7 +3,7 @@ import './UiInput.scss'
 import searchIcon from 'icons/search-icon.svg'
 
 type UiInputProps = {
-    onHandleInputChange: MouseEvent;
+    onHandleInputChange: (arg0: string) => void;
     value?: string | number
 }
 const UiInput: React.FC<UiInputProps> = ({onHandleInputChange, value}) => {

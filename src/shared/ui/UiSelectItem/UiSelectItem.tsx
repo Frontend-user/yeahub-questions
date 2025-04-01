@@ -7,7 +7,7 @@ export type UiSelectItemProps = {
     title: string
     id: number
     selected: boolean,
-    onHandleClick: () => void
+    onHandleClick: (id:number) => void
 }
 const UiSelectItem: React.FC<UiSelectItemProps> = ({
                                                        selected,

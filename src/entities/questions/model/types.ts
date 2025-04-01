@@ -1,17 +1,11 @@
+import { ISpecialization } from "@/entities/specializations";
+
 interface ICreatedBy {
     userId: string;
     firstName: string;
     lastName: string;
 }
 
-interface ISpecialization {
-    id: number;
-    title: string;
-    description: string;
-    imageSrc: string | null;
-    createdAt: Date;
-    updatedAt: Date;
-}
 
 interface IQuestionSkill {
     id: number;

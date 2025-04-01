@@ -11,7 +11,7 @@ const specializationsApi = createApi({
                 url: API_ROUTES.SPECIALIZATIONS,
                 headers: ({Authorization: API_TOKEN})
             }),
-            async onQueryStarted(arg, {dispatch, queryFulfilled}) {
+            async onQueryStarted(_, {dispatch, queryFulfilled}) {
                 try {
                     const {data} = await queryFulfilled;
                     dispatch(setSpecializationsList(data.data))

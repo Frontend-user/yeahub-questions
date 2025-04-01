@@ -6,19 +6,21 @@ import {useSearchParams} from "react-router-dom";
 const SearchQuestions: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [searchInput, setSearchInput] = useState('')
-    const timeout = useRef(null)
-    const defineQueryParams = (newValue) => {
+    const timeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const defineQueryParams = (newValue: string) => {
         if (!newValue) {
             searchParams.delete('keywords')
             setSearchParams(searchParams)
             return
         }
-        searchParams.set('keywords', [newValue])
+        searchParams.set('keywords', newValue)
         setSearchParams(searchParams)
     }
     const handleInputChange = (newValue: string) => {
         setSearchInput(newValue)
-        clearTimeout(timeout.current)
+        if (timeout.current) {
+            clearTimeout(timeout.current)
+        }
         timeout.current = setTimeout(() => {
             defineQueryParams(newValue)
         }, 500)

@@ -1,12 +1,13 @@
-import React, { useMemo, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import './UiSelect.scss'
-import UiSelectItem, {UiSelectItemProps} from "@/shared/ui/UiSelectItem/UiSelectItem.tsx";
+import UiSelectItem from "@/shared/ui/UiSelectItem/UiSelectItem.tsx";
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
+import {IFormattedSpecialization} from "@/entities/specializations";
 
 type UiSelectProps = {
     title: string,
-    list: Array<UiSelectItemProps>,
-    onHandleClick: () => void
+    list: IFormattedSpecialization[],
+    onHandleClick: (id: number) => void
 }
 const UiSelect: React.FC<UiSelectProps> = ({
                                                title, list, onHandleClick
@@ -27,14 +28,14 @@ const UiSelect: React.FC<UiSelectProps> = ({
             <div className="ui-select__list">
 
                 {slicedList.map((item) => (
-                    <UiSelectItem key={item.id} id={item.id} iconSrc={item.iconSrc}
+                    <UiSelectItem key={item.id} id={item.id} iconSrc={item.imageSrc}
                                   selected={item.selected}
                                   onHandleClick={onHandleClick}
                                   title={item.title}/>
                 ))}
 
             </div>
-        <UiButton
+            <UiButton
                 onHandleClick={onHandleShowAllList}
                 type="text-link" text={showAllList ? 'Скрыть' : 'Посмотреть все'}/>
         </div>

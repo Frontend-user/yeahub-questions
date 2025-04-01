@@ -1,7 +1,7 @@
 import React from 'react';
 import './QuestionsFilters.scss'
 import SearchQuestions from "@/feutures/questions/SearchQuestions/SearchQuestions.tsx";
-import SelectSpecializations from "@/entities/specializations/ui/SelectSpecializations/SelectSpecializations.tsx";
+import SelectSpecializations from "@/feutures/specializations/ui/SelectSpecializations/SelectSpecializations.tsx";
 
 const QuestionsFilters: React.FC = () => {
 

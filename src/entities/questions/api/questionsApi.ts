@@ -11,14 +11,14 @@ export const questionsApi = createApi({
                 return {
                     url: API_ROUTES.QUESTIONS,
                     headers: {Authorization: API_TOKEN},
-                    params:params
+                    params: params
                     // skillFilterMode: 'ANY',
                     // skillFilterMode:'ANY',
                     // skills:[27]
 
                 }
             },
-            async onQueryStarted(arg, {dispatch, queryFulfilled}) {
+            async onQueryStarted(_, {dispatch, queryFulfilled}) {
                 try {
                     const {data} = await queryFulfilled;
                     dispatch(setQuestionsList(data.data))
