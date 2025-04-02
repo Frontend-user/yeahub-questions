@@ -4,6 +4,7 @@ import SearchQuestions from "@/feutures/questions/SearchQuestions/SearchQuestion
 import SelectSpecializations from "@/feutures/specializations/ui/SelectSpecializations/SelectSpecializations.tsx";
 import SelectSkills from "@/feutures/skills/ui/SelectSkills/SelectSkills.tsx";
 import SelectComplexity from "@/feutures/complexity/ui/SelectComplexity/SelectComplexity.tsx";
+import SelectRate from "@/feutures/rate/ui/SelectRate/SelectRate.tsx";
 
 const QuestionsFilters: React.FC = () => {
 
@@ -15,10 +16,12 @@ const QuestionsFilters: React.FC = () => {
                     <SelectSpecializations/>
                 </div>
                 <div className="questions-filters__specialization">
-                <SelectSkills/>
+                    <SelectSkills/>
                 </div>
-                <SelectComplexity/>
-
+                <div className="questions-filters__specialization">
+                    <SelectComplexity/>
+                </div>
+                <SelectRate/>
             </div>
         </div>
     );

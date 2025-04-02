@@ -22,7 +22,7 @@ const SelectComplexity: React.FC = () => {
             querySkills.forEach(s => searchParams.append('complexity', s))
             setSearchParams(searchParams)
         } else {
-            querySkills.push(id)
+            querySkills.push(String(id))
             searchParams.delete('complexity')
             querySkills.forEach(s => searchParams.append('complexity', s))
             setSearchParams(searchParams)
@@ -32,7 +32,6 @@ const SelectComplexity: React.FC = () => {
     useEffect(() => {
         const querySkills = searchParams.getAll('complexity')
         if (querySkills.length) {
-            console.log('querySkills', querySkills)
             querySkills.forEach((id) => {
                 dispatch(chooseComplexity(+id))
             })

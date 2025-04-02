@@ -6,13 +6,17 @@ type QuestionsCardProps = {
     id: number;
     title: string;
     shortAnswer: string;
+    rate?: string | number
+    complexity?: string | number
 }
 import downIcon from "icons/down-icon.svg"
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
+import UiTag from "@/shared/ui/UiTag/UiTag.tsx";
 
 const QuestionsCard:
     React.FC<QuestionsCardProps> = ({
                                         id,
+                                        rate, complexity,
                                         title,
                                         shortAnswer
                                     }) => {
@@ -31,7 +35,18 @@ const QuestionsCard:
                 className={showCard
                     ? "questions-card__shortAnswer questions-card__shortAnswer_open"
                     : "questions-card__shortAnswer "}>
-                <div>{shortAnswer ? parse(shortAnswer) : ''}
+
+                <div>{shortAnswer ? (
+                    <div>
+                        <div className="questions-card__ui-tags-wrapper">
+                            {rate && <UiTag label="Рейтинг" value={rate}/>}
+                            {complexity && <UiTag label="Сложность" value={complexity}/>}
+                        </div>
+
+                        {parse(shortAnswer)}
+
+                    </div>
+                ) : ''}
 
                     <UiButton
                         className="questions-card__read-more-button"

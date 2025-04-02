@@ -1,0 +1,29 @@
+.ui-tag {
+  background-color: #F8F8F8;
+  border-radius: 8px;
+
+  &__inner {
+    display: flex;
+    padding: 7px 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__label {
+    margin-right: 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__value {
+    padding: 2px 6px;
+    background-color: var(--purple);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}

@@ -15,7 +15,7 @@
   }
 
   &__custom-icon {
-    width: 8px;
+    min-width: 8px;
     height: 8px;
     border-radius: 100px;
     background: #5533ff;
@@ -33,7 +33,12 @@
     line-height: 120%;
     margin-right: auto;
   }
-
+  &__ui-tags-wrapper{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 24px;
+    gap: 24px;
+  }
   &__drop-down-button {
   }
 

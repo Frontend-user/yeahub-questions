@@ -23,7 +23,7 @@ const SelectSkills: React.FC = () => {
             querySkills.forEach(s => searchParams.append('skills', s))
             setSearchParams(searchParams)
         } else {
-            querySkills.push(id)
+            querySkills.push(id.toString())
             searchParams.delete('skills')
             querySkills.forEach(s => searchParams.append('skills', s))
             setSearchParams(searchParams)

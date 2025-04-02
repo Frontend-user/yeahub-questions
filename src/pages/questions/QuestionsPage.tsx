@@ -23,12 +23,16 @@ const QuestionsPage: React.FC = () => {
             keywords?: string | null
             skills?: string[]
             complexity?: string[]
+            rate?: string[]
         } = {}
         if (searchParams.get('specialization')) {
             params['specialization'] = Number(searchParams.get('specialization'))
         }
         if (searchParams.get('keywords')) {
             params['keywords'] = searchParams.get('keywords')
+        }
+        if (searchParams.get('rate')) {
+            params['rate'] = searchParams.getAll('rate')
         }
         if (searchParams.get('skills')) {
             params['skills'] = searchParams.getAll('skills')

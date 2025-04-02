@@ -3,6 +3,7 @@ import {questionsApi, questionsSlice} from "@/entities/questions";
 import {specializationsApi, specializationsSlice} from "@/entities/specializations";
 import {skillsApi, skillsSlice} from "@/entities/skills";
 import {complexitySlice} from "@/entities/complexity";
+import {rateSlice} from "@/entities/rate";
 
 export const rootReducer = combineReducers({
     [questionsApi.reducerPath]: questionsApi.reducer,
@@ -12,4 +13,5 @@ export const rootReducer = combineReducers({
     specializations: specializationsSlice.reducer,
     skills: skillsSlice.reducer,
     complexity: complexitySlice.reducer,
+    rate: rateSlice.reducer,
 })
