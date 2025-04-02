@@ -14,7 +14,6 @@ const SelectSpecializations: React.FC = () => {
     useEffect(() => {
         if (status === 'fulfilled') {
             const findSpecializationInQueryId = searchParams.get('specialization')
-            console.log(findSpecializationInQueryId, 'findSpecializationInQueryId')
             if (findSpecializationInQueryId) {
                 dispatch(chooseSpecialization(+findSpecializationInQueryId))
             }
