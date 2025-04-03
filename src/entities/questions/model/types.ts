@@ -1,4 +1,5 @@
 import {ISpecialization} from "@/entities/specializations";
+import QuestionsPaginate from "@/feutures/questions/QuestionsPaginate/QuestionsPaginate.tsx";
 
 interface ICreatedBy {
     userId: string;
@@ -19,6 +20,7 @@ interface IQuestionSkill {
 
 export interface IQuestionsSliceInitialState {
     questions: IQuestion[]
+    questionsPaginateParams: {}
 }
 
 interface IQuestion {

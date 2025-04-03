@@ -1,6 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {API_ROUTES, API_TOKEN, API_URL} from "@/shared/constats/constats.ts";
-import {setQuestionsList} from "@/entities/questions";
+import {setQuestionsList, setQuestionsPaginateParams} from "@/entities/questions";
+import {useSelector} from "react-redux";
 
 export const questionsApi = createApi({
     reducerPath: "questionsApi",
@@ -21,6 +22,11 @@ export const questionsApi = createApi({
                 try {
                     const {data} = await queryFulfilled;
                     dispatch(setQuestionsList(data.data))
+                    dispatch(setQuestionsPaginateParams({
+                        limit: data.limit,
+                        page: data.page,
+                        total: data.total
+                    }))
                 } catch (error) {
                     console.log(error);
                 }

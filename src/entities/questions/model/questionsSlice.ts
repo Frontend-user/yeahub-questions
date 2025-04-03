@@ -2,7 +2,11 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IQuestion, IQuestionsSliceInitialState} from "@/entities/questions";
 
 const initialState: IQuestionsSliceInitialState = {
-    questions: []
+    questions: [],
+    questionsPaginateParams: {
+        page: 1,
+        limit: 5
+    }
 }
 
 const questionsSlice = createSlice({
@@ -14,8 +18,12 @@ const questionsSlice = createSlice({
         },
         setQuestionsList: (state, action) => {
             state.questions = action.payload;
-        }
+        },
+
+        setQuestionsPaginateParams: (state, action) => {
+            state.questionsPaginateParams = action.payload;
+        },
     }
 })
-export const {addQuestion, setQuestionsList} = questionsSlice.actions;
+export const {addQuestion, setQuestionsList, setQuestionsPaginateParams} = questionsSlice.actions;
 export {questionsSlice}

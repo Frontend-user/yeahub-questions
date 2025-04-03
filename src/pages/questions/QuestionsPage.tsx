@@ -14,6 +14,7 @@ const QuestionsPage: React.FC = () => {
     const [searchParams] = useSearchParams()
     useGetSpecializationsQuery({})
     useGetSkillsQuery({})
+    const questionsPaginateParams = useSelector((state: AppStateType) => state.questions.questionsPaginateParams)
     const complexityList = useSelector((state: AppStateType) => state.complexity.complexityList)
     const {refetch} = useGetQuestionsQuery(defineParams())
 
@@ -24,6 +25,8 @@ const QuestionsPage: React.FC = () => {
             skills?: string[]
             complexity?: string[]
             rate?: string[]
+            limit?: number
+            page?: string
         } = {}
         if (searchParams.get('specialization')) {
             params['specialization'] = Number(searchParams.get('specialization'))
@@ -37,6 +40,17 @@ const QuestionsPage: React.FC = () => {
         if (searchParams.get('skills')) {
             params['skills'] = searchParams.getAll('skills')
         }
+        if (searchParams.get('limit')) {
+            params['limit'] = Number(searchParams.get('limit'))
+        } else {
+            params['limit'] = questionsPaginateParams.limit
+        }
+        if (searchParams.get('page')) {
+            params['page'] = Number(searchParams.get('page'))
+        } else {
+            params['page'] = questionsPaginateParams.page
+        }
+
         const complexityIds = searchParams.getAll('complexity')
         const arr: number[] = []
         if (complexityIds.length && complexityList) {
