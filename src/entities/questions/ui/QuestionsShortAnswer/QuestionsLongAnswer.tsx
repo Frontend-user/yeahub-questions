@@ -6,30 +6,34 @@ interface QuestionsLongAnswerProps {
 
 import parse from "html-react-parser";
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
-import {useState} from "react";
+import {useLayoutEffect, useRef, useState} from "react";
 
 const QuestionsLongAnswer = ({longAnswer}: QuestionsLongAnswerProps) => {
     const [showAll, setShowAll] = useState(false)
+    const contentRef = useRef(null);
+
+    useLayoutEffect(() => {
+        if (contentRef.current) {
+            const fullHeight = contentRef.current.scrollHeight;
+            const newHeight = showAll ? fullHeight : fullHeight * 0.3;
+            contentRef.current.style.setProperty('--max-height', `${newHeight}px`);
+        }
+    }, [showAll, longAnswer]);
     return (
         <div
-
-            className={`questions-long-answer
-                     ${showAll && 'questions-long-answer_open'} `}>
+            className="questions-long-answer">
             <div className="questions-long-answer__inner">
                 <div className="questions-long-answer__title">Развёрнутый ответ</div>
-                <div className={`questions-long-answer__text-wrapper
-                     ${showAll && 'questions-long-answer__text-wrapper_open'} `}>
-
+                <div className="questions-long-answer__text-wrapper">
                     <div
-
-                        className={`questions-long-answer__text
-                     ${showAll && 'questions-long-answer__text_open'} `}>
+                        ref={contentRef}
+                        className='questions-long-answer__text'>
                         <div
-                            className={`questions-long-answer__button-wrap ${showAll && 'questions-long-answer__button-wrap_open'}`}>
+                            className={"questions-long-answer__button-wrap"}>
 
                             <UiButton
                                 type={showAll ? `select_open` : `select`}
-                                onHandleClick={() => setShowAll(pr => !pr)}
+                                onHandleClick={() => setShowAll(prev => !prev)}
                                 className="questions-long-answer__button"
                                 text={showAll ? 'Скрыть' : 'Развернуть'}/>
                         </div>

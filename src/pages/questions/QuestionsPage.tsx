@@ -68,9 +68,8 @@ const QuestionsPage: React.FC = () => {
     }
 
     useEffect(() => {
-        console.log(isQuestionsError,'isQuestionsError')
-        // refetch()
-    }, [searchParams,isQuestionsError, refetch])
+        refetch()
+    }, [searchParams, isQuestionsError, refetch])
     return (
         <div className="questions-page">
             {isQuestionsLoading
@@ -79,7 +78,7 @@ const QuestionsPage: React.FC = () => {
                     <p>Не получилось загрузить вопросы </p>
                     <p>Статус ошибки: {isQuestionsError?.data.statusCode}</p>
                     <p>Текс ошибки: {isQuestionsError?.data.message}</p>
-                    </div>) : <QuestionsListWithPaginate/>}
+                </div>) : <QuestionsListWithPaginate/>}
             {(isSpecsLoading || isSkillsLoading) && (<FiltersSkeleton/>)
                 || <QuestionsFilters/>}
         </div>

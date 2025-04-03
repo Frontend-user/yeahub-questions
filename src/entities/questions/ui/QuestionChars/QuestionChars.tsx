@@ -25,7 +25,9 @@ const QuestionChars = ({complexity, rate, skills, keywords}: PropsQuestionChars)
                     <div className="questions-chars__skills-label">Навыки:</div>
                     <div className="questions-chars__skills-items">
                         {skills.map((skill) => (
+                            <div key={skill.id}>
                             <UiSelectItem id={skill.id} title={skill.title} selected={true}/>
+                            </div>
                         ))}
                     </div>
                 </div>

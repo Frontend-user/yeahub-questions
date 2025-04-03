@@ -4,7 +4,7 @@ const QuestionsSkeleton = () => {
     return (
         <div className="filters-skeleton">
             {[1,2,3,4].map((_)=>(
-                <div className="filters-skeleton__item">
+                <div key={_} className="filters-skeleton__item">
                     <div className="filters-skeleton__fill filters-skeleton__big-fill"></div>
                     <div className="filters-skeleton__title"></div>
                     <div className="filters-skeleton__cols-wrap ">

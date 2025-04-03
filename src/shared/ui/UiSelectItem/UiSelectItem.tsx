@@ -20,7 +20,8 @@ const UiSelectItem = ({
     // });
 
     return (
-        <div onClick={() => onHandleClick(id)} className={`ui-select-item ${selected && 'ui-select-item_selected'}`}>
+        <div onClick={() => onHandleClick(id)}
+             className={`ui-select-item ${selected && 'ui-select-item_selected'}`}>
             <div className="ui-select-item__inner">
                 {/*{imageSrc && showIcon && (*/}
                 {/*    <img*/}
