@@ -4,6 +4,7 @@ import UiPaginate from "@/shared/ui/UiPaginate/UiPaginate.tsx";
 import {useSelector} from "react-redux";
 import {AppStateType} from "@/app/AppStore.ts";
 import {useSearchParams} from "react-router-dom";
+
 interface IPaginateParams {
     firstPage: number,
     lastPage: number,
@@ -13,7 +14,7 @@ interface IPaginateParams {
 
 const QuestionsPaginate: React.FC = () => {
     const questionsPaginateParams = useSelector((state: AppStateType) => state.questions.questionsPaginateParams)
-    const [searchParams,setSearchParams] = useSearchParams()
+    const [searchParams, setSearchParams] = useSearchParams()
     const [paginateParams, setPaginateParams] = useState<IPaginateParams>({
         firstPage: 1,
         lastPage: 10,
@@ -21,16 +22,14 @@ const QuestionsPaginate: React.FC = () => {
         currentPage: 1
     })
 
-    function defineShowPages(currentPage: number) {
-        console.log(questionsPaginateParams, 'questionsPaginateParams')
-        console.log(currentPage, 'current')
+    function defineShowPages(currentPage: number,lastPage=paginateParams.lastPage) {
+        let defineLastPage = lastPage
         let start = currentPage - 3
         if (start < 1) {
             start = 1
         }
-        console.count(paginateParams.lastPage, ' paginateParams.lastPage')
-        if (start + 5 > paginateParams.lastPage) {
-            start = paginateParams.lastPage - 5
+        if (start + 5 > defineLastPage) {
+            start = defineLastPage - 5
         }
         return [
             start,
@@ -50,7 +49,7 @@ const QuestionsPaginate: React.FC = () => {
             currentPage: pr.currentPage + 1,
             showPages: defineShowPages(pr.currentPage + 1)
         }))
-        searchParams.set('page', paginateParams.currentPage +1)
+        searchParams.set('page', paginateParams.currentPage + 1)
         setSearchParams(searchParams)
     }
     const prevPage = () => {
@@ -60,7 +59,7 @@ const QuestionsPaginate: React.FC = () => {
             currentPage: pr.currentPage - 1,
             showPages: defineShowPages(pr.currentPage - 1)
         }))
-        searchParams.set('page', paginateParams.currentPage -1)
+        searchParams.set('page', paginateParams.currentPage - 1)
         setSearchParams(searchParams)
     }
     const selectPage = (newPage: number) => {
@@ -73,11 +72,9 @@ const QuestionsPaginate: React.FC = () => {
         setSearchParams(searchParams)
     }
     useEffect(() => {
-        if(!questionsPaginateParams.total) return
+        if (!questionsPaginateParams.total) return
         const lastPage = Math.ceil(questionsPaginateParams.total / questionsPaginateParams.limit)
-        console.log(questionsPaginateParams.page, 'questionsPaginateParams.page')
-        const showPages = defineShowPages(questionsPaginateParams.page)
-        console.log(showPages, 'sjowPAges')
+        const showPages = defineShowPages(questionsPaginateParams.page, lastPage)
         if (showPages.some(i => isNaN(i))) {
             return
         }
