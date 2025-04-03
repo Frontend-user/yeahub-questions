@@ -18,7 +18,7 @@ const QuestionsPage: React.FC = () => {
     const {isLoading: isSkillsLoading} = useGetSkillsQuery({})
     const questionsPaginateParams = useSelector((state: AppStateType) => state.questions.questionsPaginateParams)
     const complexityList = useSelector((state: AppStateType) => state.complexity.complexityList)
-    const {isLoading: isQuestionsLoading, refetch} = useGetQuestionsQuery(defineParams())
+    const {isLoading: isQuestionsLoading, error: isQuestionsError, refetch} = useGetQuestionsQuery(defineParams())
 
     function defineParams() {
         const params: {
@@ -68,11 +68,18 @@ const QuestionsPage: React.FC = () => {
     }
 
     useEffect(() => {
-        refetch()
-    }, [searchParams, refetch])
+        console.log(isQuestionsError,'isQuestionsError')
+        // refetch()
+    }, [searchParams,isQuestionsError, refetch])
     return (
         <div className="questions-page">
-            {isQuestionsLoading && (<QuestionsSkeleton/>) || <QuestionsListWithPaginate/>}
+            {isQuestionsLoading
+                ? (<QuestionsSkeleton/>)
+                : isQuestionsError ? (<div>
+                    <p>Не получилось загрузить вопросы </p>
+                    <p>Статус ошибки: {isQuestionsError?.data.statusCode}</p>
+                    <p>Текс ошибки: {isQuestionsError?.data.message}</p>
+                    </div>) : <QuestionsListWithPaginate/>}
             {(isSpecsLoading || isSkillsLoading) && (<FiltersSkeleton/>)
                 || <QuestionsFilters/>}
         </div>
