@@ -9,14 +9,16 @@ import {useGetSkillsQuery} from "@/entities/skills";
 import {useSelector} from "react-redux";
 import {AppStateType} from "@/app/AppStore.ts";
 import {ISelectItem} from "@/shared/model/types/types.ts";
+import QuestionsSkeleton from "@/pages/questions/ui/QuestionsSkeleton/QuestionsSkeleton.tsx";
+import FiltersSkeleton from "@/pages/questions/ui/FiltersSkeleton/FiltersSkeleton.tsx";
 
 const QuestionsPage: React.FC = () => {
     const [searchParams] = useSearchParams()
-    useGetSpecializationsQuery({})
-    useGetSkillsQuery({})
+    const {isLoading: isSpecsLoading} = useGetSpecializationsQuery({})
+    const {isLoading: isSkillsLoading} = useGetSkillsQuery({})
     const questionsPaginateParams = useSelector((state: AppStateType) => state.questions.questionsPaginateParams)
     const complexityList = useSelector((state: AppStateType) => state.complexity.complexityList)
-    const {refetch} = useGetQuestionsQuery(defineParams())
+    const {isLoading: isQuestionsLoading, refetch} = useGetQuestionsQuery(defineParams())
 
     function defineParams() {
         const params: {
@@ -70,8 +72,9 @@ const QuestionsPage: React.FC = () => {
     }, [searchParams, refetch])
     return (
         <div className="questions-page">
-            <QuestionsListWithPaginate/>
-            <QuestionsFilters/>
+            {isQuestionsLoading && (<QuestionsSkeleton/>) || <QuestionsListWithPaginate/>}
+            {(isSpecsLoading || isSkillsLoading) && (<FiltersSkeleton/>)
+                || <QuestionsFilters/>}
         </div>
     );
 };
