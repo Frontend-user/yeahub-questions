@@ -7,7 +7,7 @@ type UiButtonProps = {
     type?: string;
     className?: string | string[];
 }
-const UiButton: React.FC<UiButtonProps> = ({className, onHandleClick, text, type}) => {
+const UiButton= ({className, onHandleClick, text, type}:UiButtonProps) => {
     return (
         <button onClick={onHandleClick}
                 className={`ui-button ${className} ${type ? `ui-button__${type}` : ''}`}>

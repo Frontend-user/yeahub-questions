@@ -1,0 +1,42 @@
+.questions-details {
+
+  &__inner {
+  }
+
+  &__route-wrap {
+    margin: 28px 0;
+    display: flex;
+    align-items: start;
+
+    button {
+      width: 200px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 20px;
+
+  }
+
+  &__left {
+  }
+
+  &__author-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--purple);
+    line-height: 120%;
+
+    span {
+      color: var(--black-30);
+
+    }
+  }
+}

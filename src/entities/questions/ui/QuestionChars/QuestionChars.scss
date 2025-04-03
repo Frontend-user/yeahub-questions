@@ -1,0 +1,60 @@
+.questions-chars {
+  background-color: #fff;
+  border-radius: 24px;
+
+  &__inner {
+    padding: 24px;
+  }
+
+  &__level {
+    margin-bottom: 24px;
+  }
+
+  &__level-label {
+    color: var(--black-47);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  &__tags {
+    display: flex;
+    width: 80%;
+  }
+
+  &__skills {
+    margin-bottom: 24px;
+  }
+
+  &__skills-label {
+    color: var(--black-47);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  &__skills-items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__keywords-label {
+    color: var(--black-47);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  &__keywords {
+  }
+
+  &__keywords-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  &__keyword {
+    color: var(--purple);
+  }
+}

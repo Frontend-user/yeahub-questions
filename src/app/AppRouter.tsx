@@ -1,6 +1,7 @@
 import {createBrowserRouter, RouteObject,} from "react-router-dom";
 import QuestionsPage from "@/pages/questions/QuestionsPage.tsx";
 import BaseLayout from "@/app/layouts/BaseLayout.tsx";
+import QuestionDetailsPage from "@/pages/QuestionDetailsPage/QuestionDetailsPage.tsx";
 
 const routes: RouteObject[] = [
     {
@@ -10,6 +11,10 @@ const routes: RouteObject[] = [
             {
                 path: "/questions",
                 element: <QuestionsPage/>
+            },
+            {
+                path: "/question-details/:questionId",
+                element: <QuestionDetailsPage/>
             }
         ]
     }

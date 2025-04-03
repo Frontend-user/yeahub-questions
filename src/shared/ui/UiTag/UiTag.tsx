@@ -6,7 +6,7 @@ interface UiTagProps {
     value: string | number
 }
 
-const UiTag: React.FC<UiTagProps> = ({label, value}) => {
+const UiTag = ({label, value}: UiTagProps) => {
     return (
         <div className="ui-tag">
             <div className="ui-tag__inner">

@@ -1,0 +1,23 @@
+.questions-short-answer {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 24px;
+  margin-bottom: 20px;
+  &__inner {
+
+    padding: 24px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--black-30);
+  }
+
+  &__text {
+    color: var(--black-30);
+    font-size: 16px;
+    font-weight: 500;
+  }
+}

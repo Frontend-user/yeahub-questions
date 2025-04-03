@@ -20,6 +20,7 @@ interface IQuestionSkill {
 
 export interface IQuestionsSliceInitialState {
     questions: IQuestion[]
+    questionDetails: IQuestion
     questionsPaginateParams: {}
 }
 
@@ -37,8 +38,8 @@ interface IQuestion {
     complexity: number;
     createdAt: Date | null;
     updatedAt: Date | null;
-    createdBy: ICreatedBy;
-    updatedBy: ICreatedBy;
+    createdBy?: ICreatedBy;
+    updatedBy?: ICreatedBy;
     questionSpecializations: ISpecialization[];
     questionSkills: IQuestionSkill[]
 }

@@ -11,6 +11,7 @@
   border: none;
   width: 100%;
   padding: 11px 28px;
+
   &:hover {
     cursor: pointer;
   }
@@ -30,6 +31,65 @@
     width: fit-content;
     text-decoration: underline;
     padding: 0;
+  }
+
+  &__select {
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+    position: relative;
+
+    &:after {
+      content: "";
+      top: 18px;
+      right: 10px;
+      position: absolute;
+      width: 27px;
+      height: 23px;
+      background-repeat: no-repeat;
+      background-image: url("icons/down-icon.svg");
+    }
+
+
+  }
+
+  &__select_open {
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+    position: relative;
+
+    &:after {
+      content: "";
+      top: 18px;
+      right: 30px;
+      position: absolute;
+      width: 27px;
+      height: 23px;
+      background-repeat: no-repeat;
+      background-image: url("icons/up-icon.svg");
+    }
+  }
+
+  &__arrow-left {
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+    position: relative;
+
+    &:after {
+      content: "";
+      top: 15px;
+      left: 45px;
+      position: absolute;
+      width: 27px;
+      height: 23px;
+      background-repeat: no-repeat;
+      background-image: url("icons/left-icon.svg");
+    }
   }
 
   &__arrow-right {

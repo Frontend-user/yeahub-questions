@@ -12,6 +12,7 @@ type QuestionsCardProps = {
 import downIcon from "icons/down-icon.svg"
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
 import UiTag from "@/shared/ui/UiTag/UiTag.tsx";
+import {useNavigate} from "react-router-dom";
 
 const QuestionsCard:
     React.FC<QuestionsCardProps> = ({
@@ -24,6 +25,7 @@ const QuestionsCard:
     const onHandleClick = () => {
         setShowCard(!showCard);
     }
+    const navigate = useNavigate()
     return (
         <div key={id} className="questions-card">
             <div className="questions-card__head" onClick={onHandleClick}>
@@ -49,6 +51,7 @@ const QuestionsCard:
                 ) : ''}
 
                     <UiButton
+                        onHandleClick={() => navigate(`/question-details/${id}`)}
                         className="questions-card__read-more-button"
                         text="Подробнее"
                         type="arrow-right"
