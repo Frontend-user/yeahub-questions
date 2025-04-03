@@ -1,5 +1,4 @@
 import './UiButton.scss'
-import React from "react";
 
 type UiButtonProps = {
     onHandleClick?: () => void;
