@@ -12,6 +12,7 @@ const SelectComplexity: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
 
     function onHandleClick(id: number) {
+        searchParams.set('page', '1')
         dispatch(chooseComplexity(id))
         const querySkills = searchParams.getAll('complexity')
         if (querySkills.includes(id.toString())) {

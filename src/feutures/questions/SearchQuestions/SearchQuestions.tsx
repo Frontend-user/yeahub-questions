@@ -22,6 +22,7 @@ const SearchQuestions: React.FC = () => {
             clearTimeout(timeout.current)
         }
         timeout.current = setTimeout(() => {
+            searchParams.set('page', '1')
             defineQueryParams(newValue)
         }, 500)
     }

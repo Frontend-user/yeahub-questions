@@ -22,23 +22,35 @@ const QuestionsPaginate: React.FC = () => {
         currentPage: 1
     })
 
-    function defineShowPages(currentPage: number,lastPage=paginateParams.lastPage) {
+    function defineShowPages(currentPage: number, lastPage = paginateParams.lastPage) {
         let defineLastPage = lastPage
         let start = currentPage - 3
+        let result = []
         if (start < 1) {
             start = 1
         }
-        if (start + 5 > defineLastPage) {
+        if (start + 5 > defineLastPage && start > 1) {
             start = defineLastPage - 5
+            if(start < 1){
+                start = 1
+            }
         }
-        return [
-            start,
-            start + 1,
-            start + 2,
-            start + 3,
-            start + 4,
-            start + 5,
-        ]
+        if (defineLastPage >= 6) {
+            result = [
+                start,
+                start + 1,
+                start + 2,
+                start + 3,
+                start + 4,
+                start + 5,
+            ]
+        } else {
+            for (let i = 0; i < defineLastPage; i++) {
+                result.push(start + i)
+            }
+
+        }
+        return result
     }
 
     const nextPage = () => {

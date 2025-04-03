@@ -26,7 +26,7 @@ const UiPaginate: React.FC<UiPaginateProps> = ({
     return (
         <div className="ui-paginate">
             <img src={prevPageArrow} onClick={onHandlePrevPage} className="ui-paginate__prev-page"/>
-            {firstPage +2 < currentPage && (<>
+            {firstPage + 4   < currentPage && (<>
                 <div className="ui-paginate__first-page"
                      onClick={() => selectPage(firstPage)}
                 >{firstPage}</div>

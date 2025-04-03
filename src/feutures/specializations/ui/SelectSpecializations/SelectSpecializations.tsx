@@ -27,6 +27,7 @@ const SelectSpecializations: React.FC = () => {
         }
     }, [list]);
     const onChooseItem = (id: number) => {
+        searchParams.set('page', '1')
         dispatch(chooseSpecialization(id))
         searchParams.set('specialization', id.toString())
         setSearchParams(searchParams)

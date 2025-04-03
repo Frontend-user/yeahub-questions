@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import './QuestionsListWithPaginate.scss'
 import QuestionsList from "@/widgets/questions/ui/QuestionsList/QuestionsList.tsx";
 import {useSelector} from "react-redux";
@@ -7,16 +7,22 @@ import QuestionsPaginate from "@/feutures/questions/QuestionsPaginate/QuestionsP
 import {AppStateType} from "@/app/AppStore.ts";
 
 const QuestionsListWithPaginate: React.FC = () => {
-    const questions: IQuestion[] = useSelector((state:AppStateType) => state.questions.questions);
+    const questionsPaginateParams = useSelector((state: AppStateType) => state.questions.questionsPaginateParams)
+    const questions: IQuestion[] = useSelector((state: AppStateType) => state.questions.questions);
+    const showPaginate = useMemo(() => {
+        return Math.ceil(questionsPaginateParams.total / questionsPaginateParams.limit) > 1
+    }, [questionsPaginateParams])
     return (
         <div className="questions-list-with-paginate">
             <div className="questions-list-with-paginate__inner">
                 <div className="questions-list-with-paginate__title">Вопросы React, JavaScript</div>
                 <QuestionsList questions={questions}/>
 
-                <div className="questions-list-with-paginate__pagination">
-                    <QuestionsPaginate/>
-                </div>
+                {showPaginate && (
+                    <div className="questions-list-with-paginate__pagination">
+                        <QuestionsPaginate/>
+                    </div>
+                )}
             </div>
         </div>
     );

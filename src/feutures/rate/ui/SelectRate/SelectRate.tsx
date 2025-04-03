@@ -11,6 +11,7 @@ const SelectRate: React.FC = () => {
     const rateList = useSelector((state: AppStateType) => state.rate.rateList)
     const dispatch = useDispatch()
     const onHandleChooseRate = (id) => {
+        searchParams.set('page', '1')
         dispatch(chooseRate(id))
         const querySkills = searchParams.getAll('rate')
         if (querySkills.includes(id.toString())) {
