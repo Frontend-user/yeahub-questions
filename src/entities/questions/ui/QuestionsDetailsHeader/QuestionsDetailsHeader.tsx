@@ -1,4 +1,5 @@
 import './QuestionsDetailsHeader.scss'
+import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 
 interface QuestionsDetailsHeaderProps {
     imageSrc?: string;
@@ -11,7 +12,7 @@ const QuestionsDetailsHeader = ({imageSrc, title, description}: QuestionsDetails
     return (
         <div className="questions-details-header">
             <div className="questions-details-header__inner">
-                <img src={imageSrc} alt="" className="questions-details-header__image"/>
+                <UiImage src={imageSrc} className="questions-details-header__image" />
                 <div className="questions-details-header__info">
                     <div className="questions-details-header__title">{title}</div>
                     <div className="questions-details-header__desc">{description}</div>

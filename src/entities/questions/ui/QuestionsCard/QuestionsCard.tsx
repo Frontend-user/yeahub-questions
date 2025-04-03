@@ -13,6 +13,7 @@ import downIcon from "icons/down-icon.svg"
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
 import UiTag from "@/shared/ui/UiTag/UiTag.tsx";
 import {useNavigate} from "react-router-dom";
+import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 
 const QuestionsCard:
     React.FC<QuestionsCardProps> = ({
@@ -31,7 +32,7 @@ const QuestionsCard:
             <div className="questions-card__head" onClick={onHandleClick}>
                 <div className="questions-card__custom-icon"></div>
                 <div className="questions-card__title">{title}</div>
-                <img src={downIcon} className="questions-card__drop-down-button"/>
+                <UiImage src={downIcon} className='questions-card__drop-down-button'/>
             </div>
             <div
                 className={showCard

@@ -3,6 +3,7 @@ import './UiPaginate.scss'
 import prevPageArrow from 'icons/btn-arrow-left.svg'
 import nextPageArrow from 'icons/btn-arrow-right.svg'
 import paginateDotsIcon from 'icons/paginate-dots.svg'
+import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 
 type UiPaginateProps = {
     lastPage: number;
@@ -25,12 +26,12 @@ const UiPaginate: React.FC<UiPaginateProps> = ({
                                                }) => {
     return (
         <div className="ui-paginate">
-            <img src={prevPageArrow} onClick={onHandlePrevPage} className="ui-paginate__prev-page"/>
-            {firstPage + 4   < currentPage && (<>
+            <UiImage src={prevPageArrow} onClick={onHandlePrevPage} className="ui-paginate__prev-page"/>
+            {firstPage + 4 < currentPage && (<>
                 <div className="ui-paginate__first-page"
                      onClick={() => selectPage(firstPage)}
                 >{firstPage}</div>
-                {currentPage > 3 && (<img src={paginateDotsIcon} className="ui-paginate__dots"/>)}
+                {currentPage > 3 && (<UiImage src={paginateDotsIcon} className="ui-paginate__dots"/>)}
             </>)}
             <div className="ui-paginate__show-pages">
                 {showPages.map((page) => (
@@ -40,11 +41,13 @@ const UiPaginate: React.FC<UiPaginateProps> = ({
                              `ui-paginate__show-page_current` : ''}`}>{page}</div>
                 ))}
             </div>
-            {currentPage + 2 < lastPage && (<img src={paginateDotsIcon} className="ui-paginate__dots"/>)}
-            {currentPage +2 < lastPage &&  (<div className="ui-paginate__last-page"
-                   onClick={() => selectPage(lastPage)}
+            {currentPage + 2 < lastPage && (
+                <UiImage src={paginateDotsIcon} className="ui-paginate__dots"/>
+            )}
+            {currentPage + 2 < lastPage && (<div className="ui-paginate__last-page"
+                                                 onClick={() => selectPage(lastPage)}
             >{lastPage}</div>)}
-            <img src={nextPageArrow} onClick={onHandleNextPage} className="ui-paginate__next-page"/>
+            <UiImage src={nextPageArrow} onClick={onHandleNextPage} className="ui-paginate__next-page"/>
         </div>
     );
 };

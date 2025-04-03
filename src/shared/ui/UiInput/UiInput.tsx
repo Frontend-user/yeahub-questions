@@ -1,6 +1,7 @@
 import React from 'react';
 import './UiInput.scss'
 import searchIcon from 'icons/search-icon.svg'
+import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 
 type UiInputProps = {
     onHandleInputChange: (arg0: string) => void;
@@ -10,7 +11,7 @@ const UiInput: React.FC<UiInputProps> = ({onHandleInputChange, value}) => {
     return (
         <div className="ui-input">
             <div className="ui-input__inner">
-                <img
+                <UiImage
                     src={searchIcon}
                     className="ui-input__icon"/>
                 <input
