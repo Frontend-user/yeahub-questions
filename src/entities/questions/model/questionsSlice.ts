@@ -5,7 +5,7 @@ const initialState: IQuestionsSliceInitialState = {
     questions: [],
     questionsPaginateParams: {
         page: 1,
-        limit: 5
+        limit: 7
     },
     questionDetails: {
         id: 0,
