@@ -1,8 +1,9 @@
-import React, {useMemo, useState} from 'react';
+import React, {useMemo} from 'react';
 import './UiSelect.scss'
 import UiSelectItem from "@/shared/ui/UiSelectItem/UiSelectItem.tsx";
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
 import {ISelectItem} from "@/shared/model/types/types.ts";
+import {useToggle} from "@/shared/hooks/useToggle.tsx";
 
 type UiSelectProps = {
     title: string,
@@ -13,10 +14,7 @@ type UiSelectProps = {
 const UiSelect: React.FC<UiSelectProps> = ({sliceCount=5,
                                                title, list, onHandleClick
                                            }) => {
-    const [showAllList, setShowAllList] = useState(false)
-    const onHandleShowAllList = () => {
-        setShowAllList(pr => !pr)
-    }
+    const [showAllList, toggleShowAllList] = useToggle()
     const slicedList = useMemo(() => {
         if (showAllList) {
             return list
@@ -40,7 +38,7 @@ const UiSelect: React.FC<UiSelectProps> = ({sliceCount=5,
 
             </div>
             <UiButton
-                onHandleClick={onHandleShowAllList}
+                onHandleClick={toggleShowAllList}
                 type="text-link" text={showAllList ? 'Скрыть' : 'Показать все'}/>
         </div>
     );

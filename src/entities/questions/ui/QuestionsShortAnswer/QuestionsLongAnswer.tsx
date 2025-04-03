@@ -6,10 +6,11 @@ interface QuestionsLongAnswerProps {
 
 import parse from "html-react-parser";
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
-import {useLayoutEffect, useRef, useState} from "react";
+import {useLayoutEffect, useRef} from "react";
+import {useToggle} from "@/shared/hooks/useToggle.tsx";
 
 const QuestionsLongAnswer = ({longAnswer}: QuestionsLongAnswerProps) => {
-    const [showAll, setShowAll] = useState(false)
+    const [showAll, toggleShowAll] = useToggle()
     const contentRef = useRef(null);
 
     useLayoutEffect(() => {
@@ -33,7 +34,7 @@ const QuestionsLongAnswer = ({longAnswer}: QuestionsLongAnswerProps) => {
 
                             <UiButton
                                 type={showAll ? `select_open` : `select`}
-                                onHandleClick={() => setShowAll(prev => !prev)}
+                                onHandleClick={toggleShowAll}
                                 className="questions-long-answer__button"
                                 text={showAll ? 'Скрыть' : 'Развернуть'}/>
                         </div>

@@ -1,4 +1,5 @@
-import {MouseEventHandler, SVGProps} from "react";
+import {MouseEventHandler} from "react";
+import './UiImage.scss'
 
 interface PropsUiImage {
     src?: string
