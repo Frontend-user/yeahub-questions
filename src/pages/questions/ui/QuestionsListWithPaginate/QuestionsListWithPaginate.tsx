@@ -3,7 +3,7 @@ import './QuestionsListWithPaginate.scss'
 import QuestionsList from "@/widgets/questions/ui/QuestionsList/QuestionsList.tsx";
 import {useSelector} from "react-redux";
 import {IQuestion} from "@/entities/questions";
-import QuestionsPaginate from "@/feutures/questions/QuestionsPaginate/QuestionsPaginate.tsx";
+import QuestionsPaginate from "@/feutures/questions/ui/QuestionsPaginate/QuestionsPaginate.tsx";
 import {AppStateType} from "@/app/AppStore.ts";
 
 const QuestionsListWithPaginate: React.FC = () => {

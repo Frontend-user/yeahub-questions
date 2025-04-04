@@ -6,14 +6,13 @@ import paginateDotsIcon from 'icons/paginate-dots.svg'
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 
 type UiPaginateProps = {
-    lastPage: number;
-    showPages: number[];
-    currentPage: number;
-    firstPage: number;
-    onHandleNextPage: () => void;
-    onHandlePrevPage: () => void;
-    selectPage: (page: number) => void;
-
+    lastPage: number,
+    showPages: number[],
+    currentPage: number,
+    firstPage: number,
+    onHandleNextPage: () => void,
+    onHandlePrevPage: () => void,
+    selectPage: (page: number) => void,
 }
 const UiPaginate: React.FC<UiPaginateProps> = ({
                                                    lastPage,
@@ -22,7 +21,7 @@ const UiPaginate: React.FC<UiPaginateProps> = ({
                                                    currentPage,
                                                    selectPage,
                                                    onHandleNextPage,
-                                                   onHandlePrevPage
+                                                   onHandlePrevPage,
                                                }) => {
     return (
         <div className="ui-paginate">
@@ -41,10 +40,10 @@ const UiPaginate: React.FC<UiPaginateProps> = ({
                              `ui-paginate__show-page_current` : ''}`}>{page}</div>
                 ))}
             </div>
-            {currentPage + 2 < lastPage && (
+            {currentPage + 4 < lastPage && (
                 <UiImage src={paginateDotsIcon} className="ui-paginate__dots"/>
             )}
-            {currentPage + 2 < lastPage && (<div className="ui-paginate__last-page"
+            {currentPage + 4 < lastPage && (<div className="ui-paginate__last-page"
                                                  onClick={() => selectPage(lastPage)}
             >{lastPage}</div>)}
             <UiImage src={nextPageArrow} onClick={onHandleNextPage} className="ui-paginate__next-page"/>

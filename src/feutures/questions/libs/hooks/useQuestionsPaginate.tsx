@@ -1,20 +1,25 @@
-import React, {useEffect, useState} from 'react';
-import './QuestionsPaginate.scss'
-import UiPaginate from "@/shared/ui/UiPaginate/UiPaginate.tsx";
-import {useSelector} from "react-redux";
-import {AppStateType} from "@/app/AppStore.ts";
-import {useSearchParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {IPaginateParams} from "@/feutures/questions/model/types.ts";
+import {IQuestionsPaginateParams} from "@/entities/questions/model/types.ts";
+import {SetURLSearchParams} from "react-router-dom";
 
-interface IPaginateParams {
-    firstPage: number,
-    lastPage: number,
-    showPages: number[],
-    currentPage: number
+export interface PropsUseQuestionsPaginate {
+    questionsPaginateParams: IQuestionsPaginateParams
+    searchParams: URLSearchParams,
+    setSearchParams:SetURLSearchParams
 }
 
-const QuestionsPaginate: React.FC = () => {
-    const questionsPaginateParams = useSelector((state: AppStateType) => state.questions.questionsPaginateParams)
-    const [searchParams, setSearchParams] = useSearchParams()
+type ReturnUseQuestionsPaginate = [
+    IPaginateParams,
+    nextPage: () => void,
+    selectPage: (newPage: number) => void,
+    prevPage: () => void,
+];
+export const useQuestionsPaginate = ({
+                                         questionsPaginateParams,
+                                         searchParams,
+                                         setSearchParams
+                                     }: PropsUseQuestionsPaginate): ReturnUseQuestionsPaginate => {
     const [paginateParams, setPaginateParams] = useState<IPaginateParams>({
         firstPage: 1,
         lastPage: 10,
@@ -31,7 +36,7 @@ const QuestionsPaginate: React.FC = () => {
         }
         if (start + 5 > defineLastPage && start > 1) {
             start = defineLastPage - 5
-            if(start < 1){
+            if (start < 1) {
                 start = 1
             }
         }
@@ -61,7 +66,7 @@ const QuestionsPaginate: React.FC = () => {
             currentPage: pr.currentPage + 1,
             showPages: defineShowPages(pr.currentPage + 1)
         }))
-        searchParams.set('page', paginateParams.currentPage + 1)
+        searchParams.set('page', String(paginateParams.currentPage + 1))
         setSearchParams(searchParams)
     }
     const prevPage = () => {
@@ -71,7 +76,7 @@ const QuestionsPaginate: React.FC = () => {
             currentPage: pr.currentPage - 1,
             showPages: defineShowPages(pr.currentPage - 1)
         }))
-        searchParams.set('page', paginateParams.currentPage - 1)
+        searchParams.set('page', String(paginateParams.currentPage - 1))
         setSearchParams(searchParams)
     }
     const selectPage = (newPage: number) => {
@@ -80,9 +85,10 @@ const QuestionsPaginate: React.FC = () => {
             currentPage: newPage,
             showPages: defineShowPages(newPage)
         }))
-        searchParams.set('page', newPage)
+        searchParams.set('page', String(newPage))
         setSearchParams(searchParams)
     }
+
     useEffect(() => {
         if (!questionsPaginateParams.total) return
         const lastPage = Math.ceil(questionsPaginateParams.total / questionsPaginateParams.limit)
@@ -98,18 +104,11 @@ const QuestionsPaginate: React.FC = () => {
             showPages
         }))
     }, [questionsPaginateParams]);
-    return (
-        <div>
-            {questionsPaginateParams && questionsPaginateParams.total && (<UiPaginate
-                lastPage={paginateParams.lastPage}
-                firstPage={paginateParams.firstPage}
-                showPages={paginateParams.showPages}
-                currentPage={paginateParams.currentPage}
-                onHandleNextPage={nextPage}
-                selectPage={selectPage}
-                onHandlePrevPage={prevPage}/>)}
-        </div>
-    );
-};
 
-export default QuestionsPaginate;
+    return [
+        paginateParams,
+        nextPage,
+        selectPage,
+        prevPage
+    ]
+}

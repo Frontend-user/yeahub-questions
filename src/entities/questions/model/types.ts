@@ -1,5 +1,4 @@
 import {ISpecialization} from "@/entities/specializations";
-import QuestionsPaginate from "@/feutures/questions/QuestionsPaginate/QuestionsPaginate.tsx";
 
 interface ICreatedBy {
     userId: string;
@@ -18,10 +17,16 @@ interface IQuestionSkill {
     specializations: ISpecialization[];
 }
 
+export interface IQuestionsPaginateParams {
+    page: 1,
+    limit: 7,
+    total: null
+}
+
 export interface IQuestionsSliceInitialState {
     questions: IQuestion[]
     questionDetails: IQuestion
-    questionsPaginateParams: {}
+    questionsPaginateParams: IQuestionsPaginateParams
 }
 
 interface IQuestion {
