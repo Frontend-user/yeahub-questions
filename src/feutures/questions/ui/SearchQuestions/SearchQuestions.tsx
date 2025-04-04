@@ -1,9 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react';
+import  {useEffect, useRef, useState} from 'react';
 import './SearchQuestions.scss'
 import UiInput from "@/shared/ui/UiInput/UiInput.tsx";
 import {useSearchParams} from "react-router-dom";
 
-const SearchQuestions: React.FC = () => {
+const SearchQuestions = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [searchInput, setSearchInput] = useState('')
     const timeout = useRef<ReturnType<typeof setTimeout> | null>(null)

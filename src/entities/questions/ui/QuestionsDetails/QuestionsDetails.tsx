@@ -44,7 +44,8 @@ const QuestionsDetails = ({question}: PropsQuestionsDetails) => {
                                        keywords={question.keywords} skills={question.questionSkills}/>
                         <div className="questions-details__author-wrap">
                             <div
-                                className="questions-details__author-info"><span>Автор:</span> {author.firstName} {author.lastName}</div>
+                                className="questions-details__author-info">
+                                <span>Автор:</span> {author.firstName} {author.lastName}</div>
                         </div>
 
                     </div>

@@ -1,12 +1,13 @@
-import {useState} from "react";
+import {MouseEventHandler, useState} from "react";
 
-export const useToggle = () => {
+type ReturnUseToggleTypes = [boolean, MouseEventHandler<HTMLDivElement> | undefined, (value: boolean) => void]
+export const useToggle = (): ReturnUseToggleTypes => {
     const [isToggled, setIsToggled] = useState(false)
 
-    const toggle = () => {
+    const toggle: MouseEventHandler<HTMLDivElement> | undefined = () => {
         setIsToggled(pr => !pr)
     }
-    const setValue =( value:boolean)=>{
+    const setValue = (value: boolean) => {
         setIsToggled(value)
     }
     return [

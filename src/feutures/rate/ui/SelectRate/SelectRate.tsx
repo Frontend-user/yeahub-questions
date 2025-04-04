@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import  {useEffect} from 'react';
 import './SelectRate.scss'
 import UiSelect from "@/shared/ui/UiSelect/UiSelect.tsx";
 import {useDispatch, useSelector} from "react-redux";
@@ -6,7 +6,7 @@ import {AppStateType} from "@/app/AppStore.ts";
 import {chooseRate} from "@/entities/rate";
 import {useSearchParams} from "react-router-dom";
 
-const SelectRate: React.FC = () => {
+const SelectRate= () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const rateList = useSelector((state: AppStateType) => state.rate.rateList)
     const dispatch = useDispatch()

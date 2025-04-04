@@ -1,32 +1,11 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IQuestion, IQuestionsSliceInitialState} from "@/entities/questions";
+import {IQuestion} from "@/entities/questions";
+import {questionsInitialState} from "@/entities/questions/libs/constants.ts";
 
-const initialState: IQuestionsSliceInitialState = {
-    questions: [],
-    questionsPaginateParams: {
-        page: 1,
-        limit: 7,
-        total: null
-    },
-    questionDetails: {
-        id: 0,
-        title: "",
-        description: "",
-        longAnswer: "",
-        shortAnswer: "",
-        status: "",
-        rate: 0,
-        complexity: 0,
-        createdAt: null,
-        updatedAt: null,
-        questionSpecializations: [],
-        questionSkills: []
-    }
-}
 
 const questionsSlice = createSlice({
     name: 'questions',
-    initialState,
+    initialState: questionsInitialState,
     reducers: {
         setQuestionDetails: (state, action: PayloadAction<IQuestion>) => {
             state.questionDetails = action.payload;

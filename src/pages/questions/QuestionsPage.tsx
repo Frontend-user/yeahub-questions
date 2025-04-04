@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 import {useGetQuestionsQuery} from "@/entities/questions";
 import QuestionsListWithPaginate from "@/pages/questions/ui/QuestionsListWithPaginate/QuestionsListWithPaginate.tsx";
 import QuestionsFilters from "@/pages/questions/ui/QuestionsFilters/QuestionsFilters.tsx";
@@ -12,7 +12,7 @@ import {ISelectItem} from "@/shared/model/types/types.ts";
 import QuestionsSkeleton from "@/pages/questions/ui/QuestionsSkeleton/QuestionsSkeleton.tsx";
 import FiltersSkeleton from "@/pages/questions/ui/FiltersSkeleton/FiltersSkeleton.tsx";
 
-const QuestionsPage: React.FC = () => {
+const QuestionsPage = () => {
     const [searchParams] = useSearchParams()
     const {isLoading: isSpecsLoading} = useGetSpecializationsQuery({})
     const {isLoading: isSkillsLoading} = useGetSkillsQuery({})

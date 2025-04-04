@@ -7,7 +7,7 @@ import {AppStateType} from "@/app/AppStore.ts";
 import {chooseSkills} from "@/entities/skills";
 import {ISelectItem} from "@/shared/model/types/types.ts";
 
-const SelectSkills: React.FC = () => {
+const SelectSkills= () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const dispatch = useDispatch()
     const list: ISelectItem[] = useSelector((state: AppStateType) => state.skills.formattedSkills)

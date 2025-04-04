@@ -1,4 +1,3 @@
-import React, {useState} from "react";
 import './QuestionsCard.scss'
 import parse from 'html-react-parser';
 
@@ -17,29 +16,26 @@ import {useNavigate} from "react-router-dom";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 import {useToggle} from "@/shared/hooks/useToggle.tsx";
 
-const QuestionsCard:
-    React.FC<QuestionsCardProps> = ({
+const QuestionsCard  = ({
                                         id,
                                         rate, complexity,
                                         title,
                                         shortAnswer
-                                    }) => {
-    const [showCard, setShowCard] = useToggle();
-    const onHandleClick = () => {
-        setShowCard();
-    }
+                                    }:QuestionsCardProps) => {
+    const [isToggled, toggle] = useToggle();
+
     const navigate = useNavigate()
     return (
         <div key={id} className="questions-card">
-            <div className="questions-card__head" onClick={onHandleClick}>
+            <div className="questions-card__head" onClick={toggle}>
                 <div className="questions-card__custom-icon"></div>
                 <div className="questions-card__title">{title}</div>
                 <UiImage
-                    src={showCard ? upIcon : downIcon}
+                    src={isToggled ? upIcon : downIcon}
                     className={`questions-card__drop-down-button`}/>
             </div>
             <div
-                className={showCard
+                className={isToggled
                     ? "questions-card__shortAnswer questions-card__shortAnswer_open"
                     : "questions-card__shortAnswer "}>
 

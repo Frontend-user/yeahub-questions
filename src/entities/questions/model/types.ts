@@ -1,20 +1,10 @@
 import {ISpecialization} from "@/entities/specializations";
+import {ISkill} from "@/entities/skills";
 
 interface ICreatedBy {
     userId: string;
     firstName: string;
     lastName: string;
-}
-
-
-interface IQuestionSkill {
-    id: number;
-    title: string;
-    description: string;
-    imageSrc: string | null;
-    createdAt: Date;
-    updatedAt: Date;
-    specializations: ISpecialization[];
 }
 
 export interface IQuestionsPaginateParams {
@@ -34,7 +24,7 @@ interface IQuestion {
     title: string;
     description: string;
     code?: null | string;
-    imageSrc?: string | null;
+    imageSrc?: string | null | undefined;
     keywords?: string[];
     longAnswer: string;
     shortAnswer: string;
@@ -43,10 +33,10 @@ interface IQuestion {
     complexity: number;
     createdAt: Date | null;
     updatedAt: Date | null;
-    createdBy?: ICreatedBy;
-    updatedBy?: ICreatedBy;
+    createdBy:string;
+    updatedBy: ICreatedBy;
     questionSpecializations: ISpecialization[];
-    questionSkills: IQuestionSkill[]
+    questionSkills: ISkill[]
 }
 
 export type {IQuestion, ICreatedBy, ISpecialization};

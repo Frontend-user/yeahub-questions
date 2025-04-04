@@ -6,7 +6,7 @@ import {ISkill} from "@/entities/skills";
 interface PropsQuestionChars {
     complexity?: number
     rate?: number
-    skills?: ISkill[]
+    skills: ISkill[]
     keywords?: string[]
 }
 
