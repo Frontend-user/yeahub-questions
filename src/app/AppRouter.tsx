@@ -1,20 +1,24 @@
 import {createBrowserRouter, RouteObject,} from "react-router-dom";
-import QuestionsPage from "@/pages/questions/QuestionsPage.tsx";
 import BaseLayout from "@/app/layouts/BaseLayout.tsx";
-import QuestionDetailsPage from "@/pages/QuestionDetailsPage/QuestionDetailsPage.tsx";
+import {lazy} from "react";
+
+const LazyQuestionsPage = lazy(() => import('@/pages/questions/QuestionsPage.tsx'));
+const LazyQuestionDetailsPage = lazy(() => import('@/pages/QuestionDetailsPage/QuestionDetailsPage.tsx'));
 
 const routes: RouteObject[] = [
     {
         path: "/",
-        element: <BaseLayout/>,
+        element: (
+            <BaseLayout/>
+        ),
         children: [
             {
                 path: "/questions",
-                element: <QuestionsPage/>
+                element: <LazyQuestionsPage/>
             },
             {
                 path: "/question-details/:questionId",
-                element: <QuestionDetailsPage/>
+                element: <LazyQuestionDetailsPage/>
             }
         ]
     }
