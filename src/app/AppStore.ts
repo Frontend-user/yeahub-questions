@@ -1,17 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {questionsApi} from "@/entities/questions";
 import {rootReducer} from "@/app/AppReducer.ts";
-import {specializationsApi} from "@/entities/specializations";
-import {skillsApi} from "@/entities/skills";
+import {commonApi} from "@/shared/api/commonApi.ts";
 
 const appStore = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware()
-            .concat(questionsApi.middleware,
-                specializationsApi.middleware,
-                skillsApi.middleware
-            )
+            .concat(commonApi.middleware)
 })
 
 export default appStore;

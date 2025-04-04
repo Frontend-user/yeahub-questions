@@ -1,14 +1,13 @@
 import {combineReducers} from "@reduxjs/toolkit";
-import {questionsApi, questionsSlice} from "@/entities/questions";
-import {specializationsApi, specializationsSlice} from "@/entities/specializations";
-import {skillsApi, skillsSlice} from "@/entities/skills";
+import {questionsSlice} from "@/entities/questions";
+import {specializationsSlice} from "@/entities/specializations";
+import {skillsSlice} from "@/entities/skills";
 import {complexitySlice} from "@/entities/complexity";
 import {rateSlice} from "@/entities/rate";
+import {commonApi} from "@/shared/api/commonApi.ts";
 
 export const rootReducer = combineReducers({
-    [questionsApi.reducerPath]: questionsApi.reducer,
-    [specializationsApi.reducerPath]: specializationsApi.reducer,
-    [skillsApi.reducerPath]: skillsApi.reducer,
+    [commonApi.reducerPath]: commonApi.reducer,
     questions: questionsSlice.reducer,
     specializations: specializationsSlice.reducer,
     skills: skillsSlice.reducer,

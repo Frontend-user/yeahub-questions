@@ -1,10 +1,8 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {API_ROUTES, API_URL} from "@/shared/constats/constats.ts";
+import {API_ROUTES} from "@/shared/constats/constats.ts";
 import {setFormattedSkillsList, setSkillsList} from "@/entities/skills";
+import {commonApi} from "@/shared/api/commonApi.ts";
 
-const skillsApi = createApi({
-    reducerPath: 'skillsApi',
-    baseQuery: fetchBaseQuery({baseUrl: API_URL}),
+const skillsApi = commonApi.injectEndpoints({
     endpoints: (build) => ({
         getSkills: build.query({
             query: () => API_ROUTES.SKILLS,

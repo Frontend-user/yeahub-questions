@@ -1,10 +1,8 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {API_ROUTES, API_TOKEN, API_URL} from "@/shared/constats/constats.ts";
+import {API_ROUTES, API_TOKEN} from "@/shared/constats/constats.ts";
 import {setFormattedSpecializations, setSpecializationsList} from "@/entities/specializations";
+import {commonApi} from "@/shared/api/commonApi.ts";
 
-const specializationsApi = createApi({
-    reducerPath: 'specializationsApi',
-    baseQuery: fetchBaseQuery({baseUrl: API_URL}),
+const specializationsApi = commonApi.injectEndpoints({
     endpoints: (build) => ({
         getSpecializations: build.query({
             query: ()  => ({
@@ -23,7 +21,6 @@ const specializationsApi = createApi({
         })
 
     })
-
 })
 
 export {specializationsApi}

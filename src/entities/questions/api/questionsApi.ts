@@ -1,11 +1,9 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {API_ROUTES, API_TOKEN, API_URL} from "@/shared/constats/constats.ts";
+import {API_ROUTES, API_TOKEN} from "@/shared/constats/constats.ts";
 import {setQuestionsList, setQuestionsPaginateParams} from "@/entities/questions";
 import {setQuestionDetails} from "@/entities/questions/model/questionsSlice.ts";
+import {commonApi} from "@/shared/api/commonApi.ts";
 
-export const questionsApi = createApi({
-    reducerPath: "questionsApi",
-    baseQuery: fetchBaseQuery({baseUrl: API_URL}),
+export const questionsApi = commonApi.injectEndpoints({
     endpoints: (builder) => ({
         getQuestionById: builder.query({
             query: (id) => {
