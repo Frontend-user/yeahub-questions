@@ -3,7 +3,7 @@ import BaseLayout from "@/app/layouts/BaseLayout.tsx";
 import {lazy} from "react";
 
 const LazyQuestionsPage = lazy(() => import('@/pages/questions/QuestionsPage.tsx'));
-const LazyQuestionDetailsPage = lazy(() => import('@/pages/QuestionDetailsPage/QuestionDetailsPage.tsx'));
+const LazyQuestionDetailsPage = lazy(() => import('@/pages/questions-details/QuestionDetailsPage.tsx'));
 
 const routes: RouteObject[] = [
     {

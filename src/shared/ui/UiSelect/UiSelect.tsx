@@ -10,8 +10,10 @@ type UiSelectProps = {
     list: ISelectItem[],
     sliceCount?: number
     onHandleClick: (id: number) => void
+    showButton?:boolean
 }
-const UiSelect: React.FC<UiSelectProps> = ({sliceCount=5,
+const UiSelect: React.FC<UiSelectProps> = ({showButton=true,
+                                               sliceCount = 5,
                                                title, list, onHandleClick
                                            }) => {
     const [showAllList, toggleShowAllList] = useToggle()
@@ -37,9 +39,10 @@ const UiSelect: React.FC<UiSelectProps> = ({sliceCount=5,
                 ))}
 
             </div>
-            <UiButton
-                onHandleClick={toggleShowAllList}
-                type="text-link" text={showAllList ? 'Скрыть' : 'Показать все'}/>
+            {showButton && (
+                <UiButton
+                    onHandleClick={toggleShowAllList}
+                    type="text-link" text={showAllList ? 'Скрыть' : 'Показать все'}/>)}
         </div>
     );
 };

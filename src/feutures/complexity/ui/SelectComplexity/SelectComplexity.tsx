@@ -42,6 +42,7 @@ const SelectComplexity: React.FC = () => {
     return (
         <div>
             <UiSelect
+                showButton={false}
                 title="Уровень сложности"
                 onHandleClick={onHandleClick}
                 list={list}/>

@@ -40,6 +40,7 @@ const SelectRate= () => {
     return (
         <div>
             <UiSelect
+                showButton={false}
                 list={rateList}
                 title="Рейтинг" onHandleClick={onHandleChooseRate}/>
         </div>

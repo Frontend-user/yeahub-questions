@@ -1,7 +1,8 @@
 import './UiButton.scss'
+import {MouseEventHandler} from "react";
 
 type UiButtonProps = {
-    onHandleClick?: () => void;
+    onHandleClick?: MouseEventHandler<HTMLButtonElement | HTMLDivElement> | undefined
     text: string;
     type?: string;
     className?: string | string[];
