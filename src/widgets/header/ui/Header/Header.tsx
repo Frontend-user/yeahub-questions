@@ -1,26 +1,26 @@
 import './Header.scss'
 import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
 import yeahubIcon from "icons/yeahub-icon.svg"
-import {useNavigate, useSearchParams} from "react-router-dom";
+import {NavLink, useSearchParams} from "react-router-dom";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
+import {PAGES} from "@/shared/constats/constats.ts";
 
 const Header = () => {
     const [, setSearchParams] = useSearchParams()
     const resetQueries = () => {
         setSearchParams({})
     }
-    const navigate = useNavigate()
-    const goToQuestions = () => {
-        navigate('/questions')
-    }
     return (
         <div className="header">
             <div className="header__inner wrapper">
                 <div className="header__left">
-                    <UiImage onClick={goToQuestions} src={yeahubIcon} alt="" className="header__icon"/>
+                    <NavLink to={PAGES.QUESTIONS}>
+                        <UiImage src={yeahubIcon} alt="" className="header__icon"/>
+                    </NavLink>
                     <div className="header__nav">
-                        <div className="header__nav-item">База вопросов</div>
-                        <div className="header__nav-item" onClick={resetQueries}>Тренажер</div>
+                        <NavLink to={PAGES.QUESTIONS} className="header__nav-item">База вопросов</NavLink>
+                        <NavLink to={PAGES.TRAINER} className="header__nav-item">Тренажер</NavLink>
+                        <div onClick={resetQueries} className="header__nav-item">Очистить</div>
                     </div>
                 </div>
                 <div></div>

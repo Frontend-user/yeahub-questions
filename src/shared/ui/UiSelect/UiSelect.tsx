@@ -39,7 +39,7 @@ const UiSelect: React.FC<UiSelectProps> = ({showButton=true,
                 ))}
 
             </div>
-            {showButton && (
+            {showButton && sliceCount < list?.length && (
                 <UiButton
                     onHandleClick={toggleShowAllList}
                     type="text-link" text={showAllList ? 'Скрыть' : 'Показать все'}/>)}

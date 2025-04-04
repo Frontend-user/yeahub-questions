@@ -4,8 +4,13 @@
   --black-47: #474747;
   --black-30: #303030;
   --black-19: #191919;
-}
 
+
+}
+@mixin wrapper {
+  max-width: 1216px;
+  margin: 0 auto;
+}
 .wrapper {
   max-width: 1216px;
   margin: 0 auto;

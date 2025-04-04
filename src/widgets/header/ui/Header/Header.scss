@@ -28,7 +28,11 @@ cursor: pointer;
     font-weight: 500;
     color: var(--black-19);
   }
-
+  &__nav-item {
+    color: var(--black-19);
+    text-decoration: none;
+    cursor: pointer;
+  }
   &__auth {
     display: flex;
     max-width: 235px;

@@ -7,7 +7,7 @@ import {AppStateType} from "@/app/AppStore.ts";
 import {chooseSkills} from "@/entities/skills";
 import {ISelectItem} from "@/shared/model/types/types.ts";
 
-const SelectSkills= () => {
+const SelectSkills= ({sliceCount=6,title="Навыки"}) => {
     const [searchParams, setSearchParams] = useSearchParams()
     const dispatch = useDispatch()
     const list: ISelectItem[] = useSelector((state: AppStateType) => state.skills.formattedSkills)
@@ -42,9 +42,9 @@ const SelectSkills= () => {
     return (
         <div className="select-skills">
             <UiSelect
-                sliceCount={6}
+                sliceCount={sliceCount}
                 onHandleClick={onChooseItem}
-                title="Навыки" list={list}/>
+                title={title} list={list}/>
         </div>
     );
 };

@@ -1,0 +1,50 @@
+.uiCounter {
+  width: 155px;
+}
+
+.label {
+  color: var(--black-47);
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.block {
+  width: 110px;
+  border: 1px solid #BABABA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.blockInner {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  justify-content: center;
+}
+
+.minusButton {
+  cursor: pointer;
+  margin-right: 18px;
+width: 20px;
+  height: 20px;
+  background: url("icons/minus-icon.svg") no-repeat;
+}
+
+.plusButton {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: url("icons/plus-icon.svg") no-repeat;
+}
+
+.value {
+  color: var(--black-30);
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 18px;
+}
+

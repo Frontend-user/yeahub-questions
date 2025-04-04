@@ -4,6 +4,7 @@ import {lazy} from "react";
 
 const LazyQuestionsPage = lazy(() => import('@/pages/questions/QuestionsPage.tsx'));
 const LazyQuestionDetailsPage = lazy(() => import('@/pages/questions-details/QuestionDetailsPage.tsx'));
+const LazyTrainerPage = lazy(() => import('@/pages/trainer/TrainerPage.tsx'));
 
 const routes: RouteObject[] = [
     {
@@ -19,6 +20,10 @@ const routes: RouteObject[] = [
             {
                 path: "/question-details/:questionId",
                 element: <LazyQuestionDetailsPage/>
+            },
+            {
+                path: "/trainer",
+                element: <LazyTrainerPage/>
             }
         ]
     }

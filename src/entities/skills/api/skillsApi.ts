@@ -5,7 +5,10 @@ import {commonApi} from "@/shared/api/commonApi.ts";
 const skillsApi = commonApi.injectEndpoints({
     endpoints: (build) => ({
         getSkills: build.query({
-            query: () => API_ROUTES.SKILLS,
+            query: (params={}) => ({
+                params,
+                url: API_ROUTES.SKILLS
+            }),
             async onQueryStarted(_, {dispatch, queryFulfilled}) {
                 try {
                     const {data} = await queryFulfilled
