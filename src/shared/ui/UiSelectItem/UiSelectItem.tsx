@@ -19,9 +19,13 @@ const UiSelectItem = ({
     isImageExists(imageSrc).then((exists) => {
         setShowIcon(!!exists)
     });
-
+    const checkValidHandleClick = () => {
+        if (onHandleClick) {
+            onHandleClick(id)
+        }
+    }
     return (
-        <div onClick={() => onHandleClick(id)}
+        <div onClick={checkValidHandleClick}
              className={`ui-select-item ${selected && 'ui-select-item_selected'}`}>
             <div className="ui-select-item__inner">
                 {imageSrc && showIcon && (

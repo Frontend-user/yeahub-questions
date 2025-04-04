@@ -11,7 +11,7 @@ import {useToggle} from "@/shared/hooks/useToggle.tsx";
 
 const QuestionsLongAnswer = ({longAnswer}: QuestionsLongAnswerProps) => {
     const [showAll, toggleShowAll] = useToggle()
-    const contentRef = useRef(null);
+    const contentRef = useRef<HTMLDivElement | null>(null);
 
     useLayoutEffect(() => {
         if (contentRef.current) {
