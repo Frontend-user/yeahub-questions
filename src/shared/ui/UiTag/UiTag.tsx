@@ -2,7 +2,7 @@ import './UiTag.scss'
 
 interface UiTagProps {
     label: string
-    value: string | number
+    value: number
 }
 
 const UiTag = ({label, value}: UiTagProps) => {

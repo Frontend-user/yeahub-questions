@@ -4,10 +4,10 @@ import UiSelectItem from "@/shared/ui/UiSelectItem/UiSelectItem.tsx";
 import {ISkill} from "@/entities/skills";
 
 interface PropsQuestionChars {
-    complexity?: number
-    rate?: number
+    complexity: number
+    rate: number
     skills: ISkill[]
-    keywords?: string[]
+    keywords: string[]
 }
 
 const QuestionChars = ({complexity, rate, skills, keywords}: PropsQuestionChars) => {

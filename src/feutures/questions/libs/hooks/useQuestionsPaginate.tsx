@@ -28,7 +28,7 @@ export const useQuestionsPaginate = ({
     })
 
     function defineShowPages(currentPage: number, lastPage = paginateParams.lastPage) {
-        let defineLastPage = lastPage
+        const defineLastPage = lastPage
         let start = currentPage - 3
         let result = []
         if (start < 1) {

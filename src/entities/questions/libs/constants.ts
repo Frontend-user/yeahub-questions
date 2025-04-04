@@ -18,6 +18,9 @@ export const questionsInitialState: IQuestionsSliceInitialState = {
         createdAt: null,
         updatedAt: null,
         questionSpecializations: [],
-        questionSkills: []
+        questionSkills: [],
+        keywords: [],
+        createdBy: "",
+        updatedBy: ""
     }
 }

@@ -10,7 +10,10 @@ const QuestionsListWithPaginate: React.FC = () => {
     const questionsPaginateParams = useSelector((state: AppStateType) => state.questions.questionsPaginateParams)
     const questions: IQuestion[] = useSelector((state: AppStateType) => state.questions.questions);
     const showPaginate = useMemo(() => {
-        return Math.ceil(questionsPaginateParams.total / questionsPaginateParams.limit) > 1
+        if (questionsPaginateParams.total) {
+            return Math.ceil(questionsPaginateParams.total / questionsPaginateParams.limit) > 1
+        }
+        return false
     }, [questionsPaginateParams])
     return (
         <div className="questions-list-with-paginate">

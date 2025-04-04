@@ -25,7 +25,7 @@ interface IQuestion {
     description: string;
     code?: null | string;
     imageSrc?: string | null | undefined;
-    keywords?: string[];
+    keywords: string[];
     longAnswer: string;
     shortAnswer: string;
     status: string;
@@ -34,7 +34,7 @@ interface IQuestion {
     createdAt: Date | null;
     updatedAt: Date | null;
     createdBy:string;
-    updatedBy: ICreatedBy;
+    updatedBy: string;
     questionSpecializations: ISpecialization[];
     questionSkills: ISkill[]
 }

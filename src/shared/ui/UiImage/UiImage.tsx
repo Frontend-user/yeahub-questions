@@ -2,7 +2,7 @@ import {MouseEventHandler, useEffect, useState} from "react";
 import './UiImage.scss'
 
 interface PropsUiImage {
-    src?: string
+    src?: string | null
     className?: string;
     alt?: string
     onClick?: MouseEventHandler<HTMLImageElement>

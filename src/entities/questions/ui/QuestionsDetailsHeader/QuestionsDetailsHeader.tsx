@@ -2,7 +2,7 @@ import './QuestionsDetailsHeader.scss'
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 
 interface QuestionsDetailsHeaderProps {
-    imageSrc?: string;
+    imageSrc?: string | null;
     title: string;
     description?: string;
 

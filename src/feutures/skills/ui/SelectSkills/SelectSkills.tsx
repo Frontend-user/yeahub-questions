@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import  {useEffect} from 'react';
 import './SelectSkills.scss'
 import UiSelect from "@/shared/ui/UiSelect/UiSelect.tsx";
 import {useSearchParams} from "react-router-dom";
@@ -15,7 +15,7 @@ const SelectSkills= () => {
     const onChooseItem = (id: number) => {
         dispatch(chooseSkills(id))
         const querySkills = searchParams.getAll('skills')
-        searchParams.set('page', 1)
+        searchParams.set('page', String(1))
         if (querySkills.includes(id.toString())) {
             const idxToDel = querySkills.findIndex(i => i === id.toString())
 

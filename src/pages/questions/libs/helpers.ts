@@ -1,16 +1,28 @@
-type TParams = {
-    specialization?: number
-    keywords?: string | null
-    skills?: string[]
-    complexity?: string[]
-    rate?: string[]
-    limit?: number
-    page?: string
+import {IQuestionsPaginateParams} from "@/entities/questions/model/types.ts";
+import {ISelectItem} from "@/shared/model/types/types.ts";
+
+
+interface PropsDefineParams {
+    questionsPaginateParams: IQuestionsPaginateParams;
+    searchParams: URLSearchParams;
+    complexityList: ISelectItem[]
 }
 
-export function defineParams(questionsPaginateParams, searchParams, complexityList) {
+interface IQuestionPageParams {
+    name: 'specialization' | 'keywords' | 'rate' | 'skills' | 'limit' | 'page' | 'complexity'
+    type: 'number' | 'string';
+    action: 'get' | 'getAll';
+    defaultValue?: number
+}
 
-    const params = [
+type IQuestionPageParamsKeys = IQuestionPageParams['name']
+type IResultParams = {
+    [key in IQuestionPageParamsKeys]?: string | number | number[] | string[];
+}
+
+export function defineParams({questionsPaginateParams, searchParams, complexityList}: PropsDefineParams) {
+
+    const questionPageParams: IQuestionPageParams[] = [
         {
             name: 'specialization',
             type: 'number',
@@ -44,23 +56,31 @@ export function defineParams(questionsPaginateParams, searchParams, complexityLi
             defaultValue: questionsPaginateParams.page
         },
     ]
-    let resultParams: TParams = {}
+    const resultParams: IResultParams = {
+
+    }
     const complexityIds = searchParams.getAll('complexity')
     if (complexityIds.length && complexityList) {
-        let arr = complexityIds.reduce((acc, itemId) => {
-            let newVal = complexityList.find(_ => _.id === +itemId)
-            if (newVal) {
-                return newVal ? [...acc, ...newVal.value] : acc
+
+        const arr = complexityIds.reduce((acc: number[], itemId: string) => {
+            const findedItem = complexityList.find(_ => _.id === +itemId)
+            if (findedItem && findedItem.value) {
+                return [...acc, ...findedItem.value]
             }
-        }, [])
+            return acc
+        }, [1])
+
         resultParams['complexity'] = arr
+
     }
-    params.forEach((item) => {
+    questionPageParams.forEach((item: IQuestionPageParams) => {
         if (searchParams.get(item.name)) {
-            let getValue = item.action === 'get'
+            const getValue: string | string[] | null = item.action === 'get'
                 ? searchParams.get(item.name)
                 : searchParams.getAll(item.name)
-            resultParams[item.name] = item.type === 'number' ? Number(getValue) : getValue
+            if (getValue) {
+                resultParams[item.name] = item.type === 'number' ? Number(getValue) : getValue
+            }
         } else if (item.defaultValue) {
             resultParams[item.name] = item.defaultValue
         }
