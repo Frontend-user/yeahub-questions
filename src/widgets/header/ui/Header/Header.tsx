@@ -1,5 +1,5 @@
 import './Header.scss'
-import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
+import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import yeahubIcon from "icons/yeahub-icon.svg"
 import {NavLink, useSearchParams} from "react-router-dom";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
@@ -19,7 +19,7 @@ const Header = () => {
                     </NavLink>
                     <div className="header__nav">
                         <NavLink to={PAGES.QUESTIONS} className="header__nav-item">База вопросов</NavLink>
-                        <NavLink to={PAGES.TRAINER} className="header__nav-item">Тренажер</NavLink>
+                        <NavLink to={PAGES.INTERVIEW} className="header__nav-item">Собеседование</NavLink>
                         <div onClick={resetQueries} className="header__nav-item">Очистить</div>
                     </div>
                 </div>

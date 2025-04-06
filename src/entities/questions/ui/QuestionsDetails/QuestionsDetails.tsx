@@ -5,7 +5,7 @@ import QuestionsLongAnswer from "@/entities/questions/ui/QuestionsShortAnswer/Qu
 import {IQuestion} from "@/entities/questions";
 import QuestionChars from "@/entities/questions/ui/QuestionChars/QuestionChars.tsx";
 import {useNavigate} from "react-router-dom";
-import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
+import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 
 interface PropsQuestionsDetails {
     question: IQuestion
@@ -27,7 +27,7 @@ const QuestionsDetails = ({question}: PropsQuestionsDetails) => {
                 <div className="questions-details__route-wrap">
                     <UiButton
                         type="arrow-left"
-                        onHandleClick={goToQuestions} text="Назад"/>
+                        onClick={goToQuestions} text="Назад"/>
                 </div>
                 <div className="questions-details__content">
 

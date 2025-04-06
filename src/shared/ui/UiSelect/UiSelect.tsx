@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import './UiSelect.scss'
 import UiSelectItem from "@/shared/ui/UiSelectItem/UiSelectItem.tsx";
-import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
+import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import {ISelectItem} from "@/shared/model/types/types.ts";
 import {useToggle} from "@/shared/hooks/useToggle.tsx";
 
@@ -41,7 +41,7 @@ const UiSelect: React.FC<UiSelectProps> = ({showButton=true,
             </div>
             {showButton && sliceCount < list?.length && (
                 <UiButton
-                    onHandleClick={toggleShowAllList}
+                    onClick={toggleShowAllList}
                     type="text-link" text={showAllList ? 'Скрыть' : 'Показать все'}/>)}
         </div>
     );

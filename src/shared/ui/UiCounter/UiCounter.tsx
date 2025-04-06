@@ -1,6 +1,13 @@
 import classes from "./UiCounter.module.scss";
 
-const UiCounter = ({label,value,increment,decrement}) => {
+interface PropsUiCounter {
+    label?: string;
+    value: string;
+    increment: () => void;
+    decrement: () => void;
+}
+
+const UiCounter = ({label, value, increment, decrement}: PropsUiCounter) => {
     return (
         <div className={classes.uiCounter}>
             <div className={classes.label}>{label}</div>

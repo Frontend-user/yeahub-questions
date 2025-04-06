@@ -5,3 +5,9 @@ export interface ISelectItem {
     value?: number[]
     selected: boolean
 }
+export interface UiRoute {
+    id: number;
+    name: string;
+    to: string;
+    isActive: boolean
+}

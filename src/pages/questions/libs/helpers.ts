@@ -56,20 +56,10 @@ export function defineParams({questionsPaginateParams, searchParams, complexityL
             defaultValue: questionsPaginateParams.page
         },
     ]
-    const resultParams: IResultParams = {
-
-    }
+    const resultParams: IResultParams = {}
     const complexityIds = searchParams.getAll('complexity')
     if (complexityIds.length && complexityList) {
-
-        const arr = complexityIds.reduce((acc: number[], itemId: string) => {
-            const findedItem = complexityList.find(_ => _.id === +itemId)
-            if (findedItem && findedItem.value) {
-                return [...acc, ...findedItem.value]
-            }
-            return acc
-        }, [1])
-
+        const arr = getComplexityIdsByQuery(complexityIds, complexityList)
         resultParams['complexity'] = arr
 
     }
@@ -89,3 +79,12 @@ export function defineParams({questionsPaginateParams, searchParams, complexityL
     return resultParams
 }
 
+export function getComplexityIdsByQuery(queryList, complexityList) {
+    return queryList.reduce((acc: number[], itemId: string) => {
+        const findedItem = complexityList.find(_ => _.id === +itemId)
+        if (findedItem && findedItem.value) {
+            return [...acc, ...findedItem.value]
+        }
+        return acc
+    }, [])
+}

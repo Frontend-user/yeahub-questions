@@ -1,10 +1,13 @@
 import {createBrowserRouter, RouteObject,} from "react-router-dom";
 import BaseLayout from "@/app/layouts/BaseLayout.tsx";
 import {lazy} from "react";
+import {PAGES} from "@/shared/constats/constats.ts";
 
 const LazyQuestionsPage = lazy(() => import('@/pages/questions/QuestionsPage.tsx'));
 const LazyQuestionDetailsPage = lazy(() => import('@/pages/questions-details/QuestionDetailsPage.tsx'));
-const LazyTrainerPage = lazy(() => import('@/pages/trainer/TrainerPage.tsx'));
+const LazyInterviewPage = lazy(() => import('@/pages/interview/InterviewPage.tsx'));
+const LazyMockQuizPage = lazy(() => import('@/pages/mock-quiz/MockQuizPage.tsx'));
+const LazyPassedQuestions = lazy(() => import('@/pages/passed-questions/PassedQuestionsPage.module.tsx'));
 
 const routes: RouteObject[] = [
     {
@@ -14,17 +17,26 @@ const routes: RouteObject[] = [
         ),
         children: [
             {
-                path: "/questions",
+                path: `/${PAGES.QUESTIONS}`,
                 element: <LazyQuestionsPage/>
             },
             {
-                path: "/question-details/:questionId",
+                path: `/${PAGES.QUESTION_ID}`,
                 element: <LazyQuestionDetailsPage/>
             },
             {
-                path: "/trainer",
-                element: <LazyTrainerPage/>
+                path: `/${PAGES.INTERVIEW}`,
+                element: <LazyInterviewPage/>,
+            },
+            {
+                path: `/${PAGES.MOCK_QUIZ}`,
+                element: <LazyMockQuizPage/>
+            },
+            {
+                path: `/${PAGES.PASSED_QUESTIONS}`,
+                element: <LazyPassedQuestions/>
             }
+
         ]
     }
 ]

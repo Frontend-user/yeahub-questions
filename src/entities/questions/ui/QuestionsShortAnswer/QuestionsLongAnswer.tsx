@@ -5,7 +5,7 @@ interface QuestionsLongAnswerProps {
 }
 
 import parse from "html-react-parser";
-import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
+import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import {useLayoutEffect, useRef} from "react";
 import {useToggle} from "@/shared/hooks/useToggle.tsx";
 
@@ -34,7 +34,7 @@ const QuestionsLongAnswer = ({longAnswer}: QuestionsLongAnswerProps) => {
 
                             <UiButton
                                 type={showAll ? `select_open` : `select`}
-                                onHandleClick={toggleShowAll}
+                                onClick={toggleShowAll}
                                 className="questions-long-answer__button"
                                 text={showAll ? 'Скрыть' : 'Развернуть'}/>
                         </div>

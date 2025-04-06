@@ -1,6 +1,6 @@
 @import "@/shared/styles/global.scss";
 
-.trainerPage {
+.interviewPage {
   width: 100%;
   @include wrapper;
 }
@@ -35,4 +35,7 @@
 
 .selectSkillsWrapper {
 
+}
+.button {
+  width: 140px;
 }

@@ -6,7 +6,7 @@ import {IQuestion} from "@/entities/questions";
 type QuestionsProps = {
     questions: IQuestion[];
 }
-const QuestionsList: React.FC<QuestionsProps> = ({questions}) => {
+const QuestionsList = ({questions}: QuestionsProps) => {
     return (
         <div className="questions-list">
             {questions.length && (questions.map((question: IQuestion) => (

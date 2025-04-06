@@ -1,6 +1,14 @@
 import './QuestionsCard.scss'
 import parse from 'html-react-parser';
 
+import downIcon from "icons/down-icon.svg"
+import upIcon from "icons/up-icon.svg"
+import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
+import UiTag from "@/shared/ui/UiTag/UiTag.tsx";
+import {useNavigate} from "react-router-dom";
+import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
+import {useToggle} from "@/shared/hooks/useToggle.tsx";
+
 type QuestionsCardProps = {
     id: number;
     title: string;
@@ -8,14 +16,6 @@ type QuestionsCardProps = {
     rate?: string | number
     complexity?: string | number
 }
-import downIcon from "icons/down-icon.svg"
-import upIcon from "icons/up-icon.svg"
-import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
-import UiTag from "@/shared/ui/UiTag/UiTag.tsx";
-import {useNavigate} from "react-router-dom";
-import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
-import {useToggle} from "@/shared/hooks/useToggle.tsx";
-
 const QuestionsCard  = ({
                                         id,
                                         rate, complexity,
@@ -52,7 +52,7 @@ const QuestionsCard  = ({
                 ) : ''}
 
                     <UiButton
-                        onHandleClick={() => navigate(`/question-details/${id}`)}
+                        onClick={() => navigate(`/question-details/${id}`)}
                         className="questions-card__read-more-button"
                         text="Подробнее"
                         type="arrow-right"
