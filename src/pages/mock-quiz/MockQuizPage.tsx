@@ -2,9 +2,7 @@ import UiRoutes from "@/shared/ui/UiRoutes/UiRoutes.tsx";
 import {UiRoute} from "@/shared/model/types/types.ts";
 import {PAGES} from "@/shared/constats/constats.ts";
 import QuestionsProgressBar from "@/widgets/mock-quiz/ui/QuestionsProgressBar/QuestionsProgressBar.tsx";
-import QuizQuestionCard from "@/entities/interview-preparation/ui/QuizQuestionCard/QuizQuestionCard.tsx";
 import QuizStepWidget from "@/widgets/mock-quiz/ui/QuizStepWidget/QuizStepWidget.tsx";
-import {useSelector} from "react-redux";
 
 const mockQuizRoutes: UiRoute[] = [
     {

@@ -1,15 +1,15 @@
 import classes from './QuizQuestionCard.module.scss'
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import parse from "html-react-parser";
+import {IQuizQuestionCardProps} from "@/entities/interview-preparation/model/types.ts";
 
 const QuizQuestionCard = ({
                               prevButton, nextButton, cancelButton,
                               knowButton, dontKnowButton, quizStaticImage,
-                              id, isUserKnow,
                               title, showAnswer,
                               shortAnswer,
                               toggleShowAnswerButton,
-                          }) => {
+                          }: IQuizQuestionCardProps) => {
     return (
         <div className={classes.block}>
             <div className={classes.inner}>
@@ -52,4 +52,4 @@ const QuizQuestionCard = ({
     );
 };
 
-export default QuizQuestionCard;
+export {QuizQuestionCard};

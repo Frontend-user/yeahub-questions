@@ -2,7 +2,7 @@ import classes from "./UiCounter.module.scss";
 
 interface PropsUiCounter {
     label?: string;
-    value: string;
+    value: number;
     increment: () => void;
     decrement: () => void;
 }

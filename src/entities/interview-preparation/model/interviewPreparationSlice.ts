@@ -1,22 +1,7 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {Action, createSlice, ThunkDispatch} from "@reduxjs/toolkit";
 import {IQuestion} from "@/entities/questions";
-
-
-interface IMockQuestion {
-    id: number;
-    title: string;
-    shortAnswer: string;
-    nextQuestionId: null | number;
-    prevQuestionId: null | number;
-    isUserKnow: boolean
-}
-
-interface IInterviewPreparationsInitialState {
-    mockQuestionsList: IMockQuestion[],
-    currentMockQuestion: IMockQuestion
-    currentPage: number
-    totalPages: number
-}
+import {AppStateType} from "@/app/AppStore.ts";
+import {IInterviewPreparationsInitialState} from "@/entities/interview-preparation";
 
 const initialState: IInterviewPreparationsInitialState = {
     mockQuestionsList: [],
@@ -26,6 +11,8 @@ const initialState: IInterviewPreparationsInitialState = {
         id: 0,
         title: "",
         shortAnswer: "",
+        nextQuestionId: null,
+        prevQuestionId: null,
         isUserKnow: false
     }
 }
@@ -34,10 +21,6 @@ const interviewPreparationSlice = createSlice({
     name: 'interviewPreparation',
     initialState,
     reducers: {
-        setTestSomeList: (state) => {
-            let finded = state.testSomeList.find(_ => _.id === 1)
-            finded.name = false
-        },
         setTotalPages: (state, action) => {
             state.totalPages = action.payload
         },
@@ -64,6 +47,7 @@ const interviewPreparationSlice = createSlice({
             state.mockQuestionsList.forEach((mockQuestion) => {
                 mockQuestion.isUserKnow = false
             })
+            state.currentMockQuestion = state.mockQuestionsList[0]
             state.currentMockQuestion.isUserKnow = false
         },
         setMockQuestionsList: (state, action: { payload: IQuestion[] }) => {
@@ -92,7 +76,10 @@ const interviewPreparationSlice = createSlice({
     },
 })
 
-export const setMockQuestionsAndSelectFirst = (data) => async (dispatch: any) => {
+export const setMockQuestionsAndSelectFirst = (data: {
+    questions: IQuestion[],
+    fullCount: number
+}) => async (dispatch: ThunkDispatch<AppStateType, unknown, Action>) => {
     const questions: IQuestion[] = data.questions
     dispatch(setCurrentPage(1))
     dispatch(setTotalPages(data.fullCount))

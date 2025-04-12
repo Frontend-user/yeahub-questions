@@ -1,8 +1,8 @@
-@import "@/shared/styles/global.scss";
+@use "@/shared/styles/global.scss" as global;
 
 .interviewPage {
   width: 100%;
-  @include wrapper;
+  @include global.wrapper;
 }
 
 .inner {

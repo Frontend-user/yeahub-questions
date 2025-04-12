@@ -11,14 +11,14 @@ const SetQuestionsCount = () => {
     const onHandleIncrement = () => {
         if (questionsCount >= 50) return
         setQuestionsCount(previus => previus + 1)
-        searchParams.set('limit', questionsCount)
+        searchParams.set('limit', String(questionsCount))
         setSearchParams(searchParams)
     }
     useEffect(() => {
-        if(!isFirstRender){
+        if (!isFirstRender) {
 
-            let stringLimit = searchParams.get('limit')
-            let limit = +stringLimit
+            const stringLimit = searchParams.get('limit')
+            const limit = stringLimit ? +stringLimit : null
             if (limit && Number(limit) > 10 && Number(limit) < 50) {
                 setQuestionsCount(limit)
             }

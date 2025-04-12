@@ -13,9 +13,16 @@ interface PropsQuestionsDetails {
 
 const QuestionsDetails = ({question}: PropsQuestionsDetails) => {
     const navigate = useNavigate()
-    const author = {
-        firstName: JSON.parse(question.createdBy).firstName,
-        lastName: JSON.parse(question.createdBy).lastName
+    let author = {
+        firstName:'',lastName:''
+    }
+    if (question) {
+        if (question.createdBy) {
+            author = {
+                firstName: JSON.parse(question?.createdBy)?.firstName,
+                lastName: JSON.parse(question?.createdBy)?.lastName
+            }
+        }
     }
     const goToQuestions = () => {
         navigate('/questions')

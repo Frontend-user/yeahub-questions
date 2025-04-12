@@ -1,8 +1,6 @@
-import QuizQuestionCard from "@/entities/interview-preparation/ui/QuizQuestionCard/QuizQuestionCard.tsx";
+import {QuizQuestionCard} from "@/entities/interview-preparation";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {useLazyGetMockQuizzesQuery} from "@/entities/interview-preparation";
 import quizImage from '@/shared/assets/images/quiz-img.png'
 import classes from './QuizStepWidget.module.scss'
 import {
@@ -13,20 +11,17 @@ import {
 import {useToggle} from "@/shared/hooks/useToggle.tsx";
 import {PAGES} from "@/shared/constats/constats.ts";
 import {useNavigate} from "react-router-dom";
+import {AppStateType} from "@/app/AppStore.ts";
 
 const QuizStepWidget = () => {
-    const currentPage = useSelector((state) => state.interviewPreparation.currentPage)
-    const totalPages = useSelector((state) => state.interviewPreparation.totalPages)
-    const [trigger] = useLazyGetMockQuizzesQuery();
+    const currentPage = useSelector((state: AppStateType) => state.interviewPreparation.currentPage)
+    const totalPages = useSelector((state: AppStateType) => state.interviewPreparation.totalPages)
+    const currentQuestion = useSelector((state: AppStateType) => state.interviewPreparation.currentMockQuestion)
     const [showAnswer, toggle] = useToggle()
     const toggleShowAnswerButton = () => {
         toggle()
     }
-    useEffect(() => {
-        // trigger({})
-    }, []);
     const navigate = useNavigate()
-    const currentQuestion = useSelector((state) => state.interviewPreparation.currentMockQuestion)
     const dispatch = useDispatch()
     const nextPage = () => {
         if (showAnswer) {
@@ -36,7 +31,9 @@ const QuizStepWidget = () => {
             return
         }
         dispatch(nextPageAction())
-        dispatch(selectCurrentMockQuestion(currentQuestion.nextQuestionId))
+        if (currentQuestion.nextQuestionId) {
+            dispatch(selectCurrentMockQuestion(currentQuestion.nextQuestionId))
+        }
     }
     const prevPage = () => {
         if (currentPage - 1 < 1) {
@@ -46,18 +43,20 @@ const QuizStepWidget = () => {
             toggleShowAnswerButton()
         }
         dispatch(prevPageAction())
-        dispatch(selectCurrentMockQuestion(currentQuestion.prevQuestionId))
+        if (currentQuestion.prevQuestionId) {
+            dispatch(selectCurrentMockQuestion(currentQuestion.prevQuestionId))
+        }
     }
     const completeQuiz = () => {
         navigate(`/${PAGES.PASSED_QUESTIONS}`)
     }
-    const setMockQuestionUserDontKnow = (id) => {
+    const setMockQuestionUserDontKnow = (id: number) => {
         dispatch(changeUserKnowStatus({
             id,
             value: false
         }))
     }
-    const setMockQuestionUserKnow = (id) => {
+    const setMockQuestionUserKnow = (id: number) => {
         dispatch(changeUserKnowStatus({
             id,
             value: true
@@ -66,12 +65,10 @@ const QuizStepWidget = () => {
     return (
         <div>
             <QuizQuestionCard
-                id={currentQuestion.id}
                 title={currentQuestion.title}
                 shortAnswer={currentQuestion.shortAnswer}
                 toggleShowAnswerButton={toggleShowAnswerButton}
                 showAnswer={showAnswer}
-                isUserKnow={currentQuestion.isUserKnow}
                 knowButton={
                     <UiButton onClick={() => setMockQuestionUserKnow(currentQuestion.id)}
                               className={`${currentQuestion.isUserKnow && 'ui-button__like_active'}`}
@@ -93,7 +90,10 @@ const QuizStepWidget = () => {
                     <UiButton onClick={prevPage} type="arrow-left">Назад</UiButton>
                 }
                 nextButton={
-                    <UiButton onClick={nextPage} type="arrow-right">Далее</UiButton>
+                    (totalPages === currentPage ? <></> : (
+                        <UiButton onClick={nextPage} type="arrow-right">Далее</UiButton>
+
+                    ))
                 }/>
         </div>
     );

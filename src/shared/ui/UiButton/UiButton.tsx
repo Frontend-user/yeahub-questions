@@ -1,6 +1,5 @@
 import './UiButton.scss'
 import {MouseEventHandler} from "react";
-import {NavLink} from "react-router-dom";
 
 type UiButtonProps = {
     onClick?: MouseEventHandler<HTMLButtonElement | HTMLDivElement> | undefined

@@ -2,17 +2,11 @@ import classes from './PassedQuestionCard.module.scss'
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import parse from "html-react-parser";
 import passedQuestionImage from 'images/static-passed-question-image.svg'
+import {IPassedQuestionCardProps} from "@/entities/interview-preparation/model/types.ts";
 
 const {info, image, title, block, inner, imageWrapper, statusButton} = classes
 
-interface IPassedQuestionCardProps {
-    id: number;
-    imageSrc?: string;
-    question: string;
-    isUserKnow: boolean
-}
-
-const PassedQuestionCard = ({ imageSrc, question = "", isUserKnow}: IPassedQuestionCardProps) => {
+const PassedQuestionCard = ({imageSrc, question = "", isUserKnow}: IPassedQuestionCardProps) => {
 
     return (
         <div className={block}>
@@ -33,4 +27,4 @@ const PassedQuestionCard = ({ imageSrc, question = "", isUserKnow}: IPassedQuest
     );
 };
 
-export default PassedQuestionCard;
+export {PassedQuestionCard};

@@ -1,4 +1,3 @@
-import React from 'react';
 import QuestionsCard from "@/entities/questions/ui/QuestionsCard/QuestionsCard.tsx";
 import './QuestionsList.scss'
 import {IQuestion} from "@/entities/questions";

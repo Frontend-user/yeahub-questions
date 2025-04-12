@@ -16,7 +16,7 @@ const interviewPreparationApi = commonApi.injectEndpoints({
                     const {data} = await queryFulfilled;
                     await dispatch(setMockQuestionsAndSelectFirst(data))
                 } catch (e) {
-
+                    console.log(e)
                 }
             }
         }),
@@ -24,6 +24,5 @@ const interviewPreparationApi = commonApi.injectEndpoints({
 
 })
 
-export const {getMockQuizzes} = interviewPreparationApi.endpoints
 export const {useGetMockQuizzesQuery, useLazyGetMockQuizzesQuery} = interviewPreparationApi
 export {interviewPreparationApi};

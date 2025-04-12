@@ -1,5 +1,5 @@
 import {API_ROUTES, API_TOKEN} from "@/shared/constats/constats.ts";
-import {setQuestionsList, setQuestionsPaginateParams} from "@/entities/questions";
+import {setQuestionsList, setQuestionsPaginateParams} from "@/entities/questions/model/questionsSlice.ts";
 import {setQuestionDetails} from "@/entities/questions/model/questionsSlice.ts";
 import {commonApi} from "@/shared/api/commonApi.ts";
 

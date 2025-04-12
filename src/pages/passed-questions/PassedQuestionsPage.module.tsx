@@ -1,8 +1,8 @@
-import PassedQuestionsList from "@/entities/interview-preparation/ui/PassedQuestionsList/PassedQuestionsList.tsx";
 import classes from './PassedQuestionsPage.module.scss'
 import {UiRoute} from "@/shared/model/types/types.ts";
 import {PAGES} from "@/shared/constats/constats.ts";
 import UiRoutes from "@/shared/ui/UiRoutes/UiRoutes.tsx";
+import {PassedQuestionsList} from "@/entities/interview-preparation";
 const passedQuestionsRoutes: UiRoute[] = [
     {
         id: 1,
