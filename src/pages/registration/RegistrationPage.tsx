@@ -1,4 +1,4 @@
-import RegisterForm from "@/feutures/auth/RegisterForm/ui/RegisterForm.tsx";
+import RegisterForm from "@/feutures/auth/ui/RegisterForm/ui/RegisterForm.tsx";
 
 const RegistrationPage = () => {
     return (

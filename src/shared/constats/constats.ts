@@ -5,6 +5,7 @@ export const API_ROUTES = {
     SPECIALIZATIONS: 'specializations',
     SKILLS: 'skills',
     SIGN_UP:'auth/signUp',
+    LOGIN:'auth/login',
     MOCK_QUIZZES:'interview-preparation/quizzes/mock/new'
 }
 export const enum REQUEST_STATUSES {
@@ -14,6 +15,7 @@ export const enum PAGES {
     INTERVIEW = 'interview',
     QUESTIONS= 'questions',
     REGISTRATION= 'registration',
+    LOGIN= 'login',
     QUESTION_ID= '/question-details/:questionId',
     MOCK_QUIZ= 'interview/mock-quiz',
     PASSED_QUESTIONS= 'interview/passed-questions',

@@ -2,13 +2,17 @@ import UiInput from "@/shared/ui/UiInput/UiInput.tsx";
 import classes from './RegisterForm.module.scss'
 import {useForm, SubmitHandler} from "react-hook-form"
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
-import {RegisterFormInputs} from "@/feutures/auth/RegisterForm/model/types.ts";
 import {
-    ConfirmPasswordValidationOptions, defineApiErrors, defineFormErrors, EmailValidationOptions,
-    PasswordValidationOptions,
+    ConfirmPasswordValidationOptions, defineApiErrors,
     UserNameValidationOptions
-} from "@/feutures/auth/RegisterForm/model/validations.ts";
-import {useSignUpMutation} from "@/feutures/auth/RegisterForm/api/registerApi.ts";
+} from "@/feutures/auth/ui/RegisterForm/model/validations.ts";
+import {useSignUpMutation} from "@/feutures/auth/ui/RegisterForm/api/registerApi.ts";
+import {
+    defineFormErrors,
+    emailValidationOptions,
+    passwordValidationOptions
+} from "@/feutures/auth/model/validations.ts";
+import {RegisterFormInputs} from "@/feutures/auth/ui/RegisterForm/model/types.ts";
 
 const RegisterForm = () => {
     const [signUp, result] = useSignUpMutation()
@@ -41,9 +45,9 @@ const RegisterForm = () => {
                     <div className={classes.errorsField}>{apiErrors}<br/><br/>    </div>)}
                 <UiInput placeholder="Введите имя" {...register("username", UserNameValidationOptions)} />
                 <UiInput placeholder="Введите почту"
-                         {...register("email", EmailValidationOptions)} />
+                         {...register("email", emailValidationOptions)} />
                 <UiInput
-                    placeholder="Введите пароль" {...register("password", PasswordValidationOptions)} />
+                    placeholder="Введите пароль" {...register("password", passwordValidationOptions)} />
                 <UiInput
                     placeholder="Подтвердите пароль" {...register("confirmPassword", ConfirmPasswordValidationOptions(isPasswordFieldsCoincidence))} />
                 {formErrors && (<div className={classes.errorsField}>{formErrors} <br/><br/></div>)}

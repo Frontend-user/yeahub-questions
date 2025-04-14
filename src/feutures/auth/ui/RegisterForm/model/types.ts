@@ -5,3 +5,4 @@ export type RegisterFormInputs = {
     password: string
     confirmPassword: string
 }
+
