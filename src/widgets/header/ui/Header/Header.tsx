@@ -26,7 +26,7 @@ const Header = () => {
                 <div></div>
                 <div className="header__auth">
                     <UiButton text="Вход" type="secondary"/>
-                    <UiButton text="Регистрация"/>
+                    <NavLink to={PAGES.REGISTRATION} className="header__nav-item"><UiButton>Регистрация</UiButton></NavLink>
                 </div>
             </div>
         </div>

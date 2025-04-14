@@ -10,6 +10,7 @@ export const API_ROUTES = {
 export const enum PAGES {
     INTERVIEW = 'interview',
     QUESTIONS= 'questions',
+    REGISTRATION= 'registration',
     QUESTION_ID= '/question-details/:questionId',
     MOCK_QUIZ= 'interview/mock-quiz',
     PASSED_QUESTIONS= 'interview/passed-questions',

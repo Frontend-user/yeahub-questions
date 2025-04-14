@@ -8,8 +8,8 @@ const LazyQuestionDetailsPage = lazy(() => import('@/pages/questions-details/Que
 const LazyInterviewPage = lazy(() => import('@/pages/interview/InterviewPage.tsx'));
 const LazyMockQuizPage = lazy(() => import('@/pages/mock-quiz/MockQuizPage.tsx'));
 const LazyPassedQuestions = lazy(() => import('@/pages/passed-questions/PassedQuestionsPage.module.tsx'));
+const LazyRegistrationPage = lazy(() => import('@/pages/registration/RegistrationPage.tsx'));
 import MockQuizListEmptyMiddleware from "@/app/middlewares/MockQuizListEmptyMiddleware.tsx";
-
 
 
 const routes: RouteObject[] = [
@@ -19,6 +19,10 @@ const routes: RouteObject[] = [
             <BaseLayout/>
         ),
         children: [
+            {
+                path: `/${PAGES.REGISTRATION}`,
+                element: <LazyRegistrationPage/>
+            },
             {
                 path: `/${PAGES.QUESTIONS}`,
                 element: <LazyQuestionsPage/>

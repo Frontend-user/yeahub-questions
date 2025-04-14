@@ -1,6 +1,6 @@
 import  {useEffect, useRef, useState} from 'react';
 import './SearchQuestions.scss'
-import UiInput from "@/shared/ui/UiInput/UiInput.tsx";
+import UiSearchInput from "@/shared/ui/UiSearchInput/UiSearchInput.tsx";
 import {useSearchParams} from "react-router-dom";
 
 const SearchQuestions = () => {
@@ -31,8 +31,8 @@ const SearchQuestions = () => {
     },[]);
 
     return (
-        <UiInput
-            onHandleInputChange={handleInputChange} value={searchInput}
+        <UiSearchInput
+            onChange={handleInputChange} value={searchInput}
         />)
 }
 
