@@ -1,3 +1,5 @@
+import {REQUEST_STATUSES} from "@/shared/constats/constats.ts";
+
 export const UserNameValidationOptions = {
     minLength: {value: 3, message: 'Поле имя должно содержать минимум 3 символа!'},
     required: {value: true, message: 'Введите имя!'},
@@ -11,16 +13,23 @@ export const EmailValidationOptions = {
         message: "Введите валидный формат почты!"
     }
 }
-
-export const PasswordValidationOptions = (cb: (value: string) => boolean) => {
-    return {
-        minLength: 3,
-        validate: (value: string) => cb(value) || "Подтверждение пароля должно совпадать с полем \"Пароль\"",
+export const defineApiErrors = (result) => {
+    if (!result.isUninitialized) {
+        if (result?.error?.status === REQUEST_STATUSES.USER_EXIST) {
+            return 'Пользователь с таким именем или почтой уже существует!'
+        }
+    }
+    if (result.status === "rejected") {
+        return 'Ошибка сервера. Попробуйте позже!'
+    }
+    return  ''
+}
+export const PasswordValidationOptions = {
+        minLength: {value: 3, message: 'Поле пароль должна содержать минимум 8 символов!'},
         required: {value: true, message: 'Введите пароль!'},
         pattern: {
             value: /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
             message: "Поле пароль должна содержать минимум 8 символов, хотя бы одна заглавная буква, одна цифра и один спецсимвол"
-        }
     }
 }
 
@@ -39,7 +48,6 @@ export const ConfirmPasswordValidationOptions = (cb: (value: string) => boolean)
 }
 
 export const defineFormErrors = (errors) => {
-
     if (errors.username) {
         return errors.username.message
     }

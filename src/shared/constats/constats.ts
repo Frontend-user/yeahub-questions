@@ -4,9 +4,12 @@ export const API_ROUTES = {
     QUESTIONS: "questions/public-questions",
     SPECIALIZATIONS: 'specializations',
     SKILLS: 'skills',
+    SIGN_UP:'auth/signUp',
     MOCK_QUIZZES:'interview-preparation/quizzes/mock/new'
 }
-
+export const enum REQUEST_STATUSES {
+    USER_EXIST =  409,
+}
 export const enum PAGES {
     INTERVIEW = 'interview',
     QUESTIONS= 'questions',
