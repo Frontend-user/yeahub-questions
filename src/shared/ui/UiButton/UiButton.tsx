@@ -8,7 +8,7 @@ type UiButtonProps = {
     type?: string;
     className?: string | string[];
 }
-const UiButton = ({ className, onClick, text, type, children}: UiButtonProps) => {
+const UiButton = ({className, onClick, text, type, children}: UiButtonProps) => {
     return (
         <button onClick={onClick}
                 className={`ui-button ${className} ${type ? `ui-button__${type}` : ''}`}>

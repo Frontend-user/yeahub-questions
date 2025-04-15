@@ -1,8 +1,8 @@
-import React, {useMemo} from 'react';
+import {useMemo} from 'react';
 import './UiSelect.scss'
 import UiSelectItem from "@/shared/ui/UiSelectItem/UiSelectItem.tsx";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
-import {ISelectItem} from "@/shared/model/types/types.ts";
+import {ISelectItem} from "@/shared/types/types.ts";
 import {useToggle} from "@/shared/hooks/useToggle.tsx";
 
 type UiSelectProps = {
@@ -12,10 +12,10 @@ type UiSelectProps = {
     onHandleClick: (id: number) => void
     showButton?:boolean
 }
-const UiSelect: React.FC<UiSelectProps> = ({showButton=true,
+const UiSelect = ({showButton=true,
                                                sliceCount = 5,
                                                title, list, onHandleClick
-                                           }) => {
+                                           }:UiSelectProps) => {
     const [showAllList, toggleShowAllList] = useToggle()
     const slicedList = useMemo(() => {
         if (showAllList) {

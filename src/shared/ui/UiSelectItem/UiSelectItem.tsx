@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import './UiSelectItem.scss'
-import {ISelectItem} from "@/shared/model/types/types.ts";
+import {ISelectItem} from "@/shared/types/types.ts";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 
 export interface UiSelectItemProps extends ISelectItem {

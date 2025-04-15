@@ -5,7 +5,7 @@ import {useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "@/app/AppStore.ts";
 import {chooseSkills} from "@/entities/skills";
-import {ISelectItem} from "@/shared/model/types/types.ts";
+import {ISelectItem} from "@/shared/types/types.ts";
 
 const SelectSkills= ({sliceCount=6,title="Навыки"}) => {
     const [searchParams, setSearchParams] = useSearchParams()

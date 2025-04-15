@@ -1,11 +1,11 @@
 import './Header.scss'
-import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import yeahubIcon from "icons/yeahub-icon.svg"
 import {NavLink, useSearchParams} from "react-router-dom";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 import {PAGES} from "@/shared/constats/constats.ts";
+import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 
-const Header = () => {
+export const Header = () => {
     const [, setSearchParams] = useSearchParams()
     const resetQueries = () => {
         setSearchParams({})
@@ -18,17 +18,17 @@ const Header = () => {
                         <UiImage src={yeahubIcon} alt="" className="header__icon"/>
                     </NavLink>
                     <nav className="header__nav">
-                      <ul className="header__nav-list">
-                          <li className="header__nav-item">
-                              <NavLink to={PAGES.QUESTIONS} className="header__nav-item">База вопросов</NavLink>
-                          </li>
-                          <li className="header__nav-item">
-                              <NavLink to={PAGES.INTERVIEW} className="header__nav-item">Собеседование</NavLink>
-                          </li>
-                          <li className="header__nav-item">
-                              <div onClick={resetQueries} className="header__nav-item">Очистить</div>
-                          </li>
-                      </ul>
+                        <ul className="header__nav-list">
+                            <li className="header__nav-item">
+                                <NavLink to={PAGES.QUESTIONS} className="header__nav-item">База вопросов</NavLink>
+                            </li>
+                            <li className="header__nav-item">
+                                <NavLink to={PAGES.INTERVIEW} className="header__nav-item">Собеседование</NavLink>
+                            </li>
+                            <li className="header__nav-item">
+                                <div onClick={resetQueries} className="header__nav-item">Очистить</div>
+                            </li>
+                        </ul>
                     </nav>
                 </div>
                 <div></div>
@@ -41,4 +41,3 @@ const Header = () => {
     );
 };
 
-export default Header

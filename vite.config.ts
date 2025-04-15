@@ -5,6 +5,7 @@ import path from 'path'
 export default defineConfig({
     plugins: [react()],
     resolve: {
+        // extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
         alias: {
             "@": path.resolve(__dirname, './src'),
             "icons": path.resolve(__dirname, './src/shared/assets/icons'),

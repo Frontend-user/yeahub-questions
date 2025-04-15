@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import './SelectComplexity.scss'
 import UiSelect from "@/shared/ui/UiSelect/UiSelect.tsx";
 import {useDispatch, useSelector} from "react-redux";
@@ -6,7 +6,7 @@ import {AppStateType} from "@/app/AppStore.ts";
 import {chooseComplexity} from "@/entities/complexity";
 import {useSearchParams} from "react-router-dom";
 
-const SelectComplexity: React.FC = () => {
+const SelectComplexity  = () => {
     const list = useSelector((state: AppStateType) => state.complexity.complexityList)
     const dispatch = useDispatch()
     const [searchParams, setSearchParams] = useSearchParams()

@@ -1,13 +1,11 @@
 import {createBrowserRouter, Navigate, RouteObject} from "react-router-dom";
 import BaseLayout from "@/app/layouts/BaseLayout.tsx";
-import {lazy} from "react";
 import {PAGES} from "@/shared/constats/constats.ts";
-
-const LazyQuestionsPage = lazy(() => import('@/pages/questions/QuestionsPage.tsx'));
-const LazyQuestionDetailsPage = lazy(() => import('@/pages/questions-details/QuestionDetailsPage.tsx'));
-const LazyInterviewPage = lazy(() => import('@/pages/interview/InterviewPage.tsx'));
-const LazyMockQuizPage = lazy(() => import('@/pages/mock-quiz/MockQuizPage.tsx'));
-const LazyPassedQuestions = lazy(() => import('@/pages/passed-questions/PassedQuestionsPage.module.tsx'));
+import {QuestionsPage} from "@/pages/interview/QuestionsPage";
+import {QuestionDetailsPage} from "@/pages/interview/QuestionDetailsPage";
+import {PassedQuestionsPage} from "@/pages/interview/PassedQuestionsPage";
+import {MockQuizPage} from "@/pages/interview/MockQuizPage";
+import {InterviewPage} from "@/pages/interview/InterviewPage";
 import MockQuizListEmptyMiddleware from "@/app/middlewares/MockQuizListEmptyMiddleware.tsx";
 
 
@@ -21,26 +19,26 @@ const routes: RouteObject[] = [
         children: [
             {
                 path: `/${PAGES.QUESTIONS}`,
-                element: <LazyQuestionsPage/>
+                element: <QuestionsPage/>
             },
             {
                 path: `/${PAGES.QUESTION_ID}`,
-                element: <LazyQuestionDetailsPage/>
+                element: <QuestionDetailsPage/>
             },
             {
                 path: `/${PAGES.INTERVIEW}`,
-                element: <LazyInterviewPage/>,
+                element: <InterviewPage/>,
             },
             {
                 path: `/${PAGES.MOCK_QUIZ}`,
                 element:
                     <MockQuizListEmptyMiddleware>
-                        <LazyMockQuizPage/>
+                        <MockQuizPage/>
                     </MockQuizListEmptyMiddleware>
             },
             {
                 path: `/${PAGES.PASSED_QUESTIONS}`,
-                element: <LazyPassedQuestions/>
+                element: <PassedQuestionsPage/>
             }
         ]
     },

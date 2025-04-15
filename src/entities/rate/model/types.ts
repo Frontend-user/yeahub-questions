@@ -1,4 +1,4 @@
-import {ISelectItem} from "@/shared/model/types/types.ts";
+import {ISelectItem} from "@/shared/types/types.ts";
 
 interface RateSliceInitialState {
     rateList: ISelectItem[]

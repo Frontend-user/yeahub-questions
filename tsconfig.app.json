@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "forceConsistentCasingInFileNames": true,
     "paths": {
+//      "*": ["*", "*.ts", "*.tsx"],
       "@/*": [
         "./src/*"
       ],

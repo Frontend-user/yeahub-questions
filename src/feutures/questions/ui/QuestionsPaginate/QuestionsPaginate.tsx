@@ -1,4 +1,3 @@
-import React from 'react';
 import './QuestionsPaginate.scss'
 import UiPaginate from "@/shared/ui/UiPaginate/UiPaginate.tsx";
 import {useSelector} from "react-redux";
@@ -8,7 +7,7 @@ import {useQuestionsPaginate} from "@/feutures/questions/libs/hooks/useQuestions
 import {IQuestionsPaginateParams} from "@/entities/questions/model/types.ts";
 
 
-const QuestionsPaginate: React.FC = () => {
+const QuestionsPaginate = () => {
     const questionsPaginateParams: IQuestionsPaginateParams = useSelector((state: AppStateType) => state.questions.questionsPaginateParams)
     const [searchParams, setSearchParams]:[URLSearchParams,SetURLSearchParams] = useSearchParams()
     const [

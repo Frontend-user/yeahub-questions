@@ -3,7 +3,7 @@ import appRouter from "./AppRouter.tsx";
 import {RouterProvider} from "react-router-dom";
 import {Provider} from "react-redux";
 import appStore from "@/app/AppStore.ts";
-import '@/shared/index.scss'
+import '@/shared/styles/index.scss'
 import '@/shared/styles/global.scss'
 
 createRoot(document.getElementById('root')!).render(

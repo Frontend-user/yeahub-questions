@@ -1,4 +1,3 @@
-import React from 'react';
 import './UiPaginate.scss'
 import prevPageArrow from 'icons/btn-arrow-left.svg'
 import nextPageArrow from 'icons/btn-arrow-right.svg'
@@ -14,7 +13,7 @@ type UiPaginateProps = {
     onHandlePrevPage: () => void,
     selectPage: (page: number) => void,
 }
-const UiPaginate: React.FC<UiPaginateProps> = ({
+const UiPaginate = ({
                                                    lastPage,
                                                    firstPage,
                                                    showPages,
@@ -22,7 +21,7 @@ const UiPaginate: React.FC<UiPaginateProps> = ({
                                                    selectPage,
                                                    onHandleNextPage,
                                                    onHandlePrevPage,
-                                               }) => {
+                                               }:UiPaginateProps) => {
     return (
         <div className="ui-paginate">
             <UiImage src={prevPageArrow} onClick={onHandlePrevPage} className="ui-paginate__prev-page"/>

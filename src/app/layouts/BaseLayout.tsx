@@ -1,6 +1,6 @@
 import {Outlet} from "react-router-dom";
 import './BaseLayout.scss'
-import Header from "@/widgets/header/ui/Header/Header.tsx";
+import {Header} from "@/widgets/header";
 
 function BaseLayout() {
 

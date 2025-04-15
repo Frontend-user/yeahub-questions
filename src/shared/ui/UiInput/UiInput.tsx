@@ -1,4 +1,3 @@
-import React from 'react';
 import './UiInput.scss'
 import searchIcon from 'icons/search-icon.svg'
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
@@ -7,7 +6,7 @@ type UiInputProps = {
     onHandleInputChange: (arg0: string) => void;
     value?: string | number
 }
-const UiInput: React.FC<UiInputProps> = ({onHandleInputChange, value}) => {
+const UiInput = ({onHandleInputChange, value}:UiInputProps) => {
     return (
         <div className="ui-input">
             <div className="ui-input__inner">

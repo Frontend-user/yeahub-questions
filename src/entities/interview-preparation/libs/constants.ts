@@ -1,4 +1,4 @@
-import {UiRoute} from "@/shared/model/types/types.ts";
+import {UiRoute} from "@/shared/types/types.ts";
 import {PAGES} from "@/shared/constats/constats.ts";
 
 export const interviewRoutes: UiRoute[] = [

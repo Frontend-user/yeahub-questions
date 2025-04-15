@@ -1,5 +1,5 @@
 import {ISpecialization} from "@/entities/specializations";
-import {ISelectItem} from "@/shared/model/types/types.ts";
+import {ISelectItem} from "@/shared/types/types.ts";
 
 interface ISkill {
     id: number;

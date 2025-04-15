@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import './SelectSpecializations.scss'
 import UiSelect from "@/shared/ui/UiSelect/UiSelect.tsx";
 import {useSearchParams} from "react-router-dom";
@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {chooseSpecialization} from "@/entities/specializations";
 import {AppStateType} from "@/app/AppStore.ts";
 
-const SelectSpecializations: React.FC = () => {
+const SelectSpecializations = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const dispatch = useDispatch()
     const list = useSelector((state: AppStateType) => state.specializations.formattedSpecializations)
