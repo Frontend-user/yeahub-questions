@@ -17,11 +17,6 @@ interface IInterviewPreparationsInitialState {
     totalPages: number
 }
 
-interface IQuizQuestionCardSlots {
-    navButtonsRender?: ReactNode;
-    cancelButtonRender?: ReactNode;
-    changeUserKnowButtonsRender?: ReactNode;
-}
 
 interface IPassedQuestionCardProps {
     id: number;
@@ -30,13 +25,7 @@ interface IPassedQuestionCardProps {
     isUserKnow: boolean
 }
 
-interface IQuizQuestionCardProps {
-    children: IQuizQuestionCardSlots;
-    toggleShowAnswerButton: () => void;
-    title: string;
-    showAnswer: boolean;
-    shortAnswer: string;
-}
+
 
 export type {
     IMockQuestion,

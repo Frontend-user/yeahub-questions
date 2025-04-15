@@ -19,23 +19,26 @@ export const QuizStepWidget = () => {
                 shortAnswer={currentQuestion.shortAnswer}
                 toggleShowAnswerButton={() => toggle()}
                 showAnswer={showAnswer}
-            >
-                {{
-                    cancelButtonRender: <NavLink className={classes.link} to={`/${PAGES.PASSED_QUESTIONS}`}>
+                cancelButtonRender={
+                    <NavLink className={classes.link} to={`/${PAGES.PASSED_QUESTIONS}`}>
                         <UiButton type="danger">Завершить</UiButton>
-                    </NavLink>,
-                    changeUserKnowButtonsRender: <MockQuestionUserKnowButtons
+                    </NavLink>
+                }
+                changeUserKnowButtonsRender={
+                    <MockQuestionUserKnowButtons
                         isUserKnow={currentQuestion.isUserKnow}
                         id={currentQuestion.id}
-                    />,
-                    navButtonsRender: <MockQuizCardNavButtons
+                    />
+                }
+                navButtonsRender={
+                    <MockQuizCardNavButtons
                         toggleShowAnswerButton={() => toggle()}
                         showAnswer={showAnswer}
                         nextQuestionId={currentQuestion.nextQuestionId}
                         prevQuestionId={currentQuestion.prevQuestionId}
                     />
-                }}
-            </QuizQuestionCard>
+                }
+            />
         </div>
     );
 };

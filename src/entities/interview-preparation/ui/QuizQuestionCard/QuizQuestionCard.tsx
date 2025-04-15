@@ -1,20 +1,30 @@
 import classes from './QuizQuestionCard.module.scss'
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import parse from "html-react-parser";
-import {IQuizQuestionCardProps} from "@/entities/interview-preparation/model/types.ts";
 import quizImage from "@/shared/assets/images/quiz-img.png";
-
+import {ReactNode} from "react";
+interface IQuizQuestionCardProps {
+    navButtonsRender?: ReactNode;
+    cancelButtonRender?: ReactNode;
+    changeUserKnowButtonsRender?: ReactNode;
+    toggleShowAnswerButton: () => void;
+    title: string;
+    showAnswer: boolean;
+    shortAnswer: string;
+}
 const QuizQuestionCard = ({
                               title, showAnswer,
                               shortAnswer,
                               toggleShowAnswerButton,
-                              children:slots
+                              cancelButtonRender,
+                              changeUserKnowButtonsRender,
+                              navButtonsRender,
                           }: IQuizQuestionCardProps) => {
     return (
         <div className={classes.block}>
             <div className={classes.inner}>
                 <div className={classes.buttonsWrapper}>
-                    {slots?.navButtonsRender}
+                    {navButtonsRender}
                 </div>
                 <div className={classes.content}>
                     <div className={classes.info}>
@@ -36,15 +46,14 @@ const QuizQuestionCard = ({
                         }
 
                         <div className={classes.likeButtonsWrap}>
-                            {slots?.changeUserKnowButtonsRender}
+                            {changeUserKnowButtonsRender}
                         </div>
                     </div>
                     <img src={quizImage} className={classes.image} alt=""/>
 
                 </div>
                 <div className={classes.endButtonWrap}>
-
-                    {slots?.cancelButtonRender}
+                    {cancelButtonRender}
                 </div>
             </div>
         </div>
