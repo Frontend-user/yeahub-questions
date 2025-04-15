@@ -1,100 +1,41 @@
 import {QuizQuestionCard} from "@/entities/interview-preparation";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
-import {useDispatch, useSelector} from "react-redux";
-import quizImage from '@/shared/assets/images/quiz-img.png'
-import classes from './QuizStepWidget.module.scss'
-import {
-    changeUserKnowStatus,
-    nextPageAction, prevPageAction,
-    selectCurrentMockQuestion
-} from "@/entities/interview-preparation";
-import {useToggle} from "@/shared/hooks/useToggle";
+import {useSelector} from "react-redux";
 import {PAGES} from "@/shared/constats/constats";
-import {useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+import classes from './QuizStepWidget.module.scss'
 import {AppStateType} from "@/app/AppStore";
+import {MockQuestionUserKnowButtons} from "@/features/interview/MockQuestionUserKnowButtons";
+import {MockQuizCardNavButtons} from "@/features/interview/MockQuizCardNavButtons";
+import {useToggle} from "@/shared/hooks/useToggle.tsx";
 
 export const QuizStepWidget = () => {
-    const currentPage = useSelector((state: AppStateType) => state.interviewPreparation.currentPage)
-    const totalPages = useSelector((state: AppStateType) => state.interviewPreparation.totalPages)
     const currentQuestion = useSelector((state: AppStateType) => state.interviewPreparation.currentMockQuestion)
     const [showAnswer, toggle] = useToggle()
-    const toggleShowAnswerButton = () => {
-        toggle()
-    }
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const nextPage = () => {
-        if (showAnswer) {
-            toggleShowAnswerButton()
-        }
-        if (currentPage + 1 > totalPages) {
-            return
-        }
-        dispatch(nextPageAction())
-        if (currentQuestion.nextQuestionId) {
-            dispatch(selectCurrentMockQuestion(currentQuestion.nextQuestionId))
-        }
-    }
-    const prevPage = () => {
-        if (currentPage - 1 < 1) {
-            return
-        }
-        if (showAnswer) {
-            toggleShowAnswerButton()
-        }
-        dispatch(prevPageAction())
-        if (currentQuestion.prevQuestionId) {
-            dispatch(selectCurrentMockQuestion(currentQuestion.prevQuestionId))
-        }
-    }
-    const completeQuiz = () => {
-        navigate(`/${PAGES.PASSED_QUESTIONS}`)
-    }
-    const setMockQuestionUserDontKnow = (id: number) => {
-        dispatch(changeUserKnowStatus({
-            id,
-            value: false
-        }))
-    }
-    const setMockQuestionUserKnow = (id: number) => {
-        dispatch(changeUserKnowStatus({
-            id,
-            value: true
-        }))
-    }
     return (
         <div>
             <QuizQuestionCard
                 title={currentQuestion.title}
                 shortAnswer={currentQuestion.shortAnswer}
-                toggleShowAnswerButton={toggleShowAnswerButton}
+                toggleShowAnswerButton={() => toggle()}
                 showAnswer={showAnswer}
-                knowButton={
-                    <UiButton onClick={() => setMockQuestionUserKnow(currentQuestion.id)}
-                              className={`${currentQuestion.isUserKnow && 'ui-button__like_active'}`}
-                              type="like">Я знаю</UiButton>
-                }
-                dontKnowButton={
-                    <UiButton onClick={() => setMockQuestionUserDontKnow(currentQuestion.id)}
-                              className={`${!currentQuestion.isUserKnow && 'ui-button__dislike_active'}`}
-                              type="dislike">Не
-                        знаю</UiButton>
-                }
-                cancelButton={
-                    <UiButton type="danger" onClick={completeQuiz}>Завершить</UiButton>
-                }
-                quizStaticImage={
-                    <img src={quizImage} className={classes.image} alt=""/>
-                }
-                prevButton={
-                    <UiButton onClick={prevPage} type="arrow-left">Назад</UiButton>
-                }
-                nextButton={
-                    (totalPages === currentPage ? <></> : (
-                        <UiButton onClick={nextPage} type="arrow-right">Далее</UiButton>
-
-                    ))
-                }/>
+            >
+                {{
+                    cancelButtonRender: <NavLink className={classes.link} to={`/${PAGES.PASSED_QUESTIONS}`}>
+                        <UiButton type="danger">Завершить</UiButton>
+                    </NavLink>,
+                    changeUserKnowButtonsRender: <MockQuestionUserKnowButtons
+                        isUserKnow={currentQuestion.isUserKnow}
+                        id={currentQuestion.id}
+                    />,
+                    navButtonsRender: <MockQuizCardNavButtons
+                        toggleShowAnswerButton={() => toggle()}
+                        showAnswer={showAnswer}
+                        nextQuestionId={currentQuestion.nextQuestionId}
+                        prevQuestionId={currentQuestion.prevQuestionId}
+                    />
+                }}
+            </QuizQuestionCard>
         </div>
     );
 };

@@ -17,6 +17,11 @@ interface IInterviewPreparationsInitialState {
     totalPages: number
 }
 
+interface IQuizQuestionCardSlots {
+    navButtonsRender?: ReactNode;
+    cancelButtonRender?: ReactNode;
+    changeUserKnowButtonsRender?: ReactNode;
+}
 
 interface IPassedQuestionCardProps {
     id: number;
@@ -26,13 +31,8 @@ interface IPassedQuestionCardProps {
 }
 
 interface IQuizQuestionCardProps {
-    prevButton: ReactNode;
-    nextButton: ReactNode;
-    cancelButton: ReactNode;
-    knowButton: ReactNode;
+    children: IQuizQuestionCardSlots;
     toggleShowAnswerButton: () => void;
-    dontKnowButton: ReactNode;
-    quizStaticImage: ReactNode;
     title: string;
     showAnswer: boolean;
     shortAnswer: string;

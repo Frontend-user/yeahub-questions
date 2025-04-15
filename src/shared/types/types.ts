@@ -11,3 +11,5 @@ export interface UiRoute {
     to: string;
     isActive: boolean
 }
+
+export type LikeTypes = 'like' | 'dislike'

@@ -2,20 +2,19 @@ import classes from './QuizQuestionCard.module.scss'
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import parse from "html-react-parser";
 import {IQuizQuestionCardProps} from "@/entities/interview-preparation/model/types.ts";
+import quizImage from "@/shared/assets/images/quiz-img.png";
 
 const QuizQuestionCard = ({
-                              prevButton, nextButton, cancelButton,
-                              knowButton, dontKnowButton, quizStaticImage,
                               title, showAnswer,
                               shortAnswer,
                               toggleShowAnswerButton,
+                              children:slots
                           }: IQuizQuestionCardProps) => {
     return (
         <div className={classes.block}>
             <div className={classes.inner}>
                 <div className={classes.buttonsWrapper}>
-                    {prevButton}
-                    {nextButton}
+                    {slots?.navButtonsRender}
                 </div>
                 <div className={classes.content}>
                     <div className={classes.info}>
@@ -37,15 +36,15 @@ const QuizQuestionCard = ({
                         }
 
                         <div className={classes.likeButtonsWrap}>
-                            {knowButton}
-                            {dontKnowButton}
+                            {slots?.changeUserKnowButtonsRender}
                         </div>
                     </div>
-                    {quizStaticImage}
+                    <img src={quizImage} className={classes.image} alt=""/>
+
                 </div>
                 <div className={classes.endButtonWrap}>
 
-                    {cancelButton}
+                    {slots?.cancelButtonRender}
                 </div>
             </div>
         </div>
