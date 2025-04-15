@@ -3,8 +3,8 @@ import './QuestionsListWithPaginate.scss'
 import {QuestionsList} from "@/widgets/questions/QuestionsList";
 import {useSelector} from "react-redux";
 import {IQuestion} from "@/entities/questions";
-import QuestionsPaginate from "@/feutures/questions/ui/QuestionsPaginate/QuestionsPaginate";
 import {AppStateType} from "@/app/AppStore";
+import {QuestionsPaginate} from "@/features/questions/QuestionsPaginate";
 
 export const QuestionsListWithPaginate = () => {
     const questionsPaginateParams = useSelector((state: AppStateType) => state.questions.questionsPaginateParams)

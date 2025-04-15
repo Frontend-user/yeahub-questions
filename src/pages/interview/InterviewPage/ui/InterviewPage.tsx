@@ -2,7 +2,6 @@ import classes from './InterviewPage.module.scss'
 import {useGetSkillsQuery} from "@/entities/skills";
 import UiRoutes from "@/shared/ui/UiRoutes/UiRoutes.tsx";
 import {PAGES} from "@/shared/constats/constats.ts";
-import GetMockQuizButton from "@/feutures/interview/ui/GetMockQuizButton/GetMockQuizButton.tsx";
 import InterviewFilters from "@/pages/interview/InterviewPage/ui/InterviewFilters/InterviewFilters.tsx";
 import {ISelectItem} from "@/shared/types/types.ts";
 import {useLazyGetMockQuizzesQuery} from "@/entities/interview-preparation";
@@ -12,6 +11,7 @@ import {useSelector} from "react-redux";
 import {AppStateType} from "@/app/AppStore.ts";
 import {interviewRoutes} from "@/entities/interview-preparation";
 import {getComplexityIdsByQuery} from "@/pages/interview/QuestionsPage/libs/helpers.ts";
+import {GetMockQuizButton} from "@/features/interview/GetMockQuizButton";
 
 
 const InterviewPage = () => {

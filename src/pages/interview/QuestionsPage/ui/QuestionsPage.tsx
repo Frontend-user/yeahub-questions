@@ -15,7 +15,7 @@ import {QuestionsListWithPaginate} from "@/widgets/questions/QuestionsListWithPa
 import {QuestionsFilters} from "@/widgets/questions/QuestionsFilters";
 import {QuestionsSkeleton} from "@/widgets/questions/QuestionsSkeleton";
 
-export const QuestionsPage = () => {
+const QuestionsPage = () => {
     const [searchParams] = useSearchParams()
     const {isLoading: isSpecsLoading} = useGetSpecializationsQuery({})
     const {isLoading: isSkillsLoading} = useGetSkillsQuery({})
@@ -59,3 +59,4 @@ export const QuestionsPage = () => {
     );
 };
 
+export default QuestionsPage;

@@ -1,7 +1,7 @@
 import classes from "./InterviewFilters.module.scss";
-import SelectSkills from "@/feutures/skills/ui/SelectSkills/SelectSkills.tsx";
-import SelectComplexity from "@/feutures/complexity/ui/SelectComplexity/SelectComplexity.tsx";
-import SetQuestionsCount from "@/feutures/interview/ui/SetQuestionsCount/SetQuestionsCount.tsx";
+import {SelectSkills} from "@/features/skills/SelectSkills";
+import {SelectComplexity} from "@/features/complexity/SelectComplexity";
+import {SetQuestionsCount} from "@/features/interview/SetQuestionsCount";
 
 const InterviewFilters = () => {
     return (
