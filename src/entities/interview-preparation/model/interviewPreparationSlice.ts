@@ -17,7 +17,7 @@ const initialState: IInterviewPreparationsInitialState = {
     }
 }
 
-const interviewPreparationSlice = createSlice({
+export const interviewPreparationSlice = createSlice({
     name: 'interviewPreparation',
     initialState,
     reducers: {
@@ -98,4 +98,3 @@ export const {
     changeUserKnowStatus,
     resetMockPassage
 } = interviewPreparationSlice.actions
-export {interviewPreparationSlice}

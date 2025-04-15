@@ -7,7 +7,7 @@ import {
     changeUserKnowStatus,
     nextPageAction, prevPageAction,
     selectCurrentMockQuestion
-} from "@/entities/interview-preparation/model/interviewPreparationSlice";
+} from "@/entities/interview-preparation";
 import {useToggle} from "@/shared/hooks/useToggle";
 import {PAGES} from "@/shared/constats/constats";
 import {useNavigate} from "react-router-dom";

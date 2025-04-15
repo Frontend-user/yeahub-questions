@@ -5,7 +5,7 @@ import {skillsSlice} from "@/entities/skills";
 import {complexitySlice} from "@/entities/complexity";
 import {rateSlice} from "@/entities/rate";
 import {commonApi} from "@/shared/api/commonApi.ts";
-import {interviewPreparationSlice} from "@/entities/interview-preparation/model/interviewPreparationSlice.ts";
+import {interviewPreparationSlice} from "@/entities/interview-preparation";
 
 export const rootReducer = combineReducers({
     [commonApi.reducerPath]: commonApi.reducer,

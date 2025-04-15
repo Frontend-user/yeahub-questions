@@ -10,7 +10,7 @@ import {useNavigate, useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import {AppStateType} from "@/app/AppStore.ts";
-import {interviewRoutes} from "@/entities/interview-preparation/libs/constants.ts";
+import {interviewRoutes} from "@/entities/interview-preparation";
 import {getComplexityIdsByQuery} from "@/pages/interview/QuestionsPage/libs/helpers.ts";
 
 
