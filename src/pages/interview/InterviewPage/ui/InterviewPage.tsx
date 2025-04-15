@@ -1,6 +1,5 @@
 import classes from './InterviewPage.module.scss'
 import {useGetSkillsQuery} from "@/entities/skills";
-import UiRoutes from "@/shared/ui/UiRoutes/UiRoutes.tsx";
 import {PAGES} from "@/shared/constats/constats.ts";
 import InterviewFilters from "@/pages/interview/InterviewPage/ui/InterviewFilters/InterviewFilters.tsx";
 import {ISelectItem} from "@/shared/types/types.ts";
@@ -9,9 +8,9 @@ import {useNavigate, useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import {AppStateType} from "@/app/AppStore.ts";
-import {interviewRoutes} from "@/entities/interview-preparation";
 import {getComplexityIdsByQuery} from "@/pages/interview/QuestionsPage/libs/helpers.ts";
 import {GetMockQuizButton} from "@/features/interview/GetMockQuizButton";
+import {PageRoutes} from "@/widgets/page-routes";
 
 
 const InterviewPage = () => {
@@ -41,14 +40,14 @@ const InterviewPage = () => {
         setParams(staticParams)
     }, [searchParams]);
     const getMockQuizzes = async () => {
-         await trigger(params);
+        await trigger(params);
         navigate(`/${PAGES.MOCK_QUIZ}`)
     }
-   useGetSkillsQuery({limit: 15})
+    useGetSkillsQuery({limit: 15})
     return (
         <div className={classes.interviewPage}>
             <div className={classes.routeWrap}>
-                <UiRoutes routes={interviewRoutes}/>
+                <PageRoutes/>
             </div>
             <div className={classes.inner}>
 

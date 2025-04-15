@@ -7,7 +7,7 @@ import {PassedQuestionsPage} from "@/pages/interview/PassedQuestionsPage";
 import {MockQuizPage} from "@/pages/interview/MockQuizPage";
 import {InterviewPage} from "@/pages/interview/InterviewPage";
 import MockQuizListEmptyMiddleware from "@/app/middlewares/MockQuizListEmptyMiddleware.tsx";
-
+import {MainPage} from "@/pages/MainPage";
 
 
 const routes: RouteObject[] = [
@@ -17,6 +17,10 @@ const routes: RouteObject[] = [
             <BaseLayout/>
         ),
         children: [
+            {
+                path: '/',
+                element: <MainPage/>
+            },
             {
                 path: `/${PAGES.QUESTIONS}`,
                 element: <QuestionsPage/>

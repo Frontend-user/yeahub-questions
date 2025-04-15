@@ -4,15 +4,38 @@ export const API_ROUTES = {
     QUESTIONS: "questions/public-questions",
     SPECIALIZATIONS: 'specializations',
     SKILLS: 'skills',
-    MOCK_QUIZZES:'interview-preparation/quizzes/mock/new'
+    MOCK_QUIZZES: 'interview-preparation/quizzes/mock/new'
 }
 
 export const enum PAGES {
+    MAIN_PAGE = '/',
     INTERVIEW = 'interview',
-    QUESTIONS= 'questions',
-    QUESTION_ID= '/question-details/:questionId',
-    MOCK_QUIZ= 'interview/mock-quiz',
-    PASSED_QUESTIONS= 'interview/passed-questions',
+    QUESTIONS = 'questions',
+    QUESTION_ID = '/question-details/:questionId',
+    MOCK_QUIZ = 'interview/mock-quiz',
+    PASSED_QUESTIONS = 'interview/passed-questions',
 }
 
-export const MOCK_LIMIT_DEFAULT_VALUE:number = 20
+export interface IROUTE_NAMES {
+    [key: string]: {
+        name: string
+        to: string
+    }
+}
+
+export const ROUTE_NAMES: IROUTE_NAMES = {
+    '/': {
+        name: 'Главная',
+        to: PAGES.MAIN_PAGE
+    },
+    'interview': {
+        name: 'Собеседование',
+        to: `/${PAGES.INTERVIEW}`
+    },
+    'mock-quiz': {
+        name: 'Квиз',
+        to: `/${PAGES.MOCK_QUIZ}`
+    },
+}
+
+export const MOCK_LIMIT_DEFAULT_VALUE: number = 20

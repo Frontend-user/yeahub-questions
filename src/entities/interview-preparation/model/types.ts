@@ -1,6 +1,3 @@
-import {ReactNode} from "react";
-
-
 interface IMockQuestion {
     id: number;
     title: string;
@@ -31,5 +28,4 @@ export type {
     IMockQuestion,
     IInterviewPreparationsInitialState,
     IPassedQuestionCardProps,
-    IQuizQuestionCardProps
 }

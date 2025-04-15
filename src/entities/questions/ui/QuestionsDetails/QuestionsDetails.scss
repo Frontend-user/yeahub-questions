@@ -3,6 +3,11 @@
   &__inner {
   }
 
+  &__link {
+    text-decoration: none;
+    color: var(--black-19);
+  }
+
   &__route-wrap {
     margin: 28px 0;
     display: flex;
