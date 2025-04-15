@@ -1,5 +1,5 @@
 import './QuestionsNotFound.scss'
-const QuestionsNotFound = () => {
+export const QuestionsNotFound = () => {
     return (
         <div className="questions-not-found">
             <div className="questions-not-found__text">
@@ -8,5 +8,3 @@ const QuestionsNotFound = () => {
         </div>
     )
 };
-
-export default QuestionsNotFound;

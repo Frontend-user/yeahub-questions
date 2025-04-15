@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {IPaginateParams} from "@/feutures/questions/model/types.ts";
-import {IQuestionsPaginateParams} from "@/entities/questions/model/types.ts";
+import {IQuestionsPaginateParams} from "@/entities/questions";
 import {SetURLSearchParams} from "react-router-dom";
 
 export interface PropsUseQuestionsPaginate {

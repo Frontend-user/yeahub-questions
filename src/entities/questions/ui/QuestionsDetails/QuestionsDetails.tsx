@@ -1,17 +1,18 @@
 import './QuestionsDetails.scss'
 import QuestionsDetailsHeader from "@/entities/questions/ui/QuestionsDetailsHeader/QuestionsDetailsHeader.tsx";
-import QuestionsShortAnswer from "@/entities/questions/ui/QuestionsLongAnswer/QuestionsShortAnswer.tsx";
-import QuestionsLongAnswer from "@/entities/questions/ui/QuestionsShortAnswer/QuestionsLongAnswer.tsx";
+import QuestionsShortAnswer from "@/entities/questions/ui/QuestionsShortAnswer/QuestionsShortAnswer.tsx";
+import QuestionsLongAnswer from "@/entities/questions/ui/QuestionsLongAnswer/QuestionsLongAnswer.tsx";
 import {IQuestion} from "@/entities/questions";
-import QuestionChars from "@/entities/questions/ui/QuestionChars/QuestionChars.tsx";
+
 import {useNavigate} from "react-router-dom";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
+import QuestionChars from "@/entities/questions/ui/QuestionChars/QuestionChars.tsx";
 
 interface PropsQuestionsDetails {
     question: IQuestion
 }
 
-const QuestionsDetails = ({question}: PropsQuestionsDetails) => {
+export const QuestionsDetails = ({question}: PropsQuestionsDetails) => {
     const navigate = useNavigate()
     let author = {
         firstName:'',lastName:''
@@ -61,5 +62,3 @@ const QuestionsDetails = ({question}: PropsQuestionsDetails) => {
         </div>
     );
 };
-
-export default QuestionsDetails;

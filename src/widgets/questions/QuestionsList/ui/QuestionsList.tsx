@@ -1,6 +1,5 @@
-import QuestionsCard from "@/entities/questions/ui/QuestionsCard/QuestionsCard";
 import './QuestionsList.scss'
-import {IQuestion} from "@/entities/questions";
+import {IQuestion, QuestionsCard} from "@/entities/questions";
 
 type QuestionsProps = {
     questions: IQuestion[];

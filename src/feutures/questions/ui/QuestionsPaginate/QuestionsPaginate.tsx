@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {AppStateType} from "@/app/AppStore.ts";
 import {SetURLSearchParams, useSearchParams} from "react-router-dom";
 import {useQuestionsPaginate} from "@/feutures/questions/libs/hooks/useQuestionsPaginate.tsx";
-import {IQuestionsPaginateParams} from "@/entities/questions/model/types.ts";
+import {IQuestionsPaginateParams} from "@/entities/questions";
 
 
 const QuestionsPaginate = () => {

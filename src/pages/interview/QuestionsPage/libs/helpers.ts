@@ -1,4 +1,4 @@
-import {IQuestionsPaginateParams} from "@/entities/questions/model/types.ts";
+import {IQuestionsPaginateParams} from "@/entities/questions";
 import {ISelectItem} from "@/shared/types/types.ts";
 
 

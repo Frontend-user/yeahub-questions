@@ -16,7 +16,7 @@ type QuestionsCardProps = {
     rate?: string | number
     complexity?: string | number
 }
-const QuestionsCard  = ({
+export const QuestionsCard  = ({
                                         id,
                                         rate, complexity,
                                         title,
@@ -62,5 +62,3 @@ const QuestionsCard  = ({
         </div>
     );
 };
-
-export default QuestionsCard;

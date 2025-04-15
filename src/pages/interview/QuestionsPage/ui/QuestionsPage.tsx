@@ -1,5 +1,5 @@
 import {useEffect, useMemo} from "react";
-import {IQuestion, useGetQuestionsQuery} from "@/entities/questions";
+import {IQuestion, QuestionsFetchError, QuestionsNotFound, useGetQuestionsQuery} from "@/entities/questions";
 import './QuestionsPage.scss'
 import {useGetSpecializationsQuery} from "@/entities/specializations";
 import {useSearchParams} from "react-router-dom";
@@ -8,11 +8,9 @@ import {useSelector} from "react-redux";
 import {AppStateType} from "@/app/AppStore.ts";
 import {FiltersSkeleton} from "@/widgets/questions/FiltersSkeleton";
 import {defineParams} from "@/pages/interview/QuestionsPage/libs/helpers.ts";
-import {IQuestionsPaginateParams} from "@/entities/questions/model/types.ts";
+import {IQuestionsPaginateParams} from "@/entities/questions";
 import {ISelectItem} from "@/shared/types/types.ts";
 import {FetchBaseQueryError} from "@reduxjs/toolkit/query";
-import QuestionsFetchError from "@/entities/questions/ui/QuestionsFetchError/QuestionsFetchError.tsx";
-import QuestionsNotFound from "@/entities/questions/ui/QuestionsNotFound/QuestionsNotFound.tsx";
 import {QuestionsListWithPaginate} from "@/widgets/questions/QuestionsListWithPaginate";
 import {QuestionsFilters} from "@/widgets/questions/QuestionsFilters";
 import {QuestionsSkeleton} from "@/widgets/questions/QuestionsSkeleton";
