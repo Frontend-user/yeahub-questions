@@ -1,1 +1,1 @@
-export {MockQuizPage} from './ui/MockQuizPage.lazy.tsx'
+export {MockQuizPage} from './ui/MockQuizPage.lazy'

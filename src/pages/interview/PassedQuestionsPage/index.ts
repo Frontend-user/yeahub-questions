@@ -1,1 +1,1 @@
-export {PassedQuestionsPage} from './ui/PassedQuestionsPage.lazy.tsx'
+export {PassedQuestionsPage} from './ui/PassedQuestionsPage.lazy'
