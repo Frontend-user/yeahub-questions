@@ -13,3 +13,10 @@ export interface UiRoute {
 }
 
 export type LikeTypes = "like" | "dislike";
+
+export interface IROUTE_NAMES {
+  [key: string]: {
+    name: string;
+    to: string;
+  };
+}

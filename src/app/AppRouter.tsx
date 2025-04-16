@@ -1,16 +1,15 @@
 import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
-import BaseLayout from "@/app/layouts/BaseLayout.tsx";
+import MockQuizListEmptyMiddleware from "@/app/middlewares/MockQuizListEmptyMiddleware.tsx";
 import { PAGES } from "@/shared/constats/constats.ts";
+import BaseLayout from "@/app/layouts/BaseLayout.tsx";
 import { QuestionsPage } from "@/pages/interview/QuestionsPage";
 import { QuestionDetailsPage } from "@/pages/interview/QuestionDetailsPage";
 import { PassedQuestionsPage } from "@/pages/interview/PassedQuestionsPage";
 import { MockQuizPage } from "@/pages/interview/MockQuizPage";
 import { InterviewPage } from "@/pages/interview/InterviewPage";
-import MockQuizListEmptyMiddleware from "@/app/middlewares/MockQuizListEmptyMiddleware.tsx";
 import { MainPage } from "@/pages/MainPage";
-import { lazy } from "react";
-const LazyLoginPage = lazy(() => import('@/pages/login/LoginPage.tsx'));
-const LazyRegistationPage = lazy(() => import('@/pages/registration/RegistrationPage'));
+import { LoginPage } from "@/pages/auth/LoginPage";
+import { RegistrationPage } from "@/pages/auth/RegistrationPage";
 
 const routes: RouteObject[] = [
   {
@@ -23,11 +22,11 @@ const routes: RouteObject[] = [
       },
       {
         path: `/${PAGES.LOGIN}`,
-        element: <LazyLoginPage/>
+        element: <LoginPage />,
       },
       {
         path: `/${PAGES.REGISTRATION}`,
-        element: <LazyRegistationPage/>
+        element: <RegistrationPage />,
       },
       {
         path: `/${PAGES.QUESTIONS}`,
@@ -51,7 +50,11 @@ const routes: RouteObject[] = [
       },
       {
         path: `/${PAGES.PASSED_QUESTIONS}`,
-        element: <PassedQuestionsPage />,
+        element: (
+          <MockQuizListEmptyMiddleware>
+            <PassedQuestionsPage />
+          </MockQuizListEmptyMiddleware>
+        ),
       },
     ],
   },
