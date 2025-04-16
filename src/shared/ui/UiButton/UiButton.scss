@@ -1,0 +1,186 @@
+.ui-button {
+  width: 170px;
+  font-size: 18px;
+  color: #fff;
+  background-color: var(--purple);
+  font-weight: 500;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  padding: 11px 28px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__danger {
+    background: var(--pink);
+    color: var(--red600);
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__dislike {
+    width: 110px;
+
+    padding: 10px 12px;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    color: var(--black-47);
+    &_active {
+      color: var(--purple);
+    }
+    &:after {
+      content: "";
+      left: -5px;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-repeat: no-repeat;
+      background-image: url("icons/dislike-icon.svg");
+    }
+  }
+
+  &__like {
+    width: 110px;
+    background: transparent;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    color: var(--black-47);
+    &_active {
+      color: var(--purple);
+    }
+    &:after {
+      content: "";
+      left: 0;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-repeat: no-repeat;
+      background-image: url("icons/like-icon.svg");
+    }
+  }
+
+  &__secondary {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+    background-color: #fff;
+  }
+
+  &__text-link {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--purple);
+    background-color: #fff;
+    width: fit-content;
+    text-decoration: underline;
+    padding: 0;
+  }
+
+  &__select {
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+    position: relative;
+
+    &:after {
+      content: "";
+      top: 18px;
+      right: 10px;
+      position: absolute;
+      width: 27px;
+      height: 23px;
+      background-repeat: no-repeat;
+      background-image: url("icons/down-icon.svg");
+    }
+  }
+
+  &__select_open {
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+    position: relative;
+
+    &:after {
+      content: "";
+      top: 18px;
+      right: 30px;
+      position: absolute;
+      width: 27px;
+      height: 23px;
+      background-repeat: no-repeat;
+      background-image: url("icons/up-icon.svg");
+    }
+  }
+
+  &__arrow-left {
+    width: 100px;
+    background: transparent;
+    font-size: 16px;
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--purple);
+    position: relative;
+
+    &:after {
+      content: "";
+      top: 15px;
+      left: 5px;
+      position: absolute;
+      width: 27px;
+      height: 23px;
+      background-repeat: no-repeat;
+      background-image: url("icons/left-icon.svg");
+    }
+  }
+
+  &__arrow-right-purple {
+    background-color: var(--purple);
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+
+    &:after {
+      content: "";
+      top: 39%;
+      right: 5px;
+      position: absolute;
+      width: 27px;
+      height: 23px;
+      background-repeat: no-repeat;
+      background-image: url("icons/arrow-right-white.svg");
+    }
+  }
+
+  &__arrow-right {
+    width: 100px;
+    background-color: #fff;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--purple);
+    position: relative;
+
+    &:after {
+      content: "";
+      top: 16px;
+      right: -27px;
+      position: absolute;
+      width: 27px;
+      height: 23px;
+      background-repeat: no-repeat;
+      background-image: url("icons/arrow-right.svg");
+    }
+  }
+}

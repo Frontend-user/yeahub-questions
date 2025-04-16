@@ -1,0 +1,32 @@
+.uiRoutes {
+}
+
+.uiRoutesList {
+  display: flex;
+}
+
+.uiRoutesItem {
+  text-decoration: none;
+  color: var(--black-47);
+  margin-right: 32px;
+  position: relative;
+
+  &:last-child {
+    &::after {
+      content: none;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    right: -20px;
+    //width: 7px;
+    //height: 13px;
+    content: url("icons/left-icon.svg");
+    transform: rotate(180deg);
+  }
+}
+
+.uiRouteItemActive {
+  color: var(--purple);
+}

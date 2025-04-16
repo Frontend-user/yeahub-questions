@@ -1,0 +1,38 @@
+@use "@/shared/styles/global.scss" as global;
+
+.interviewPage {
+  width: 100%;
+  @include global.wrapper;
+}
+
+.inner {
+  border-radius: 24px;
+  background: #fff;
+  padding: 24px;
+}
+
+.routeWrap {
+  margin: 28px 0 28px 10px;
+  display: flex;
+  align-items: start;
+
+  button {
+    width: 200px;
+  }
+}
+
+.mainContent {
+}
+
+.title {
+  font-size: 24px;
+  line-height: 120%;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.selectSkillsWrapper {
+}
+.button {
+  width: 140px;
+}

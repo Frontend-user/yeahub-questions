@@ -1,0 +1,26 @@
+.link {
+  text-decoration: none;
+  color: var(--red600);
+}
+
+.wrapper {
+  background: #fff;
+  border-radius: 24px;
+  margin-top: 24px;
+}
+
+.inner {
+  padding: 24px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-left: 5px;
+}
+
+.endButtonWrap {
+  display: flex;
+  justify-content: end;
+}

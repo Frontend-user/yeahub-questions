@@ -1,6 +1,10 @@
 .questions-details {
-
   &__inner {
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--black-19);
   }
 
   &__route-wrap {
@@ -17,7 +21,6 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 20px;
-
   }
 
   &__left {
@@ -36,7 +39,6 @@
 
     span {
       color: var(--black-30);
-
     }
   }
 }

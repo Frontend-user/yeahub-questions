@@ -1,0 +1,30 @@
+.ui-input {
+  width: 100%;
+  border: 1px solid #e8e8e8;
+  border-radius: 68px;
+
+  &__inner {
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    margin-right: 8px;
+  }
+
+  &__field {
+    width: 100%;
+    color: var(--black-19);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    &::placeholder {
+      color: #a3a3a3;
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+}

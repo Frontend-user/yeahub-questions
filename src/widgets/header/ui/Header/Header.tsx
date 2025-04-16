@@ -1,36 +1,49 @@
-import './Header.scss'
-import UiButton from "@/widgets/header/ui/UiButton/UiButton.tsx";
-import yeahubIcon from "icons/yeahub-icon.svg"
-import {useNavigate, useSearchParams} from "react-router-dom";
+import "./Header.scss";
+import yeahubIcon from "icons/yeahub-icon.svg";
+import { NavLink, useSearchParams } from "react-router-dom";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
+import { PAGES } from "@/shared/constats/constats.ts";
+import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 
 const Header = () => {
-    const [, setSearchParams] = useSearchParams()
-    const resetQueries = () => {
-        setSearchParams({})
-    }
-    const navigate = useNavigate()
-    const goToQuestions = () => {
-        navigate('/questions')
-    }
-    return (
-        <div className="header">
-            <div className="header__inner wrapper">
-                <div className="header__left">
-                    <UiImage onClick={goToQuestions} src={yeahubIcon} alt="" className="header__icon"/>
-                    <div className="header__nav">
-                        <div className="header__nav-item">База вопросов</div>
-                        <div className="header__nav-item" onClick={resetQueries}>Тренажер</div>
-                    </div>
+  const [, setSearchParams] = useSearchParams();
+  const resetQueries = () => {
+    setSearchParams({});
+  };
+  return (
+    <div className="header">
+      <div className="header__inner wrapper">
+        <div className="header__left">
+          <NavLink to={PAGES.QUESTIONS}>
+            <UiImage src={yeahubIcon} alt="" className="header__icon" />
+          </NavLink>
+          <nav className="header__nav">
+            <ul className="header__nav-list">
+              <li className="header__nav-item">
+                <NavLink to={PAGES.QUESTIONS} className="header__nav-item">
+                  База вопросов
+                </NavLink>
+              </li>
+              <li className="header__nav-item">
+                <NavLink to={PAGES.INTERVIEW} className="header__nav-item">
+                  Собеседование
+                </NavLink>
+              </li>
+              <li className="header__nav-item">
+                <div onClick={resetQueries} className="header__nav-item">
+                  Очистить
                 </div>
-                <div></div>
-                <div className="header__auth">
-                    <UiButton text="Вход" type="secondary"/>
-                    <UiButton text="Регистрация"/>
-                </div>
-            </div>
+              </li>
+            </ul>
+          </nav>
         </div>
-    );
+        <div></div>
+        <div className="header__auth">
+          <UiButton text="Вход" type="secondary" />
+          <UiButton text="Регистрация" />
+        </div>
+      </div>
+    </div>
+  );
 };
-
-export default Header
+export { Header };
