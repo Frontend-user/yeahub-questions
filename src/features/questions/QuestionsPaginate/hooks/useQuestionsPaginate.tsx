@@ -2,11 +2,12 @@ import {useEffect, useState} from "react";
 import {IPaginateParams} from "@/features/questions/QuestionsPaginate/model/types.ts";
 import {IQuestionsPaginateParams} from "@/entities/questions";
 import {SetURLSearchParams} from "react-router-dom";
+import {useDebouncedCallback} from "@/shared/hooks/useDebouncedCallback.ts";
 
 export interface PropsUseQuestionsPaginate {
     questionsPaginateParams: IQuestionsPaginateParams
     searchParams: URLSearchParams,
-    setSearchParams:SetURLSearchParams
+    setSearchParams: SetURLSearchParams
 }
 
 type ReturnUseQuestionsPaginate = [
@@ -58,6 +59,11 @@ export const useQuestionsPaginate = ({
         return result
     }
 
+    const debouncedSetParams = useDebouncedCallback((value: string) => {
+        searchParams.set('page', value)
+        setSearchParams(searchParams)
+    }, 300)
+
     const nextPage = () => {
         if (paginateParams.currentPage + 1 > paginateParams.lastPage) return
 
@@ -66,11 +72,8 @@ export const useQuestionsPaginate = ({
             currentPage: pr.currentPage + 1,
             showPages: defineShowPages(pr.currentPage + 1)
         }))
-
-        searchParams.set('page', String(paginateParams.currentPage + 1))
-        setSearchParams(searchParams)
+        debouncedSetParams(String(paginateParams.currentPage + 1))
     }
-
 
     const prevPage = () => {
         if (paginateParams.currentPage - 1 < 1) return
@@ -81,8 +84,7 @@ export const useQuestionsPaginate = ({
             showPages: defineShowPages(pr.currentPage - 1)
         }))
 
-        searchParams.set('page', String(paginateParams.currentPage - 1))
-        setSearchParams(searchParams)
+        debouncedSetParams(String(paginateParams.currentPage - 1))
     }
 
 
@@ -92,8 +94,7 @@ export const useQuestionsPaginate = ({
             currentPage: newPage,
             showPages: defineShowPages(newPage)
         }))
-        searchParams.set('page', String(newPage))
-        setSearchParams(searchParams)
+        debouncedSetParams(String(newPage))
     }
 
     useEffect(() => {
