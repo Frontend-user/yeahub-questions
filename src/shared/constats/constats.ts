@@ -8,6 +8,12 @@ export const API_ROUTES = {
     LOGIN:'auth/login',
     MOCK_QUIZZES:'interview-preparation/quizzes/mock/new'
 }
+export interface IROUTE_NAMES {
+  [key: string]: {
+    name: string;
+    to: string;
+  };
+}
 export const enum REQUEST_STATUSES {
     USER_EXIST =  409,
 }
@@ -15,6 +21,7 @@ export const enum PAGES {
     INTERVIEW = 'interview',
     QUESTIONS= 'questions',
     REGISTRATION= 'registration',
+    MAIN_PAGE='/',
     LOGIN= 'login',
     QUESTION_ID= '/question-details/:questionId',
     MOCK_QUIZ= 'interview/mock-quiz',

@@ -13,13 +13,13 @@ const UiSearchInput = ({ onChange, value }: UiSearchInputProps) => {
     onChange(e.target.value);
 
   return (
-    <div className="ui-input">
-      <div className="ui-input__inner">
-        <UiImage src={searchIcon} className="ui-input__icon" />
+    <div className="ui-input-search">
+      <div className="ui-input-search__inner">
+        <UiImage src={searchIcon} className="ui-input-search__icon" />
         <input
           value={value}
           onChange={onHandleChange}
-          className="ui-input__field"
+          className="ui-input-search__field"
           placeholder="Введите запрос"
           type="text"
         />

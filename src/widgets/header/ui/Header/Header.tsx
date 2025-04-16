@@ -39,10 +39,12 @@ const Header = () => {
         </div>
         <div></div>
         <div className="header__auth">
-          <NavLink to={PAGES.LOGIN} className="header__nav-item"><UiButton
-            type="secondary">Вход</UiButton></NavLink>
-          <NavLink to={PAGES.REGISTRATION}
-                   className="header__nav-item"><UiButton>Регистрация</UiButton></NavLink>
+          <NavLink to={`/${PAGES.LOGIN}`} className="header__nav-item">
+            <UiButton type="secondary">Вход</UiButton>
+          </NavLink>
+          <NavLink to={PAGES.REGISTRATION} className="header__nav-item">
+            <UiButton>Регистрация</UiButton>
+          </NavLink>
         </div>
       </div>
     </div>

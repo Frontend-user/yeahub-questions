@@ -8,6 +8,9 @@ import { MockQuizPage } from "@/pages/interview/MockQuizPage";
 import { InterviewPage } from "@/pages/interview/InterviewPage";
 import MockQuizListEmptyMiddleware from "@/app/middlewares/MockQuizListEmptyMiddleware.tsx";
 import { MainPage } from "@/pages/MainPage";
+import { lazy } from "react";
+const LazyLoginPage = lazy(() => import('@/pages/login/LoginPage.tsx'));
+const LazyRegistationPage = lazy(() => import('@/pages/registration/RegistrationPage'));
 
 const routes: RouteObject[] = [
   {
@@ -17,6 +20,14 @@ const routes: RouteObject[] = [
       {
         path: "/",
         element: <MainPage />,
+      },
+      {
+        path: `/${PAGES.LOGIN}`,
+        element: <LazyLoginPage/>
+      },
+      {
+        path: `/${PAGES.REGISTRATION}`,
+        element: <LazyRegistationPage/>
       },
       {
         path: `/${PAGES.QUESTIONS}`,
