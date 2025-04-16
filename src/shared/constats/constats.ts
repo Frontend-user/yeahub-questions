@@ -39,3 +39,10 @@ export const ROUTE_NAMES: IROUTE_NAMES = {
 }
 
 export const MOCK_LIMIT_DEFAULT_VALUE: number = 20
+export const DEFAULT_SKILLS_SLICE_COUNT = 6
+export const DEFAULT_SPECIALIZATIONS_SLICE_COUNT = 3
+
+export const SELECT_TYPE = {
+    ONE_ITEM: 1,
+    MANY_ITEMS: 2,
+}
