@@ -1,4 +1,4 @@
-import LoginForm from "@/feutures/auth/ui/LoginForm/ui/LoginForm.tsx";
+import { LoginForm } from "@/features/auth/ui/LoginForm";
 
 const LoginPage = () => {
   return (

@@ -13,6 +13,7 @@ export const API_ROUTES = {
 
 export const enum REQUEST_STATUSES {
     USER_EXIST =  409,
+    UNAUTHORIZED =  401,
 }
 export const enum PAGES {
     INTERVIEW = 'interview',
