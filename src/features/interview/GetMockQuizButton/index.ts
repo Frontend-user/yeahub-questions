@@ -1,1 +1,1 @@
-export {GetMockQuizButton} from './ui/GetMockQuizButton'
+export { GetMockQuizButton } from "./ui/GetMockQuizButton";

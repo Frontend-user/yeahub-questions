@@ -1,1 +1,1 @@
-export {QuestionsProgressBar} from './ui/QuestionsProgressBar'
+export { QuestionsProgressBar } from "./ui/QuestionsProgressBar";

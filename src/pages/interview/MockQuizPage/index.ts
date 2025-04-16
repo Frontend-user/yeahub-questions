@@ -1,1 +1,1 @@
-export {MockQuizPage} from './ui/MockQuizPage.lazy'
+export { MockQuizPage } from "./ui/MockQuizPage.lazy";

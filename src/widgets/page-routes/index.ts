@@ -1,1 +1,1 @@
-export {PageRoutes} from './ui/PageRoutes.tsx'
+export { PageRoutes } from "./ui/PageRoutes.tsx";

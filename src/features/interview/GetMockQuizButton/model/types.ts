@@ -1,5 +1,5 @@
-import {MouseEventHandler} from "react";
+import { MouseEventHandler } from "react";
 
 export interface GetMockQuizButtonProps {
-    onClick: MouseEventHandler<HTMLDivElement>
+  onClick: MouseEventHandler<HTMLDivElement>;
 }

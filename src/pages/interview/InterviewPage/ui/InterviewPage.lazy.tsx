@@ -1,3 +1,3 @@
-import {lazy} from "react";
+import { lazy } from "react";
 
-export const InterviewPage = lazy(() => import('./InterviewPage'))
+export const InterviewPage = lazy(() => import("./InterviewPage"));

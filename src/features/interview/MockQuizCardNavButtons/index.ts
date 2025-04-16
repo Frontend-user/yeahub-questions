@@ -1,1 +1,1 @@
-export {MockQuizCardNavButtons} from './ui/MockQuizCardNavButtons'
+export { MockQuizCardNavButtons } from "./ui/MockQuizCardNavButtons";

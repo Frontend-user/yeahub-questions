@@ -1,1 +1,1 @@
-export {FiltersSkeleton} from './ui/FiltersSkeleton'
+export { FiltersSkeleton } from "./ui/FiltersSkeleton";

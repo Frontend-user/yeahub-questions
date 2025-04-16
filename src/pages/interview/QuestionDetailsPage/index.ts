@@ -1,1 +1,1 @@
-export {QuestionDetailsPage} from './ui/QuestionDetailsPage.lazy'
+export { QuestionDetailsPage } from "./ui/QuestionDetailsPage.lazy";

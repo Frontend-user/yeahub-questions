@@ -1,1 +1,1 @@
-export {QuizStepWidget} from './ui/QuizStepWidget'
+export { QuizStepWidget } from "./ui/QuizStepWidget";

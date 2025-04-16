@@ -1,6 +1,6 @@
 .questions-card {
   padding-bottom: 16px;
-  border-top: 0.5px solid #E8E8E8;
+  border-top: 0.5px solid #e8e8e8;
   box-sizing: border-box;
 
   &_open {
@@ -30,12 +30,12 @@
     text-decoration: none;
   }
   &__title {
-    font-size:20px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 120%;
     margin-right: auto;
   }
-  &__ui-tags-wrapper{
+  &__ui-tags-wrapper {
     display: flex;
     margin-top: 10px;
     margin-bottom: 24px;

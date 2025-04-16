@@ -1,7 +1,7 @@
-import {ISelectItem} from "@/shared/types/types.ts";
+import { ISelectItem } from "@/shared/types/types.ts";
 
 interface RateSliceInitialState {
-    rateList: ISelectItem[]
+  rateList: ISelectItem[];
 }
 
-export type {RateSliceInitialState}
+export type { RateSliceInitialState };

@@ -12,7 +12,7 @@
 
 .block {
   width: 110px;
-  border: 1px solid #BABABA;
+  border: 1px solid #bababa;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,7 @@
 .minusButton {
   cursor: pointer;
   //margin-right: 18px;
-width: 20px;
+  width: 20px;
   height: 20px;
   background: url("icons/minus-icon.svg") no-repeat;
 }
@@ -48,4 +48,3 @@ width: 20px;
   //margin-right: 18px;
   line-height: 120%;
 }
-

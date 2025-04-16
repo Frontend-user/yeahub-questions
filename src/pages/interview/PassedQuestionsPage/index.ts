@@ -1,1 +1,1 @@
-export {PassedQuestionsPage} from './ui/PassedQuestionsPage.lazy'
+export { PassedQuestionsPage } from "./ui/PassedQuestionsPage.lazy";

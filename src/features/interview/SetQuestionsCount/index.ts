@@ -1,1 +1,1 @@
-export {SetQuestionsCount} from './ui/SetQuestionsCount'
+export { SetQuestionsCount } from "./ui/SetQuestionsCount";

@@ -1,1 +1,1 @@
-export {SelectSpecializations} from './ui/SelectSpecializations'
+export { SelectSpecializations } from "./ui/SelectSpecializations";

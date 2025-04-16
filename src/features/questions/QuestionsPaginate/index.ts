@@ -1,1 +1,1 @@
-export {QuestionsPaginate} from './ui/QuestionsPaginate'
+export { QuestionsPaginate } from "./ui/QuestionsPaginate";

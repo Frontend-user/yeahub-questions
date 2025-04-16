@@ -1,1 +1,1 @@
-export {PageLoadingSkeleton} from './ui/PageLoadingSkeleton'
+export { PageLoadingSkeleton } from "./ui/PageLoadingSkeleton";

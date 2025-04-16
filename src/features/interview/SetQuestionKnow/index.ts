@@ -1,1 +1,1 @@
-export {SetQuestionKnow} from './ui/SetQuestionKnow'
+export { SetQuestionKnow } from "./ui/SetQuestionKnow";

@@ -1,1 +1,1 @@
-export {SearchQuestions} from './ui/SearchQuestions'
+export { SearchQuestions } from "./ui/SearchQuestions";

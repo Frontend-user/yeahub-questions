@@ -1,1 +1,1 @@
-export {SelectRate} from './ui/SelectRate'
+export { SelectRate } from "./ui/SelectRate";

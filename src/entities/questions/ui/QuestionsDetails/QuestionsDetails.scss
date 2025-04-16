@@ -1,5 +1,4 @@
 .questions-details {
-
   &__inner {
   }
 
@@ -22,7 +21,6 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 20px;
-
   }
 
   &__left {
@@ -41,7 +39,6 @@
 
     span {
       color: var(--black-30);
-
     }
   }
 }
