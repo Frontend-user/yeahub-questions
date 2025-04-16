@@ -23,7 +23,6 @@
     font-weight: 600;
   }
 
-
   &__dislike {
     width: 110px;
 
@@ -103,8 +102,6 @@
       background-repeat: no-repeat;
       background-image: url("icons/down-icon.svg");
     }
-
-
   }
 
   &__select_open {
@@ -164,7 +161,6 @@
       background-repeat: no-repeat;
       background-image: url("icons/arrow-right-white.svg");
     }
-
   }
 
   &__arrow-right {
@@ -179,13 +175,12 @@
     &:after {
       content: "";
       top: 16px;
-      right: -17px;
+      right: -27px;
       position: absolute;
       width: 27px;
       height: 23px;
       background-repeat: no-repeat;
       background-image: url("icons/arrow-right.svg");
     }
-
   }
 }

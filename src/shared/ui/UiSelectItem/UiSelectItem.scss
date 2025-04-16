@@ -1,10 +1,10 @@
 .ui-select-item {
-  border: 1px solid #BABABA;
+  border: 1px solid #bababa;
   border-radius: 12px;
   display: inline-block;
   max-width: 492px;
   cursor: pointer;
-  &_selected{
+  &_selected {
     border: 1px solid var(--purple);
   }
   &__inner {

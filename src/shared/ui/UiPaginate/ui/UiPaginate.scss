@@ -1,0 +1,48 @@
+.ui-paginate {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  &__prev-page {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  &__show-pages {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__show-page {
+    width: 25px;
+    height: 25px;
+    color: var(--black-47);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    cursor: pointer;
+    &_current {
+      color: #fff;
+      background-color: var(--purple);
+    }
+  }
+
+  &__dots {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+  }
+  &__first-page {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  &__last-page {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  &__next-page {
+    cursor: pointer;
+  }
+}

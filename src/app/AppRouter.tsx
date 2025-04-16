@@ -1,63 +1,54 @@
-import {createBrowserRouter, Navigate, RouteObject} from "react-router-dom";
+import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
 import BaseLayout from "@/app/layouts/BaseLayout.tsx";
-import {lazy} from "react";
-import {PAGES} from "@/shared/constats/constats.ts";
-
-const LazyQuestionsPage = lazy(() => import('@/pages/questions/QuestionsPage.tsx'));
-const LazyQuestionDetailsPage = lazy(() => import('@/pages/questions-details/QuestionDetailsPage.tsx'));
-const LazyInterviewPage = lazy(() => import('@/pages/interview/InterviewPage.tsx'));
-const LazyMockQuizPage = lazy(() => import('@/pages/mock-quiz/MockQuizPage.tsx'));
-const LazyPassedQuestions = lazy(() => import('@/pages/passed-questions/PassedQuestionsPage.module.tsx'));
-const LazyRegistrationPage = lazy(() => import('@/pages/registration/RegistrationPage.tsx'));
-const LazyLoginPage = lazy(() => import('@/pages/login/LoginPage.tsx'));
+import { PAGES } from "@/shared/constats/constats.ts";
+import { QuestionsPage } from "@/pages/interview/QuestionsPage";
+import { QuestionDetailsPage } from "@/pages/interview/QuestionDetailsPage";
+import { PassedQuestionsPage } from "@/pages/interview/PassedQuestionsPage";
+import { MockQuizPage } from "@/pages/interview/MockQuizPage";
+import { InterviewPage } from "@/pages/interview/InterviewPage";
 import MockQuizListEmptyMiddleware from "@/app/middlewares/MockQuizListEmptyMiddleware.tsx";
-
+import { MainPage } from "@/pages/MainPage";
 
 const routes: RouteObject[] = [
-    {
+  {
+    path: "/",
+    element: <BaseLayout />,
+    children: [
+      {
         path: "/",
+        element: <MainPage />,
+      },
+      {
+        path: `/${PAGES.QUESTIONS}`,
+        element: <QuestionsPage />,
+      },
+      {
+        path: `/${PAGES.QUESTION_ID}`,
+        element: <QuestionDetailsPage />,
+      },
+      {
+        path: `/${PAGES.INTERVIEW}`,
+        element: <InterviewPage />,
+      },
+      {
+        path: `/${PAGES.MOCK_QUIZ}`,
         element: (
-            <BaseLayout/>
+          <MockQuizListEmptyMiddleware>
+            <MockQuizPage />
+          </MockQuizListEmptyMiddleware>
         ),
-        children: [
-            {
-                path: `/${PAGES.REGISTRATION}`,
-                element: <LazyRegistrationPage/>
-            },
-            {
-                path: `/${PAGES.LOGIN}`,
-                element: <LazyLoginPage/>
-            },
-            {
-                path: `/${PAGES.QUESTIONS}`,
-                element: <LazyQuestionsPage/>
-            },
-            {
-                path: `/${PAGES.QUESTION_ID}`,
-                element: <LazyQuestionDetailsPage/>
-            },
-            {
-                path: `/${PAGES.INTERVIEW}`,
-                element: <LazyInterviewPage/>,
-            },
-            {
-                path: `/${PAGES.MOCK_QUIZ}`,
-                element:
-                    <MockQuizListEmptyMiddleware>
-                        <LazyMockQuizPage/>
-                    </MockQuizListEmptyMiddleware>
-            },
-            {
-                path: `/${PAGES.PASSED_QUESTIONS}`,
-                element: <LazyPassedQuestions/>
-            }
-        ]
-    },
-    {
-        path: "*",
-        element: <Navigate to={`/${PAGES.QUESTIONS}`} replace/>
-    }
-]
-const appRouter = createBrowserRouter(routes)
+      },
+      {
+        path: `/${PAGES.PASSED_QUESTIONS}`,
+        element: <PassedQuestionsPage />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <Navigate to={`/${PAGES.QUESTIONS}`} replace />,
+  },
+];
+const appRouter = createBrowserRouter(routes);
 
 export default appRouter;
