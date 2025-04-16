@@ -27,7 +27,6 @@ const authApi = commonApi.injectEndpoints({
       query: () => {
         return {
           url: API_ROUTES.AUTH.PROFILE,
-          // credentials: "include",# Todo HTTP ONLY ?
         };
       },
     }),
@@ -39,7 +38,23 @@ const authApi = commonApi.injectEndpoints({
         };
       },
     }),
+
+    refresh: builder.query({
+      query: () => {
+        return {
+          url: API_ROUTES.AUTH.REFRESH,
+        };
+      },
+    }),
   }),
 });
 
-export const { useLoginMutation, useProfileQuery, useSignUpMutation } = authApi;
+export const {
+  useLoginMutation,
+  useRefreshQuery,
+  useLogoutQuery,
+  useLazyLogoutQuery,
+  useLazyRefreshQuery,
+  useProfileQuery,
+  useSignUpMutation,
+} = authApi;

@@ -4,11 +4,14 @@ import { PAGES } from "@/shared/constats/constats.ts";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import { useDispatch } from "react-redux";
 import { setIsAuth } from "@/entities/auth";
+import { useLazyLogoutQuery } from "@/entities/auth/api/authApi.ts";
 
 export const LogoutButton = () => {
   const dispatch = useDispatch();
+  const [trigger] = useLazyLogoutQuery();
 
   const deleteAccessToken = () => {
+    trigger();
     saveCookie("Authorization", "");
     saveCookie("isAuth", "false");
     dispatch(setIsAuth(false));

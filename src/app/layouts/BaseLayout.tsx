@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import "./BaseLayout.scss";
 import { Header } from "@/widgets/header";
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import { PageLoadingSkeleton } from "@/widgets/loader/PageLoadingSkeleton";
 import { getCookie } from "@/shared/lib/utils/getCookie.ts";
 import { useDispatch } from "react-redux";
@@ -9,16 +9,12 @@ import { setIsAuth } from "@/entities/auth";
 
 function BaseLayout() {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const isAuth = getCookie("isAuth");
-
-    if (isAuth === "true") {
-      dispatch(setIsAuth(true));
-    } else {
-      dispatch(setIsAuth(false));
-    }
-  }, []);
+  const isAuth = getCookie("isAuth");
+  if (isAuth === "true") {
+    dispatch(setIsAuth(true));
+  } else {
+    dispatch(setIsAuth(false));
+  }
 
   return (
     <div className="base-layout">

@@ -19,7 +19,7 @@ const Header = () => {
     <div className="header">
       <div className="header__inner wrapper">
         <div className="header__left">
-          <NavLink to={PAGES.QUESTIONS}>
+          <NavLink to={PAGES.MAIN_PAGE}>
             <UiImage src={yeahubIcon} alt="" className="header__icon" />
           </NavLink>
           <nav className="header__nav">

@@ -1,7 +1,7 @@
 import { useProfileQuery } from "@/entities/auth";
 
 const MainPage = () => {
-  const { data } = useProfileQuery();
+  const { data } = useProfileQuery({});
 
   return (
     <div>

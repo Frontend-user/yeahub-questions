@@ -9,6 +9,7 @@ export const API_ROUTES = {
   AUTH: {
     SIGN_UP: "auth/signUp",
     PROFILE: "auth/profile",
+    REFRESH: "auth/refresh",
     LOGIN: "auth/login",
     LOGOUT: "auth/logout",
   },
@@ -63,3 +64,5 @@ export const DEFAULT_DEBOUNCE_DELAY = 500;
 
 export const DEFAULT_MOCK_QUESTIONS_MIN_COUNT = 10;
 export const DEFAULT_MOCK_QUESTIONS_MAX_COUNT = 50;
+
+export const AUTHORIZATION = "Authorization";

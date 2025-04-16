@@ -36,11 +36,8 @@ export const LoginForm = () => {
     login(body);
     reset();
   };
-
   const formErrors = defineFormErrors(errors);
-
   const { responseError, accessToken } = useHandleResponse(result);
-
   useEffect(() => {
     if (accessToken) {
       saveCookie("Authorization", `Bearer ${accessToken}`);
@@ -49,6 +46,7 @@ export const LoginForm = () => {
       dispatch(setIsAuth(true));
     }
   }, [accessToken]);
+
   return (
     <div className={classes.wrapper}>
       <h3 onClick={handleSubmit(onSubmit)} className={classes.title}>
