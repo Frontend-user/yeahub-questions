@@ -1,37 +1,36 @@
-import  {useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import './SearchQuestions.scss'
-import UiInput from "@/shared/ui/UiInput/UiInput.tsx";
 import {useSearchParams} from "react-router-dom";
+import UiSearchInput from "@/shared/ui/UiSearchInput/UiSearchInput.tsx";
+import {useDebouncedCallback} from "@/shared/hooks/useDebouncedCallback.ts";
 
 export const SearchQuestions = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [searchInput, setSearchInput] = useState('')
-    const timeout = useRef<ReturnType<typeof setTimeout> | null>(null)
-    const defineQueryParams = (newValue: string) => {
+
+    const defineQueryKeywordsParam = (newValue: string) => {
         if (!newValue) {
             searchParams.delete('keywords')
-            setSearchParams(searchParams)
-            return
+        } else {
+            searchParams.set('keywords', newValue)
         }
-        searchParams.set('keywords', newValue)
         setSearchParams(searchParams)
     }
+
+    const debouncedDefineQueryKeywordsParam = useDebouncedCallback(defineQueryKeywordsParam, 700)
+
     const handleInputChange = (newValue: string) => {
+        searchParams.set('page', '1')
         setSearchInput(newValue)
-        if (timeout.current) {
-            clearTimeout(timeout.current)
-        }
-        timeout.current = setTimeout(() => {
-            searchParams.set('page', '1')
-            defineQueryParams(newValue)
-        }, 500)
+        debouncedDefineQueryKeywordsParam(newValue)
     }
+
     useEffect(() => {
         setSearchInput(searchParams.get('keywords') || '')
-    },[]);
+    }, []);
 
     return (
-        <UiInput
-            onHandleInputChange={handleInputChange} value={searchInput}
+        <UiSearchInput
+            onChange={handleInputChange} value={searchInput}
         />)
 }

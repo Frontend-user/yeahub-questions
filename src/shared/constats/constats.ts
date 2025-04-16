@@ -46,3 +46,5 @@ export const SELECT_TYPE = {
     ONE_ITEM: 1,
     MANY_ITEMS: 2,
 }
+
+export const DEFAULT_DEBOUNCE_DELAY=500

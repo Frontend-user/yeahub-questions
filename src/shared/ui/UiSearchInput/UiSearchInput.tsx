@@ -1,12 +1,16 @@
-import './UiInput.scss'
+import './UiSearchInput.scss'
 import searchIcon from 'icons/search-icon.svg'
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
+import {ChangeEvent} from "react";
 
-type UiInputProps = {
-    onHandleInputChange: (arg0: string) => void;
+type UiSearchInputProps = {
+    onChange: (arg: string) => void;
     value?: string | number
 }
-const UiInput = ({onHandleInputChange, value}:UiInputProps) => {
+const UiSearchInput = ({onChange, value}: UiSearchInputProps) => {
+
+    const onHandleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)
+
     return (
         <div className="ui-input">
             <div className="ui-input__inner">
@@ -15,7 +19,7 @@ const UiInput = ({onHandleInputChange, value}:UiInputProps) => {
                     className="ui-input__icon"/>
                 <input
                     value={value}
-                    onChange={(e) => onHandleInputChange(e.target.value)}
+                    onChange={onHandleChange}
                     className="ui-input__field"
                     placeholder="Введите запрос"
                     type="text"/>
@@ -24,4 +28,4 @@ const UiInput = ({onHandleInputChange, value}:UiInputProps) => {
     );
 };
 
-export default UiInput;
+export default UiSearchInput;
