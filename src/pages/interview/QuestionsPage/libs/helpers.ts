@@ -79,9 +79,9 @@ export function defineParams({questionsPaginateParams, searchParams, complexityL
     return resultParams
 }
 
-export function getComplexityIdsByQuery(queryList:string[], complexityList:ISelectItem[]):number[] {
+export function getComplexityIdsByQuery(queryList: string[], complexityList: ISelectItem[]): number[] {
     return queryList.reduce((acc: number[], itemId: string) => {
-        const findedItem = complexityList.find(_ => _.id === +itemId)
+        const findedItem = complexityList.find(complexityItem => complexityItem.id === +itemId)
         if (findedItem && findedItem.value) {
             return [...acc, ...findedItem.value]
         }

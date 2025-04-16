@@ -18,6 +18,13 @@
   margin-top: auto;
   display: flex;
 }
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 24px;
+}
+
 .showAnswerButton {
   width: 210px;
   padding-left: 0;
@@ -36,11 +43,7 @@
   overflow-y: auto;
   white-space: normal;
 }
-.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: 24px;
-}
+
 .questionsWrap {
 
 }

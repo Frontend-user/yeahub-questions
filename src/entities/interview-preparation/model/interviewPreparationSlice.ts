@@ -34,12 +34,14 @@ export const interviewPreparationSlice = createSlice({
             state.currentPage -= 1
         },
         changeUserKnowStatus: (state, action) => {
-            const findMockQuestion = state.mockQuestionsList.find(_ => _.id === action.payload.id)
+            const mockQuestionToChangeId = action.payload.id
+            const findMockQuestion = state.mockQuestionsList.find(mockQuestion => mockQuestion.id === mockQuestionToChangeId)
+
             if (findMockQuestion) {
                 findMockQuestion.isUserKnow = action.payload.value
             }
-            state.currentMockQuestion.isUserKnow = action.payload.value
 
+            state.currentMockQuestion.isUserKnow = action.payload.value
         },
 
         resetMockPassage: (state) => {
@@ -67,7 +69,8 @@ export const interviewPreparationSlice = createSlice({
             })
         },
         selectCurrentMockQuestion: (state, action: { payload: number }) => {
-            const findNewCurrentMockQuestion = state.mockQuestionsList.find(_ => _.id === action.payload)
+            const selectedMockQuestionId = action.payload
+            const findNewCurrentMockQuestion = state.mockQuestionsList.find(mockQuestion => mockQuestion.id === selectedMockQuestionId)
             if (findNewCurrentMockQuestion) {
                 state.currentMockQuestion = {...findNewCurrentMockQuestion}
             }

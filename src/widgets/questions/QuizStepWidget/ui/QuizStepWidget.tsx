@@ -1,4 +1,4 @@
-import {QuizQuestionCard} from "@/entities/interview-preparation";
+import {QuizQuestionInfo} from "@/entities/interview-preparation";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import {useSelector} from "react-redux";
 import {PAGES} from "@/shared/constats/constats";
@@ -12,33 +12,43 @@ import {useToggle} from "@/shared/hooks/useToggle.tsx";
 export const QuizStepWidget = () => {
     const currentQuestion = useSelector((state: AppStateType) => state.interviewPreparation.currentMockQuestion)
     const [showAnswer, toggle] = useToggle()
+
+    const changeUserKnowButtonsRender = () => <MockQuestionUserKnowButtons
+        isUserKnow={currentQuestion.isUserKnow}
+        id={currentQuestion.id}
+    />
+
+    const mockQuizCardNavButtonsRender = () => <MockQuizCardNavButtons
+        toggleShowAnswerButton={() => toggle()}
+        showAnswer={showAnswer}
+        nextQuestionId={currentQuestion.nextQuestionId}
+        prevQuestionId={currentQuestion.prevQuestionId}
+    />
+
+    const cancelButtonRender = ()=>
+     <NavLink className={classes.link} to={`/${PAGES.PASSED_QUESTIONS}`}>
+        <UiButton type="danger">Завершить</UiButton>
+    </NavLink>
+
     return (
         <div>
-            <QuizQuestionCard
-                title={currentQuestion.title}
-                shortAnswer={currentQuestion.shortAnswer}
-                toggleShowAnswerButton={() => toggle()}
-                showAnswer={showAnswer}
-                cancelButtonRender={
-                    <NavLink className={classes.link} to={`/${PAGES.PASSED_QUESTIONS}`}>
-                        <UiButton type="danger">Завершить</UiButton>
-                    </NavLink>
-                }
-                changeUserKnowButtonsRender={
-                    <MockQuestionUserKnowButtons
-                        isUserKnow={currentQuestion.isUserKnow}
-                        id={currentQuestion.id}
-                    />
-                }
-                navButtonsRender={
-                    <MockQuizCardNavButtons
+            <div className={classes.wrapper}>
+                <div className={classes.inner}>
+                    <div className={classes.buttonsWrapper}>
+                        {mockQuizCardNavButtonsRender()}
+                    </div>
+                    <QuizQuestionInfo
+                        title={currentQuestion.title}
+                        shortAnswer={currentQuestion.shortAnswer}
                         toggleShowAnswerButton={() => toggle()}
                         showAnswer={showAnswer}
-                        nextQuestionId={currentQuestion.nextQuestionId}
-                        prevQuestionId={currentQuestion.prevQuestionId}
+                        changeUserKnowButtonsRender={changeUserKnowButtonsRender()}
                     />
-                }
-            />
+                    <div className={classes.endButtonWrap}>
+                        {cancelButtonRender()}
+                    </div>
+                </div>
+            </div>
         </div>
-    );
-};
+    )
+}

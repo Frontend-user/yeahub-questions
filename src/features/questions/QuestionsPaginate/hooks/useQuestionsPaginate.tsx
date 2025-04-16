@@ -66,19 +66,26 @@ export const useQuestionsPaginate = ({
             currentPage: pr.currentPage + 1,
             showPages: defineShowPages(pr.currentPage + 1)
         }))
+
         searchParams.set('page', String(paginateParams.currentPage + 1))
         setSearchParams(searchParams)
     }
+
+
     const prevPage = () => {
         if (paginateParams.currentPage - 1 < 1) return
+
         setPaginateParams(pr => ({
             ...pr,
             currentPage: pr.currentPage - 1,
             showPages: defineShowPages(pr.currentPage - 1)
         }))
+
         searchParams.set('page', String(paginateParams.currentPage - 1))
         setSearchParams(searchParams)
     }
+
+
     const selectPage = (newPage: number) => {
         setPaginateParams(pr => ({
             ...pr,

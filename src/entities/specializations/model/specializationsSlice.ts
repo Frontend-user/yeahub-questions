@@ -15,12 +15,12 @@ const specializationsSlice = createSlice({
             state.specializations = action.payload
         },
         chooseSpecialization: (state, action) => {
-            const id = action.payload
-            state.formattedSpecializations.forEach((_) => {
-                if (_.id === id) {
-                    _.selected = !_.selected
+            const choosedSpecId = action.payload
+            state.formattedSpecializations.forEach((specItem) => {
+                if (specItem.id === choosedSpecId) {
+                    specItem.selected = !specItem.selected
                 } else {
-                    _.selected = false
+                    specItem.selected = false
                 }
             })
         },

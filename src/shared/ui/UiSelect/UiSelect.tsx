@@ -10,24 +10,35 @@ type UiSelectProps = {
     list: ISelectItem[],
     sliceCount?: number
     onHandleClick: (id: number) => void
-    showButton?:boolean
+    showButton?: boolean
 }
-const UiSelect = ({showButton=true,
-                                               sliceCount = 5,
-                                               title, list, onHandleClick
-                                           }:UiSelectProps) => {
+
+const UI_SELECT_DEFAULT_SLICE_COUNT = 5
+
+
+const UiSelect = ({
+                      showButton = true,
+                      sliceCount = UI_SELECT_DEFAULT_SLICE_COUNT,
+                      title, list, onHandleClick
+                  }: UiSelectProps) => {
+
+
     const [showAllList, toggleShowAllList] = useToggle()
+
+    const shouldRenderButton = showButton && sliceCount < list?.length
+
     const slicedList = useMemo(() => {
         if (showAllList) {
             return list
         }
         return list.slice(0, sliceCount)
-    }, [list, showAllList])
+    }, [list, showAllList, sliceCount])
+
+
     return (
         <div className="ui-select">
             <div className="ui-select__title">{title}</div>
             <div className="ui-select__list">
-
                 {slicedList.map((item) => (
                     <UiSelectItem
                         key={item.id}
@@ -37,12 +48,10 @@ const UiSelect = ({showButton=true,
                         onHandleClick={onHandleClick}
                         title={item.title}/>
                 ))}
-
             </div>
-            {showButton && sliceCount < list?.length && (
-                <UiButton
-                    onClick={toggleShowAllList}
-                    type="text-link" text={showAllList ? 'Скрыть' : 'Показать все'}/>)}
+            {shouldRenderButton && <UiButton
+                onClick={toggleShowAllList}
+                type="text-link" text={showAllList ? 'Скрыть' : 'Показать все'}/>}
         </div>
     );
 };

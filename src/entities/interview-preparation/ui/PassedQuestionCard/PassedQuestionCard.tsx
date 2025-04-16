@@ -1,8 +1,9 @@
 import classes from './PassedQuestionCard.module.scss'
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import parse from "html-react-parser";
-import passedQuestionImage from 'images/static-passed-question-image.svg'
+import passedQuestionStaticImage from 'images/static-passed-question-image.svg'
 import {IPassedQuestionCardProps} from "@/entities/interview-preparation/model/types.ts";
+import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 
 const {info, image, title, block, inner, imageWrapper, statusButton} = classes
 
@@ -12,7 +13,7 @@ const PassedQuestionCard = ({imageSrc, question = "", isUserKnow}: IPassedQuesti
         <div className={block}>
             <div className={inner}>
                 <div className={imageWrapper}>
-                    <img className={image} src={imageSrc || passedQuestionImage} alt=""/>
+                    <UiImage className={image} src={imageSrc || passedQuestionStaticImage}  />
                 </div>
                 <div className={info}>
                     <div className={title}>{parse(question)}</div>

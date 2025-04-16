@@ -16,9 +16,7 @@ const UiSelectItem = ({
     const [showIcon] = useState(false);
 
     const checkValidHandleClick = () => {
-        if (onHandleClick) {
-            onHandleClick(id)
-        }
+        onHandleClick?.(id)
     }
     return (
         <div onClick={checkValidHandleClick}

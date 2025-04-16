@@ -9,7 +9,7 @@ export type {
 
 export {PassedQuestionCard} from './ui/PassedQuestionCard/PassedQuestionCard.tsx'
 export {PassedQuestionsList} from './ui/PassedQuestionsList/PassedQuestionsList.tsx'
-export {QuizQuestionCard} from './ui/QuizQuestionCard/QuizQuestionCard.tsx'
+export {QuizQuestionInfo} from './ui/QuizQuestionInfo/QuizQuestionInfo'
 export {interviewPreparationSlice} from './model/interviewPreparationSlice.ts'
 
 export {

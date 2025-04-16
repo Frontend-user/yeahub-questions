@@ -6,10 +6,10 @@ const complexitySlice = createSlice({
     initialState: complexityInitialState,
     reducers: {
         chooseComplexity: (state, action) => {
-            const id = action.payload
-            state.complexityList.forEach((_) => {
-                if (_.id === id) {
-                    _.selected = !_.selected
+            const choosedId = action.payload
+            state.complexityList.forEach((complexityItem) => {
+                if (complexityItem.id === choosedId) {
+                    complexityItem.selected = !complexityItem.selected
                 }
             })
         }

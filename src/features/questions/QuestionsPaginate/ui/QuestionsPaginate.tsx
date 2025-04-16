@@ -1,5 +1,5 @@
 import './QuestionsPaginate.scss'
-import UiPaginate from "@/shared/ui/UiPaginate/UiPaginate.tsx";
+import UiPaginate from "@/shared/ui/UiPaginate/ui/UiPaginate.tsx";
 import {useSelector} from "react-redux";
 import {AppStateType} from "@/app/AppStore.ts";
 import {SetURLSearchParams, useSearchParams} from "react-router-dom";

@@ -17,23 +17,29 @@ const skillsSlice = createSlice({
         },
 
         setFormattedSkillsList: (state, action: PayloadAction<IFormattedSkill[]>) => {
-            state.formattedSkills = action.payload.map(_ =>
+            state.formattedSkills = action.payload.map(formattedSkill =>
                 ({
-                    id: _.id,
-                    title: _.title,
-                    imageSrc: _.imageSrc,
+                    id: formattedSkill.id,
+                    title: formattedSkill.title,
+                    imageSrc: formattedSkill.imageSrc,
                     selected: false,
                 }))
+
             state.status = 'fulfilled'
         },
         chooseSkills: (state, action) => {
-            const id = action.payload
-            state.formattedSkills.forEach((_) => {
-                if (_.id === id) {
-                    _.selected = !_.selected
+            const choosedSkillId = action.payload
+
+            state.formattedSkills.forEach((skill) => {
+                if (skill.id === choosedSkillId) {
+                    skill.selected = !skill.selected
                 }
             })
-            state.skillsQueryIds = state.formattedSkills.filter(_ => _.selected).map(_ => _.id.toString())
+
+            state.skillsQueryIds = state.formattedSkills
+                .filter(formattedSkillItem => formattedSkillItem.selected)
+                .map(formattedSkillItem => formattedSkillItem.id.toString())
+
         }
     }
 })

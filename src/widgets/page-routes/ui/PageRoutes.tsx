@@ -20,7 +20,6 @@ export const PageRoutes = () => {
                 isActive: currentPageName === name
             })
         })
-        console.log(pageRoutes,'page')
         return pageRoutes
     }
 

@@ -5,7 +5,7 @@ import downIcon from "icons/down-icon.svg"
 import upIcon from "icons/up-icon.svg"
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import UiTag from "@/shared/ui/UiTag/UiTag.tsx";
-import {useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 import {useToggle} from "@/shared/hooks/useToggle.tsx";
 
@@ -16,15 +16,14 @@ type QuestionsCardProps = {
     rate?: string | number
     complexity?: string | number
 }
-export const QuestionsCard  = ({
-                                        id,
-                                        rate, complexity,
-                                        title,
-                                        shortAnswer
-                                    }:QuestionsCardProps) => {
+export const QuestionsCard = ({
+                                  id,
+                                  rate, complexity,
+                                  title,
+                                  shortAnswer
+                              }: QuestionsCardProps) => {
     const [isToggled, toggle] = useToggle();
 
-    const navigate = useNavigate()
     return (
         <div key={id} className="questions-card">
             <div className="questions-card__head" onClick={toggle}>
@@ -50,13 +49,14 @@ export const QuestionsCard  = ({
 
                     </div>
                 ) : ''}
+                    <NavLink className="questions-card__link" to={`/question-details/${id}`}>
+                        <UiButton
+                            className="questions-card__read-more-button"
+                            text="Подробнее"
+                            type="arrow-right"
+                        />
 
-                    <UiButton
-                        onClick={() => navigate(`/question-details/${id}`)}
-                        className="questions-card__read-more-button"
-                        text="Подробнее"
-                        type="arrow-right"
-                    />
+                    </NavLink>
                 </div>
             </div>
         </div>
