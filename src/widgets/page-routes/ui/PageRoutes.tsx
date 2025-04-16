@@ -5,20 +5,25 @@ import { UiRoute } from "@/shared/types/types.ts";
 
 export const PageRoutes = () => {
   const location = useLocation();
+
   const definePageRoutes = () => {
     const pageRoutes: UiRoute[] = [];
     const fullPathname = location.pathname;
     const pathsArr = fullPathname.split("/");
     const currentPageName = pathsArr[pathsArr.length - 1];
+
     pathsArr.forEach((pathName: string, index) => {
-      let name = pathName || "/";
+      const name = pathName || "/";
+
       pageRoutes.push({
         id: index + 1,
         to: ROUTE_NAMES[name].to,
         name: ROUTE_NAMES[name].name,
         isActive: currentPageName === name,
       });
+
     });
+
     return pageRoutes;
   };
 

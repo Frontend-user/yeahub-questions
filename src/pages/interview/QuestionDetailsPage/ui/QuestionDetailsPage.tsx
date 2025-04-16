@@ -11,9 +11,11 @@ import { QuestionsDetailsSkeleton } from "@/widgets/questions/QuestionsDetailsSk
 const QuestionDetailsPage = () => {
   const { questionId } = useParams();
   const { isLoading } = useGetQuestionByIdQuery(questionId);
+
   const question = useSelector(
     (state: AppStateType) => state.questions.questionDetails,
   );
+
   return (
     <div className="questions-details-page">
       {isLoading ? (

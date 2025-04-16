@@ -12,13 +12,16 @@ const UiProgressBar = ({
   allCount,
   passedCount,
 }: PropsUiProgressBar) => {
+
   const progressRef = useRef<HTMLDivElement>(null);
+
   useLayoutEffect(() => {
     if (progressRef.current) {
       const filledPercent = Math.round((passedCount * 100) / allCount);
       progressRef.current.style.setProperty("width", `${filledPercent}%`);
     }
   }, [passedCount, allCount]);
+
   return (
     <div className={classes.uiProgressBar}>
       <div className={classes.inner}>

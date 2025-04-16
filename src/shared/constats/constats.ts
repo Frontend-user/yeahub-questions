@@ -36,6 +36,10 @@ export const ROUTE_NAMES: IROUTE_NAMES = {
     name: "Квиз",
     to: `/${PAGES.MOCK_QUIZ}`,
   },
+  "passed-questions": {
+    name: "Список пройденных вопросов",
+    to: `/${PAGES.PASSED_QUESTIONS}`,
+  },
 };
 
 export const MOCK_LIMIT_DEFAULT_VALUE: number = 20;

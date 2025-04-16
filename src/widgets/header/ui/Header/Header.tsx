@@ -5,7 +5,7 @@ import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 import { PAGES } from "@/shared/constats/constats.ts";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 
-export const Header = () => {
+const Header = () => {
   const [, setSearchParams] = useSearchParams();
   const resetQueries = () => {
     setSearchParams({});
@@ -46,3 +46,4 @@ export const Header = () => {
     </div>
   );
 };
+export { Header };

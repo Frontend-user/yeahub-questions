@@ -13,6 +13,7 @@ export const QuizStepWidget = () => {
   const currentQuestion = useSelector(
     (state: AppStateType) => state.interviewPreparation.currentMockQuestion,
   );
+
   const [showAnswer, toggle] = useToggle();
 
   const changeUserKnowButtonsRender = () => (

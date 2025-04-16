@@ -14,6 +14,7 @@ export const SelectSpecializations = () => {
   const list = useSelector(
     (state: AppStateType) => state.specializations.formattedSpecializations,
   );
+
   const [onChooseItem, defineParamsInState] = useChangeParams(
     chooseSpecialization,
     "specialization",

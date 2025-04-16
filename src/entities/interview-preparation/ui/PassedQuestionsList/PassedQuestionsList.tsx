@@ -11,13 +11,16 @@ import { PassedQuestionCard } from "@/entities/interview-preparation";
 const PassedQuestionsList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const list: IMockQuestion[] = useSelector(
     (state: AppStateType) => state.interviewPreparation.mockQuestionsList,
   );
+
   const trySameQuestions = () => {
     dispatch(resetMockPassage());
     navigate(`/${PAGES.MOCK_QUIZ}`);
   };
+
   return (
     <div className={classes.block}>
       <div className={classes.inner}>

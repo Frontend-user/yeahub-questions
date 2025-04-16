@@ -6,9 +6,11 @@ export const QuestionsProgressBar = () => {
   const totalPages = useSelector(
     (state: AppStateType) => state.interviewPreparation.totalPages,
   );
+
   const currentPage = useSelector(
     (state: AppStateType) => state.interviewPreparation.currentPage,
   );
+
   return (
     <div>
       <UiProgressBar

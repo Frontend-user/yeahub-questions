@@ -1,9 +1,9 @@
 import "./UiSearchInput.scss";
 import searchIcon from "icons/search-icon.svg";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
-import { ChangeEvent, InputHTMLAttributes } from "react";
+import { ChangeEvent  } from "react";
 
-type UiSearchInputProps = InputHTMLAttributes<HTMLInputElement> & {
+type UiSearchInputProps =  {
   onChange: (newValue: string) => void;
   value?: string | number;
 };

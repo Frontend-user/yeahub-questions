@@ -10,10 +10,13 @@ export const QuestionsListWithPaginate = () => {
   const questionsPaginateParams = useSelector(
     (state: AppStateType) => state.questions.questionsPaginateParams,
   );
+
   const questions: IQuestion[] = useSelector(
     (state: AppStateType) => state.questions.questions,
   );
+
   const showPaginate = useMemo(() => {
+
     if (questionsPaginateParams.total) {
       return (
         Math.ceil(
@@ -21,8 +24,10 @@ export const QuestionsListWithPaginate = () => {
         ) > 1
       );
     }
+
     return false;
   }, [questionsPaginateParams]);
+
   return (
     <div className="questions-list-with-paginate">
       <div className="questions-list-with-paginate__inner">

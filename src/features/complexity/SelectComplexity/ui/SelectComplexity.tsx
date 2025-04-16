@@ -10,6 +10,7 @@ export const SelectComplexity = () => {
   const list = useSelector(
     (state: AppStateType) => state.complexity.complexityList,
   );
+
   const [onHandleClick, defineParamsInState] = useChangeParams(
     chooseComplexity,
     "complexity",
@@ -18,6 +19,7 @@ export const SelectComplexity = () => {
   useEffect(() => {
     defineParamsInState();
   }, []);
+
   return (
     <div>
       <UiSelect

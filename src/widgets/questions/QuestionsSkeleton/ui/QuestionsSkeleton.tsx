@@ -2,6 +2,7 @@ import "./QuestionsSkeleton.scss";
 
 export const QuestionsSkeleton = () => {
   const questionsSkeletonArr = Array.from({ length: 12 }, (_, i) => i);
+
   return (
     <div className="questions-skeleton">
       <div className="questions-skeleton__title"></div>

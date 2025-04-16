@@ -14,18 +14,7 @@ interface PropsQuestionsDetails {
 }
 
 export const QuestionsDetails = ({ question }: PropsQuestionsDetails) => {
-  let author = {
-    firstName: "",
-    lastName: "",
-  };
-  if (question) {
-    if (question?.createdBy?.firstName) {
-      author.firstName = JSON.parse(question?.createdBy)?.firstName;
-    }
-    if (question?.createdBy?.lastName) {
-      author.lastName = JSON.parse(question?.createdBy)?.lastName;
-    }
-  }
+  const shouldShowAuthorInfo = question?.createdBy?.firstName || question?.createdBy.lastName
 
   return (
     <div className="questions-details">
@@ -57,9 +46,13 @@ export const QuestionsDetails = ({ question }: PropsQuestionsDetails) => {
               skills={question.questionSkills}
             />
             <div className="questions-details__author-wrap">
+              {shouldShowAuthorInfo &&
               <div className="questions-details__author-info">
-                <span>Автор:</span> {author.firstName} {author.lastName}
+                <span>Автор:</span> {question?.createdBy?.firstName}{" "}
+                {question?.createdBy?.lastName}
               </div>
+              }
+
             </div>
           </div>
         </div>

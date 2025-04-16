@@ -19,6 +19,7 @@ const QuestionChars = ({
   return (
     <div className="questions-chars">
       <div className="questions-chars__inner">
+
         <div className="questions-chars__level">
           <div className="questions-chars__level-label">Уровень:</div>
           <div className="questions-chars__tags">
@@ -26,6 +27,7 @@ const QuestionChars = ({
             <UiTag label="Рейтинг" value={rate} />
           </div>
         </div>
+
         <div className="questions-chars__skills">
           <div className="questions-chars__skills-label">Навыки:</div>
           <div className="questions-chars__skills-items">
@@ -40,6 +42,7 @@ const QuestionChars = ({
             ))}
           </div>
         </div>
+
         <div className="questions-chars__keywords">
           <div className="questions-chars__keywords-label">Ключевые слова:</div>
           <div className="questions-chars__keywords-list">
@@ -51,6 +54,7 @@ const QuestionChars = ({
             ))}
           </div>
         </div>
+
       </div>
     </div>
   );

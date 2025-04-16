@@ -11,11 +11,13 @@ export const SelectRate = () => {
     chooseRate,
     "rate",
   );
+
   const rateList = useSelector((state: AppStateType) => state.rate.rateList);
 
   useEffect(() => {
     defineParamsInState();
   }, []);
+
   return (
     <div>
       <UiSelect

@@ -16,12 +16,15 @@ export const SelectSkills = ({
     chooseSkills,
     "skills",
   );
+
   const list: ISelectItem[] = useSelector(
     (state: AppStateType) => state.skills.formattedSkills,
   );
+
   useEffect(() => {
     defineParamsInState();
   }, []);
+
   return (
     <div className="select-skills">
       <UiSelect

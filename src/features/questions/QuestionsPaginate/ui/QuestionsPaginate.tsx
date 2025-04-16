@@ -10,8 +10,10 @@ export const QuestionsPaginate = () => {
   const questionsPaginateParams: IQuestionsPaginateParams = useSelector(
     (state: AppStateType) => state.questions.questionsPaginateParams,
   );
+
   const [searchParams, setSearchParams]: [URLSearchParams, SetURLSearchParams] =
     useSearchParams();
+
   const [paginateParams, nextPage, selectPage, prevPage] = useQuestionsPaginate(
     {
       questionsPaginateParams,

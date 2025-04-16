@@ -1,12 +1,6 @@
 import { ISpecialization } from "@/entities/specializations";
 import { ISkill } from "@/entities/skills";
 
-interface ICreatedBy {
-  userId: string;
-  firstName: string;
-  lastName: string;
-}
-
 export interface IQuestionsPaginateParams {
   page: 1;
   limit: 7;
@@ -17,6 +11,13 @@ export interface IQuestionsSliceInitialState {
   questions: IQuestion[];
   questionDetails: IQuestion;
   questionsPaginateParams: IQuestionsPaginateParams;
+}
+
+interface ICreatedBy {
+  userId?: number;
+  username?: string;
+  firstName?: string;
+  lastName?: string;
 }
 
 interface IQuestion {
@@ -33,8 +34,8 @@ interface IQuestion {
   complexity: number;
   createdAt: Date | null;
   updatedAt: Date | null;
-  createdBy: string;
-  updatedBy: string;
+  createdBy: ICreatedBy;
+  updatedBy: ICreatedBy;
   questionSpecializations: ISpecialization[];
   questionSkills: ISkill[];
 }

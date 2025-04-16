@@ -18,14 +18,17 @@ const QuestionsPageContent = () => {
   const questionsPaginateParams: IQuestionsPaginateParams = useSelector(
     (state: AppStateType) => state.questions.questionsPaginateParams,
   );
+
   const complexityList: ISelectItem[] = useSelector(
     (state: AppStateType) => state.complexity.complexityList,
   );
+
   const [searchParams] = useSearchParams();
 
   const questions: IQuestion[] = useSelector(
     (state: AppStateType) => state.questions.questions,
   );
+
   const { isLoading: isQuestionsLoading, error: isQuestionsError } =
     useGetQuestionsQuery(
       defineParams({

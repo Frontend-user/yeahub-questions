@@ -11,19 +11,20 @@ import { AppStateType } from "@/app/AppStore.ts";
 import { getComplexityIdsByQuery } from "@/pages/interview/QuestionsPage/libs/helpers.ts";
 import { GetMockQuizButton } from "@/features/interview/GetMockQuizButton";
 import { PageRoutes } from "@/widgets/page-routes";
-
+interface IStaticParams {
+  [key: string]: string | string[] | number[];
+}
 const InterviewPage = () => {
+
   const complexityList: ISelectItem[] = useSelector(
     (state: AppStateType) => state.complexity.complexityList,
   );
+
   const [trigger] = useLazyGetMockQuizzesQuery();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [params, setParams] = useState({});
 
-  interface IStaticParams {
-    [key: string]: string | string[] | number[];
-  }
 
   useEffect(() => {
     const queryKeys = Array.from(new Set(searchParams.keys()));
@@ -47,11 +48,14 @@ const InterviewPage = () => {
 
     setParams(staticParams);
   }, [searchParams]);
+
   const getMockQuizzes = async () => {
     await trigger(params);
     navigate(`/${PAGES.MOCK_QUIZ}`);
   };
+
   useGetSkillsQuery({ limit: 15 });
+
   return (
     <div className={classes.interviewPage}>
       <div className={classes.routeWrap}>
