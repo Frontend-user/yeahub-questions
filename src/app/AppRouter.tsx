@@ -10,6 +10,7 @@ import { InterviewPage } from "@/pages/interview/InterviewPage";
 import { MainPage } from "@/pages/MainPage";
 import { LoginPage } from "@/pages/auth/LoginPage";
 import { RegistrationPage } from "@/pages/auth/RegistrationPage";
+import AuthMiddleware from "@/app/middlewares/AuthMiddleware.tsx";
 
 const routes: RouteObject[] = [
   {
@@ -18,7 +19,11 @@ const routes: RouteObject[] = [
     children: [
       {
         path: "/",
-        element: <MainPage />,
+        element: (
+          <AuthMiddleware>
+            <MainPage />
+          </AuthMiddleware>
+        ),
       },
       {
         path: `/${PAGES.LOGIN}`,

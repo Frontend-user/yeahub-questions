@@ -1,6 +1,6 @@
-.ui-input-search{
+.ui-input-search {
   width: 100%;
-  border: 1px solid #E8E8E8;
+  border: 1px solid #e8e8e8;
   border-radius: 68px;
 
   &__inner {
@@ -8,13 +8,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
 
   &__icon {
     margin-right: 8px;
   }
-
 
   &__field {
     width: 100%;
@@ -23,11 +21,10 @@
     font-weight: 500;
     border: none;
     outline: none;
-  &::placeholder {
-    color: #A3A3A3;
-    font-weight: 400;
-    font-size: 16px;
-
-  }
+    &::placeholder {
+      color: #a3a3a3;
+      font-weight: 400;
+      font-size: 16px;
+    }
   }
 }

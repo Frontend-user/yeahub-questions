@@ -1,29 +1,34 @@
 import { IROUTE_NAMES } from "@/shared/types/types.ts";
 
-export const API_TOKEN = import.meta.env.VITE_API_TOKEN
-export const API_URL = import.meta.env.VITE_API_URL
+export const API_TOKEN = import.meta.env.VITE_API_TOKEN;
+export const API_URL = import.meta.env.VITE_API_URL;
 export const API_ROUTES = {
-    QUESTIONS: "questions/public-questions",
-    SPECIALIZATIONS: 'specializations',
-    SKILLS: 'skills',
-    SIGN_UP:'auth/signUp',
-    LOGIN:'auth/login',
-    MOCK_QUIZZES:'interview-preparation/quizzes/mock/new'
-}
+  QUESTIONS: "questions/public-questions",
+  SPECIALIZATIONS: "specializations",
+  SKILLS: "skills",
+  AUTH: {
+    SIGN_UP: "auth/signUp",
+    PROFILE: "auth/profile",
+    LOGIN: "auth/login",
+    LOGOUT: "auth/logout",
+  },
+  MOCK_QUIZZES: "interview-preparation/quizzes/mock/new",
+};
 
 export const enum REQUEST_STATUSES {
-    USER_EXIST =  409,
-    UNAUTHORIZED =  401,
+  USER_EXIST = 409,
+  UNAUTHORIZED = 401,
 }
+
 export const enum PAGES {
-    INTERVIEW = 'interview',
-    QUESTIONS= 'questions',
-    REGISTRATION= 'registration',
-    MAIN_PAGE='/',
-    LOGIN= 'login',
-    QUESTION_ID= '/question-details/:questionId',
-    MOCK_QUIZ= 'interview/mock-quiz',
-    PASSED_QUESTIONS= 'interview/passed-questions',
+  INTERVIEW = "interview",
+  QUESTIONS = "questions",
+  REGISTRATION = "registration",
+  MAIN_PAGE = "/",
+  LOGIN = "login",
+  QUESTION_ID = "/question-details/:questionId",
+  MOCK_QUIZ = "interview/mock-quiz",
+  PASSED_QUESTIONS = "interview/passed-questions",
 }
 
 export const ROUTE_NAMES: IROUTE_NAMES = {

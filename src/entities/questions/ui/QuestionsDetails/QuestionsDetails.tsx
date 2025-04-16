@@ -14,7 +14,8 @@ interface PropsQuestionsDetails {
 }
 
 export const QuestionsDetails = ({ question }: PropsQuestionsDetails) => {
-  const shouldShowAuthorInfo = question?.createdBy?.firstName || question?.createdBy.lastName
+  const shouldShowAuthorInfo =
+    question?.createdBy?.firstName || question?.createdBy.lastName;
 
   return (
     <div className="questions-details">
@@ -46,13 +47,12 @@ export const QuestionsDetails = ({ question }: PropsQuestionsDetails) => {
               skills={question.questionSkills}
             />
             <div className="questions-details__author-wrap">
-              {shouldShowAuthorInfo &&
-              <div className="questions-details__author-info">
-                <span>Автор:</span> {question?.createdBy?.firstName}{" "}
-                {question?.createdBy?.lastName}
-              </div>
-              }
-
+              {shouldShowAuthorInfo && (
+                <div className="questions-details__author-info">
+                  <span>Автор:</span> {question?.createdBy?.firstName}{" "}
+                  {question?.createdBy?.lastName}
+                </div>
+              )}
             </div>
           </div>
         </div>

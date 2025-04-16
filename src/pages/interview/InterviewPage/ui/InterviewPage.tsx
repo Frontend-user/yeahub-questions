@@ -15,7 +15,6 @@ interface IStaticParams {
   [key: string]: string | string[] | number[];
 }
 const InterviewPage = () => {
-
   const complexityList: ISelectItem[] = useSelector(
     (state: AppStateType) => state.complexity.complexityList,
   );
@@ -24,7 +23,6 @@ const InterviewPage = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [params, setParams] = useState({});
-
 
   useEffect(() => {
     const queryKeys = Array.from(new Set(searchParams.keys()));

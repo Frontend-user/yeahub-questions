@@ -12,7 +12,6 @@ const UiProgressBar = ({
   allCount,
   passedCount,
 }: PropsUiProgressBar) => {
-
   const progressRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {

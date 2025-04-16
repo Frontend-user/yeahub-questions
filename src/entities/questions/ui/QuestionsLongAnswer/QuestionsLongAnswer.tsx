@@ -14,13 +14,11 @@ const QuestionsLongAnswer = ({ longAnswer }: QuestionsLongAnswerProps) => {
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
-
     if (contentRef.current) {
       const fullHeight = contentRef.current.scrollHeight;
       const newHeight = showAll ? fullHeight : fullHeight * 0.3;
       contentRef.current.style.setProperty("--max-height", `${newHeight}px`);
     }
-
   }, [showAll, longAnswer]);
 
   return (

@@ -17,7 +17,6 @@ export const UserNameValidationOptions = {
     message: VALIDATION_ERRORS.USERNAME.PATTERN,
   },
 };
-
 export const defineApiErrors = (result: IRTKMutationResulT) => {
   if (!result.isUninitialized) {
     const error = result.error;

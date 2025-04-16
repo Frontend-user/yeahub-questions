@@ -1,8 +1,6 @@
-
 export type RegisterFormInputs = {
-    username: string
-    email: string
-    password: string
-    confirmPassword: string
-}
-
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};

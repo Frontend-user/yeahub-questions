@@ -1,6 +1,5 @@
 import classes from "./LoginForm.module.scss";
 import UiInput from "@/shared/ui/UiInput/UiInput.tsx";
-import { defineApiErrors } from "@/features/auth/ui/RegisterForm/model/validations.ts";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import { SubmitHandler, useForm } from "react-hook-form";
 import {
@@ -9,7 +8,13 @@ import {
   passwordValidationOptions,
 } from "@/features/auth/model/validations.ts";
 import { LoginFormInputs } from "@/features/auth/ui/LoginForm/model/types.ts";
-import { useLoginMutation } from "@/entities/auth";
+import { setIsAuth, useLoginMutation } from "@/entities/auth";
+import { useHandleResponse } from "@/features/auth/hooks/useHandleResponse.ts";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { PAGES } from "@/shared/constats/constats.ts";
+import { saveCookie } from "@/shared/lib/utils/saveCookie.ts";
+import { useDispatch } from "react-redux";
 
 export const LoginForm = () => {
   const [login, result] = useLoginMutation();
@@ -24,6 +29,8 @@ export const LoginForm = () => {
       password: "",
     },
   });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<LoginFormInputs> = (body) => {
     login(body);
@@ -31,16 +38,26 @@ export const LoginForm = () => {
   };
 
   const formErrors = defineFormErrors(errors);
-  const apiErrors = defineApiErrors(result);
+
+  const { responseError, accessToken } = useHandleResponse(result);
+
+  useEffect(() => {
+    if (accessToken) {
+      saveCookie("Authorization", `Bearer ${accessToken}`);
+      saveCookie("isAuth", "true");
+      navigate(`${PAGES.MAIN_PAGE}`);
+      dispatch(setIsAuth(true));
+    }
+  }, [accessToken]);
   return (
     <div className={classes.wrapper}>
       <h3 onClick={handleSubmit(onSubmit)} className={classes.title}>
         Вход в личный кабинет
       </h3>
       <form onSubmit={handleSubmit(onSubmit)} className={classes.loginForm}>
-        {apiErrors && !formErrors && (
+        {responseError && !formErrors && (
           <div className={classes.errorsField}>
-            {apiErrors}
+            {responseError}
             <br />
             <br />
           </div>

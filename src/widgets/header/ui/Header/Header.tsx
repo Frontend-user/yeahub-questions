@@ -4,12 +4,17 @@ import { NavLink, useSearchParams } from "react-router-dom";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 import { PAGES } from "@/shared/constats/constats.ts";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
+import { isUserAuthenticated } from "@/entities/auth";
+import { useSelector } from "react-redux";
+import { LogoutButton } from "@/features/auth/ui/LogoutButton";
 
 const Header = () => {
   const [, setSearchParams] = useSearchParams();
   const resetQueries = () => {
     setSearchParams({});
   };
+
+  const isUserAuthenticatedSelector = useSelector(isUserAuthenticated);
   return (
     <div className="header">
       <div className="header__inner wrapper">
@@ -39,12 +44,18 @@ const Header = () => {
         </div>
         <div></div>
         <div className="header__auth">
-          <NavLink to={`/${PAGES.LOGIN}`} className="header__nav-item">
-            <UiButton type="secondary">Вход</UiButton>
-          </NavLink>
-          <NavLink to={PAGES.REGISTRATION} className="header__nav-item">
-            <UiButton>Регистрация</UiButton>
-          </NavLink>
+          {isUserAuthenticatedSelector ? (
+            <LogoutButton />
+          ) : (
+            <>
+              <NavLink to={`/${PAGES.LOGIN}`} className="header__nav-item">
+                <UiButton type="secondary">Вход</UiButton>
+              </NavLink>
+              <NavLink to={PAGES.REGISTRATION} className="header__nav-item">
+                <UiButton>Регистрация</UiButton>
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </div>

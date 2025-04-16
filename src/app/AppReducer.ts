@@ -6,6 +6,7 @@ import { complexitySlice } from "@/entities/complexity";
 import { rateSlice } from "@/entities/rate";
 import { commonApi } from "@/shared/api/commonApi.ts";
 import { interviewPreparationSlice } from "@/entities/interview-preparation";
+import { authSlice } from "@/entities/auth";
 
 export const rootReducer = combineReducers({
   [commonApi.reducerPath]: commonApi.reducer,
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
   skills: skillsSlice.reducer,
   complexity: complexitySlice.reducer,
   rate: rateSlice.reducer,
+  authSlice: authSlice.reducer,
 });
