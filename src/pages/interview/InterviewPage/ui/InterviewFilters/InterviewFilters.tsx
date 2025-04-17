@@ -1,7 +1,7 @@
 import classes from "./InterviewFilters.module.scss";
 import { SelectSkills } from "@/features/skills/SelectSkills";
-import { SelectComplexity } from "@/features/complexity/SelectComplexity";
 import { SetQuestionsCount } from "@/features/interview/SetQuestionsCount";
+import { SelectComplexity } from "@/features/questions/SelectComplexity";
 
 const InterviewFilters = () => {
   return (

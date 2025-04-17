@@ -1,5 +1,6 @@
 import { ISpecialization } from "@/entities/specializations";
 import { ISkill } from "@/entities/skills";
+import { ISelectItem } from "@/shared/types/types.ts";
 
 export interface IQuestionsPaginateParams {
   page: 1;
@@ -8,6 +9,8 @@ export interface IQuestionsPaginateParams {
 }
 
 export interface IQuestionsSliceInitialState {
+  complexityList: ISelectItem[];
+  rateList: ISelectItem[];
   questions: IQuestion[];
   questionDetails: IQuestion;
   questionsPaginateParams: IQuestionsPaginateParams;

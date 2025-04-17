@@ -16,7 +16,7 @@ interface IStaticParams {
 }
 const InterviewPage = () => {
   const complexityList: ISelectItem[] = useSelector(
-    (state: AppStateType) => state.complexity.complexityList,
+    (state: AppStateType) => state.questions.complexityList,
   );
 
   const [trigger] = useLazyGetMockQuizzesQuery();
