@@ -1,15 +1,14 @@
 import { useEffect } from "react";
 import "./SelectRate.scss";
 import UiSelect from "@/shared/ui/UiSelect/UiSelect.tsx";
-import { useSelector } from "react-redux";
-import { AppStateType } from "@/app/AppStore.ts";
 import { useChangeParams } from "@/shared/hooks/useChangeParams.ts";
-import { chooseRate } from "@/entities/questions";
+import { chooseRate, getRateList } from "@/entities/questions";
+import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
 
 export const SelectRate = () => {
   const [onHandleChooseRate, defineParamsInState] = useChangeParams(chooseRate, "rate");
 
-  const rateList = useSelector((state: AppStateType) => state.questions.rateList);
+  const rateList = useAppSelector(getRateList);
 
   useEffect(() => {
     defineParamsInState();

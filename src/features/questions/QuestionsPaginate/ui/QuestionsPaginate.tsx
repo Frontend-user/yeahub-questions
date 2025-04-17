@@ -1,16 +1,12 @@
 import "./QuestionsPaginate.scss";
 import UiPaginate from "@/shared/ui/UiPaginate/ui/UiPaginate.tsx";
-import { useSelector } from "react-redux";
-import { AppStateType } from "@/app/AppStore.ts";
 import { SetURLSearchParams, useSearchParams } from "react-router-dom";
 import { useQuestionsPaginate } from "@/features/questions/QuestionsPaginate/hooks/useQuestionsPaginate.tsx";
-import { IQuestionsPaginateParams } from "@/entities/questions";
+import { getQuestionsPaginateParams, IQuestionsPaginateParams } from "@/entities/questions";
+import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
 
 export const QuestionsPaginate = () => {
-  const questionsPaginateParams: IQuestionsPaginateParams = useSelector(
-    (state: AppStateType) => state.questions.questionsPaginateParams,
-  );
-
+  const questionsPaginateParams: IQuestionsPaginateParams = useAppSelector(getQuestionsPaginateParams)
   const [searchParams, setSearchParams]: [URLSearchParams, SetURLSearchParams] = useSearchParams();
 
   const [paginateParams, nextPage, selectPage, prevPage] = useQuestionsPaginate({

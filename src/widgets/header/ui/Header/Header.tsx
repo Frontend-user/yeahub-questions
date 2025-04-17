@@ -4,9 +4,9 @@ import { NavLink, useSearchParams } from "react-router-dom";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 import { PAGES } from "@/shared/constats/constats.ts";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
-import { isUserAuthenticated } from "@/entities/auth";
-import { useSelector } from "react-redux";
 import { LogoutButton } from "@/features/auth/ui/LogoutButton";
+import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
+import { getIsUserAuthenticated } from "@/entities/auth";
 
 const Header = () => {
   const [, setSearchParams] = useSearchParams();
@@ -14,7 +14,8 @@ const Header = () => {
     setSearchParams({});
   };
 
-  const isUserAuthenticatedSelector = useSelector(isUserAuthenticated);
+  const isUserAuthenticatedSelector = useAppSelector(getIsUserAuthenticated);
+
   return (
     <div className="header">
       <div className="header__inner wrapper">
