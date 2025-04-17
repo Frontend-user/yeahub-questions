@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 import { DEFAULT_DEBOUNCE_DELAY } from "@/shared/constats/constats.ts";
 
-export const useDebouncedCallback = <T extends (...args: unknown[]) => void>(
+export const useDebouncedCallback = <T extends (...args: string[]) => void>(
   func: T,
   delay: number = DEFAULT_DEBOUNCE_DELAY,
 ) => {
