@@ -6,6 +6,14 @@ const questionsSlice = createSlice({
   name: "questions",
   initialState: questionsInitialState,
   reducers: {
+    chooseRate: (state, action) => {
+      const choosedRateId = action.payload;
+      state.rateList.forEach((rateItem) => {
+        if (rateItem.id === choosedRateId) {
+          rateItem.selected = !rateItem.selected;
+        }
+      });
+    },
     setQuestionDetails: (state, action: PayloadAction<IQuestion>) => {
       state.questionDetails = action.payload;
     },
@@ -21,6 +29,6 @@ const questionsSlice = createSlice({
     },
   },
 });
-export const { addQuestion, setQuestionsList, setQuestionDetails, setQuestionsPaginateParams } =
+export const { addQuestion, chooseRate,  setQuestionsList, setQuestionDetails, setQuestionsPaginateParams } =
   questionsSlice.actions;
 export { questionsSlice };

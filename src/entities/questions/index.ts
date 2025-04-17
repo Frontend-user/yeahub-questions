@@ -10,6 +10,7 @@ export {
   addQuestion,
   setQuestionsPaginateParams,
   setQuestionsList,
+  chooseRate
 } from "@/entities/questions/model/questionsSlice.ts";
 
 export type {
