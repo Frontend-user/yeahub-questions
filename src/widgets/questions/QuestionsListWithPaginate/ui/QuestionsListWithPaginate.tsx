@@ -16,7 +16,6 @@ export const QuestionsListWithPaginate = () => {
   );
 
   const showPaginate = useMemo(() => {
-
     if (questionsPaginateParams.total) {
       return (
         Math.ceil(

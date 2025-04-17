@@ -1,5 +1,13 @@
+import { useProfileQuery } from "@/entities/auth";
+
 const MainPage = () => {
-  return <div>MainPage</div>;
+  const { data } = useProfileQuery({});
+
+  return (
+    <div>
+      <h1>Привет {data?.username}!</h1>
+    </div>
+  );
 };
 
 export default MainPage;

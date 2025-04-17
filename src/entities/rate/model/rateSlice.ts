@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { rateInitialState } from "@/entities/rate/libs/constants.ts";
 
 const rateSlice = createSlice({
-  name: "createSlice",
+  name: "rateSlice",
   initialState: rateInitialState,
   reducers: {
     chooseRate: (state, action) => {

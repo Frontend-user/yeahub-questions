@@ -19,7 +19,6 @@ const QuestionChars = ({
   return (
     <div className="questions-chars">
       <div className="questions-chars__inner">
-
         <div className="questions-chars__level">
           <div className="questions-chars__level-label">Уровень:</div>
           <div className="questions-chars__tags">
@@ -54,7 +53,6 @@ const QuestionChars = ({
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );

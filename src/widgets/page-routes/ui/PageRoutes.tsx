@@ -21,7 +21,6 @@ export const PageRoutes = () => {
         name: ROUTE_NAMES[name].name,
         isActive: currentPageName === name,
       });
-
     });
 
     return pageRoutes;
