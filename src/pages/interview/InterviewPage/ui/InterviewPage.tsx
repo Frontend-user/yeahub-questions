@@ -14,7 +14,6 @@ interface IStaticParams {
   [key: string]: string | string[] | number[];
 }
 const InterviewPage = () => {
-
   const complexityList = useAppSelector(getComplexityList);
 
   const [trigger] = useLazyGetMockQuizzesQuery();

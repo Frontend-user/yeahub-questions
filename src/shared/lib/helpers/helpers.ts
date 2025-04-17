@@ -15,6 +15,8 @@ export function isImageExists(url?: string | null): Promise<boolean> {
 export const parseJwt = (token: string) => {
   try {
     const base64Url = token.split(".")[1];
+    if (!base64Url) return null;
+
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     const jsonPayload = decodeURIComponent(
       atob(base64)
@@ -25,14 +27,17 @@ export const parseJwt = (token: string) => {
 
     return JSON.parse(jsonPayload);
   } catch (e) {
+    console.log(e);
     return null;
   }
 };
 
-export const getTokenExpiredSecsLeft = (token: string) => {
+export const getTokenExpiredSecsLeft = (token: string | undefined) => {
   if (!token) return -1;
   const decodedToken = parseJwt(token);
-  const expTime = decodedToken.exp * 1000;
+  if (!decodedToken) return -1;
+
+  const expTime = decodedToken?.exp * 1000;
   const currentTime = Date.now();
   const timeLeftMs = expTime - currentTime;
   const timeLeftSec = Math.max(Math.floor(timeLeftMs / 1000), 0);

@@ -11,7 +11,7 @@ export const LogoutButton = () => {
   const dispatch = useAppDispatch();
 
   const deleteAccessToken = () => {
-    trigger();
+    trigger({});
     saveCookie("Authorization", "");
     saveCookie("isAuth", "false");
     dispatch(setIsAuth(false));

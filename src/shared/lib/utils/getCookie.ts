@@ -1,7 +1,10 @@
-export const getCookie = (name: string | undefined) => {
+export const getCookie = (name?: string) => {
   if (!name) return "";
-  let matches = document.cookie.match(
-    new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"),
-  );
+
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  const regex = new RegExp(`(?:^|; )${escapedName}=([^;]*)`);
+
+  const matches = document.cookie.match(regex);
   return matches ? decodeURIComponent(matches[1]) : undefined;
 };

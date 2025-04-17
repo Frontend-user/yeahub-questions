@@ -1,12 +1,11 @@
 import "./UiInput.scss";
 
 interface UiInputProps {
-  value?: any;
+  value?: string | number;
   type?: string;
   placeholder?: string;
   className?: string;
   variant?: string;
-  onChange: (v: any) => void;
 }
 
 const UiInput = ({ ...rest }: UiInputProps) => {

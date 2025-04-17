@@ -6,8 +6,8 @@ import { QuestionsPaginate } from "@/features/questions/QuestionsPaginate";
 import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
 
 export const QuestionsListWithPaginate = () => {
-  const questionsPaginateParams = useAppSelector(getQuestionsPaginateParams)
-  const questions:IQuestion[] = useAppSelector(getQuestions)
+  const questionsPaginateParams = useAppSelector(getQuestionsPaginateParams);
+  const questions: IQuestion[] = useAppSelector(getQuestions);
 
   const showPaginate = useMemo(() => {
     if (questionsPaginateParams.total) {

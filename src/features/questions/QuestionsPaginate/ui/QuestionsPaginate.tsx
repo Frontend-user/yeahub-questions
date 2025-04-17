@@ -6,7 +6,9 @@ import { getQuestionsPaginateParams, IQuestionsPaginateParams } from "@/entities
 import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
 
 export const QuestionsPaginate = () => {
-  const questionsPaginateParams: IQuestionsPaginateParams = useAppSelector(getQuestionsPaginateParams)
+  const questionsPaginateParams: IQuestionsPaginateParams = useAppSelector(
+    getQuestionsPaginateParams,
+  );
   const [searchParams, setSearchParams]: [URLSearchParams, SetURLSearchParams] = useSearchParams();
 
   const [paginateParams, nextPage, selectPage, prevPage] = useQuestionsPaginate({

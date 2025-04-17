@@ -7,4 +7,4 @@ export {
   useLogoutQuery,
 } from "./api/authApi";
 export { authSlice, setIsAuth } from "./model/authSlice";
-export {getIsUserAuthenticated} from './model/selectors/authSelectors'
+export { getIsUserAuthenticated } from "./model/selectors/authSelectors";

@@ -1,6 +1,8 @@
 import { QuestionsSkeleton } from "@/widgets/questions/QuestionsSkeleton";
 import {
-  getComplexityList, getQuestions, getQuestionsPaginateParams,
+  getComplexityList,
+  getQuestions,
+  getQuestionsPaginateParams,
   IQuestion,
   IQuestionsPaginateParams,
   QuestionsFetchError,
@@ -15,10 +17,11 @@ import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
 import { ISelectItem } from "@/shared/types/types.ts";
 
 const QuestionsPageContent = () => {
-
-  const questionsPaginateParams: IQuestionsPaginateParams = useAppSelector(getQuestionsPaginateParams);
+  const questionsPaginateParams: IQuestionsPaginateParams = useAppSelector(
+    getQuestionsPaginateParams,
+  );
   const complexityList: ISelectItem[] = useAppSelector(getComplexityList);
-  const questions: IQuestion[] = useAppSelector(getQuestions)
+  const questions: IQuestion[] = useAppSelector(getQuestions);
 
   const [searchParams] = useSearchParams();
 

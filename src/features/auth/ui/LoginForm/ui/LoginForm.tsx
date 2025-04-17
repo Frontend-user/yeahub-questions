@@ -19,7 +19,7 @@ import { useAppDispatch } from "@/shared/hooks/useAppSelector.ts";
 export const LoginForm = () => {
   const [login, result] = useLoginMutation();
 
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const {
     register,

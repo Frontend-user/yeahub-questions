@@ -25,4 +25,9 @@ export {
   resetMockPassage,
 } from "./model/interviewPreparationSlice.ts";
 
-export {getMockQuestionList,getCurrentMockQuestion,getTotalPages,getCurrentPage} from './model/selectors/interviewPreparationSelectors'
+export {
+  getMockQuestionList,
+  getCurrentMockQuestion,
+  getTotalPages,
+  getCurrentPage,
+} from "./model/selectors/interviewPreparationSelectors";

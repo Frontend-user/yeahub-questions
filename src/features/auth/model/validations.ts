@@ -1,4 +1,5 @@
 import { VALIDATION_ERRORS } from "@/features/auth/libs/constants.ts";
+import { FormErrors } from "@/features/auth/model/types.ts";
 
 export const emailValidationOptions = {
   required: { value: true, message: VALIDATION_ERRORS.EMAIL.REQUIRED },
@@ -18,7 +19,7 @@ export const passwordValidationOptions = {
     message: VALIDATION_ERRORS.PASSWORD.PATTERN,
   },
 };
-export const defineFormErrors = (errors) => {
+export const defineFormErrors = (errors: FormErrors) => {
   if (errors.username) {
     return errors.username.message;
   }

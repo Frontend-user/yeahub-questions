@@ -37,6 +37,12 @@ const questionsSlice = createSlice({
     },
   },
 });
-export const { addQuestion, chooseRate,chooseComplexity,  setQuestionsList, setQuestionDetails, setQuestionsPaginateParams } =
-  questionsSlice.actions;
+export const {
+  addQuestion,
+  chooseRate,
+  chooseComplexity,
+  setQuestionsList,
+  setQuestionDetails,
+  setQuestionsPaginateParams,
+} = questionsSlice.actions;
 export { questionsSlice };

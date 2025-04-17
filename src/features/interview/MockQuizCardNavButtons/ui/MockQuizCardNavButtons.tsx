@@ -1,6 +1,7 @@
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import {
-  getCurrentPage, getTotalPages,
+  getCurrentPage,
+  getTotalPages,
   nextPageAction,
   prevPageAction,
   selectCurrentMockQuestion,
