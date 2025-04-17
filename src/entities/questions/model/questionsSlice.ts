@@ -14,6 +14,14 @@ const questionsSlice = createSlice({
         }
       });
     },
+    chooseComplexity: (state, action) => {
+      const choosedId = action.payload;
+      state.complexityList.forEach((complexityItem) => {
+        if (complexityItem.id === choosedId) {
+          complexityItem.selected = !complexityItem.selected;
+        }
+      });
+    },
     setQuestionDetails: (state, action: PayloadAction<IQuestion>) => {
       state.questionDetails = action.payload;
     },
@@ -29,6 +37,6 @@ const questionsSlice = createSlice({
     },
   },
 });
-export const { addQuestion, chooseRate,  setQuestionsList, setQuestionDetails, setQuestionsPaginateParams } =
+export const { addQuestion, chooseRate,chooseComplexity,  setQuestionsList, setQuestionDetails, setQuestionsPaginateParams } =
   questionsSlice.actions;
 export { questionsSlice };

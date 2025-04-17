@@ -20,7 +20,7 @@ const QuestionsPageContent = () => {
   );
 
   const complexityList: ISelectItem[] = useSelector(
-    (state: AppStateType) => state.complexity.complexityList,
+    (state: AppStateType) => state.questions.complexityList,
   );
 
   const [searchParams] = useSearchParams();

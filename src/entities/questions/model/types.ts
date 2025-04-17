@@ -9,6 +9,7 @@ export interface IQuestionsPaginateParams {
 }
 
 export interface IQuestionsSliceInitialState {
+  complexityList: ISelectItem[];
   rateList: ISelectItem[];
   questions: IQuestion[];
   questionDetails: IQuestion;

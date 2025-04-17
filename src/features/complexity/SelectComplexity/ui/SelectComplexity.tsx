@@ -3,11 +3,11 @@ import "./SelectComplexity.scss";
 import UiSelect from "@/shared/ui/UiSelect/UiSelect.tsx";
 import { useSelector } from "react-redux";
 import { AppStateType } from "@/app/AppStore.ts";
-import { chooseComplexity } from "@/entities/complexity";
 import { useChangeParams } from "@/shared/hooks/useChangeParams.ts";
+import { chooseComplexity } from "@/entities/questions/model/questionsSlice.ts";
 
 export const SelectComplexity = () => {
-  const list = useSelector((state: AppStateType) => state.complexity.complexityList);
+  const list = useSelector((state: AppStateType) => state.questions.complexityList);
 
   const [onHandleClick, defineParamsInState] = useChangeParams(chooseComplexity, "complexity");
 
