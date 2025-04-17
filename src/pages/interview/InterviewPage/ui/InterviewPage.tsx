@@ -2,22 +2,20 @@ import classes from "./InterviewPage.module.scss";
 import { useGetSkillsQuery } from "@/entities/skills";
 import { PAGES } from "@/shared/constats/constats.ts";
 import InterviewFilters from "@/pages/interview/InterviewPage/ui/InterviewFilters/InterviewFilters.tsx";
-import { ISelectItem } from "@/shared/types/types.ts";
 import { useLazyGetMockQuizzesQuery } from "@/entities/interview-preparation";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { AppStateType } from "@/app/AppStore.ts";
 import { getComplexityIdsByQuery } from "@/pages/interview/QuestionsPage/libs/helpers.ts";
 import { GetMockQuizButton } from "@/features/interview/GetMockQuizButton";
 import { PageRoutes } from "@/widgets/page-routes";
+import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
+import { getComplexityList } from "@/entities/questions";
 interface IStaticParams {
   [key: string]: string | string[] | number[];
 }
 const InterviewPage = () => {
-  const complexityList: ISelectItem[] = useSelector(
-    (state: AppStateType) => state.questions.complexityList,
-  );
+
+  const complexityList = useAppSelector(getComplexityList);
 
   const [trigger] = useLazyGetMockQuizzesQuery();
   const [searchParams] = useSearchParams();

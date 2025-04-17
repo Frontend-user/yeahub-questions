@@ -6,3 +6,5 @@ export {
   setFormattedSkillsList,
   skillsSlice,
 } from "./model/skillsSlice.ts";
+
+export { getFormattedSkills } from "./model/selectors/skillsSelectors";

@@ -14,10 +14,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { PAGES } from "@/shared/constats/constats.ts";
 import { saveCookie } from "@/shared/lib/utils/saveCookie.ts";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "@/shared/hooks/useAppSelector.ts";
 
 export const LoginForm = () => {
   const [login, result] = useLoginMutation();
+
+  const dispatch = useAppDispatch()
+
   const {
     register,
     handleSubmit,
@@ -30,7 +33,6 @@ export const LoginForm = () => {
     },
   });
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<LoginFormInputs> = (body) => {
     login(body);

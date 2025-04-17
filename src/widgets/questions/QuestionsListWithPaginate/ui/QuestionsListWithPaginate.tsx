@@ -1,17 +1,13 @@
 import { useMemo } from "react";
 import "./QuestionsListWithPaginate.scss";
 import { QuestionsList } from "@/widgets/questions/QuestionsList";
-import { useSelector } from "react-redux";
-import { IQuestion } from "@/entities/questions";
-import { AppStateType } from "@/app/AppStore";
+import { getQuestions, getQuestionsPaginateParams, IQuestion } from "@/entities/questions";
 import { QuestionsPaginate } from "@/features/questions/QuestionsPaginate";
+import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
 
 export const QuestionsListWithPaginate = () => {
-  const questionsPaginateParams = useSelector(
-    (state: AppStateType) => state.questions.questionsPaginateParams,
-  );
-
-  const questions: IQuestion[] = useSelector((state: AppStateType) => state.questions.questions);
+  const questionsPaginateParams = useAppSelector(getQuestionsPaginateParams)
+  const questions:IQuestion[] = useAppSelector(getQuestions)
 
   const showPaginate = useMemo(() => {
     if (questionsPaginateParams.total) {

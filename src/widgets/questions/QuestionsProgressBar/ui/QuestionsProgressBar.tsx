@@ -1,11 +1,10 @@
 import UiProgressBar from "@/shared/ui/UiProgressBar/UiProgressBar";
-import { useSelector } from "react-redux";
-import { AppStateType } from "@/app/AppStore";
+import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
+import { getCurrentPage, getTotalPages } from "@/entities/interview-preparation";
 
 export const QuestionsProgressBar = () => {
-  const totalPages = useSelector((state: AppStateType) => state.interviewPreparation.totalPages);
-
-  const currentPage = useSelector((state: AppStateType) => state.interviewPreparation.currentPage);
+  const currentPage = useAppSelector(getCurrentPage);
+  const totalPages = useAppSelector(getTotalPages);
 
   return (
     <div>

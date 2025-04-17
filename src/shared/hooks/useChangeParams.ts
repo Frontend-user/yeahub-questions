@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { SELECT_TYPE } from "@/shared/constats/constats.ts";
+import { useAppDispatch } from "@/shared/hooks/useAppSelector.ts";
 
 interface UseChangeParamsReturnType {
   onHandleClick: (id: number) => void;
@@ -19,7 +19,7 @@ export const useChangeParams = (
   selectType = SELECT_TYPE.MANY_ITEMS,
 ): UseChangeParamsFnReturnType => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   function onHandleClick(id: number) {
     searchParams.set("page", "1");

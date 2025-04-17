@@ -1,11 +1,11 @@
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import {
+  getCurrentPage, getTotalPages,
   nextPageAction,
   prevPageAction,
   selectCurrentMockQuestion,
 } from "@/entities/interview-preparation";
-import { useDispatch, useSelector } from "react-redux";
-import { AppStateType } from "@/app/AppStore.ts";
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/useAppSelector.ts";
 
 interface MockQuizCardNavButtonsProps {
   nextQuestionId: null | number;
@@ -20,9 +20,10 @@ export const MockQuizCardNavButtons = ({
   prevQuestionId,
   showAnswer,
 }: MockQuizCardNavButtonsProps) => {
-  const dispatch = useDispatch();
-  const currentPage = useSelector((state: AppStateType) => state.interviewPreparation.currentPage);
-  const totalPages = useSelector((state: AppStateType) => state.interviewPreparation.totalPages);
+  const currentPage = useAppSelector(getCurrentPage);
+  const totalPages = useAppSelector(getTotalPages);
+
+  const dispatch = useAppDispatch();
 
   const nextPage = () => {
     if (showAnswer) {
