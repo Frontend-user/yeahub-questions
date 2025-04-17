@@ -21,8 +21,4 @@ interface IPassedQuestionCardProps {
   isUserKnow: boolean;
 }
 
-export type {
-  IMockQuestion,
-  IInterviewPreparationsInitialState,
-  IPassedQuestionCardProps,
-};
+export type { IMockQuestion, IInterviewPreparationsInitialState, IPassedQuestionCardProps };

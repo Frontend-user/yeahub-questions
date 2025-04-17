@@ -5,11 +5,7 @@ import { GetMockQuizButtonProps } from "@/features/interview/GetMockQuizButton/m
 export const GetMockQuizButton = ({ onClick }: GetMockQuizButtonProps) => {
   return (
     <div className={classes.wrapper}>
-      <UiButton
-        type="arrow-right-purple"
-        onClick={onClick}
-        className={classes.button}
-      >
+      <UiButton type="arrow-right-purple" onClick={onClick} className={classes.button}>
         Начать
       </UiButton>
     </div>

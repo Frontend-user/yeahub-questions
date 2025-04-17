@@ -33,13 +33,9 @@ const InterviewPage = () => {
         const queryValues = searchParams.getAll(queryKey);
 
         if (queryKey === "complexity") {
-          staticParams[queryKey] = getComplexityIdsByQuery(
-            queryValues,
-            complexityList,
-          );
+          staticParams[queryKey] = getComplexityIdsByQuery(queryValues, complexityList);
         } else {
-          staticParams[queryKey] =
-            queryValues.length === 1 ? queryValues[0] : queryValues;
+          staticParams[queryKey] = queryValues.length === 1 ? queryValues[0] : queryValues;
         }
       }
     }

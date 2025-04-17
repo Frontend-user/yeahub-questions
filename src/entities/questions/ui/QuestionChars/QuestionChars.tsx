@@ -10,12 +10,7 @@ interface PropsQuestionChars {
   keywords: string[];
 }
 
-const QuestionChars = ({
-  complexity,
-  rate,
-  skills,
-  keywords,
-}: PropsQuestionChars) => {
+const QuestionChars = ({ complexity, rate, skills, keywords }: PropsQuestionChars) => {
   return (
     <div className="questions-chars">
       <div className="questions-chars__inner">
@@ -32,11 +27,7 @@ const QuestionChars = ({
           <div className="questions-chars__skills-items">
             {skills.map((skill) => (
               <div key={skill.id}>
-                <UiSelectItem
-                  id={skill.id}
-                  title={skill.title}
-                  selected={true}
-                />
+                <UiSelectItem id={skill.id} title={skill.title} selected={true} />
               </div>
             ))}
           </div>
@@ -46,10 +37,7 @@ const QuestionChars = ({
           <div className="questions-chars__keywords-label">Ключевые слова:</div>
           <div className="questions-chars__keywords-list">
             {keywords.map((keyword) => (
-              <div
-                className="questions-chars__keyword"
-                key={keyword}
-              >{`#${keyword}`}</div>
+              <div className="questions-chars__keyword" key={keyword}>{`#${keyword}`}</div>
             ))}
           </div>
         </div>

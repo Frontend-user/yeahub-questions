@@ -28,9 +28,7 @@ export const useChangeParams = (
     const currentIdExistInQuery = queryParamsList.includes(id.toString());
     if (selectType === SELECT_TYPE.MANY_ITEMS) {
       if (currentIdExistInQuery) {
-        const currentIdIndexToDelete = queryParamsList.findIndex(
-          (i) => i === id.toString(),
-        );
+        const currentIdIndexToDelete = queryParamsList.findIndex((i) => i === id.toString());
         queryParamsList.splice(currentIdIndexToDelete, 1);
       } else {
         queryParamsList.push(String(id));

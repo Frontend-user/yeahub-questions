@@ -7,13 +7,7 @@ export interface UiSelectItemProps extends ISelectItem {
   onHandleClick?: (id: number) => void;
 }
 
-const UiSelectItem = ({
-  selected,
-  id,
-  title,
-  imageSrc,
-  onHandleClick,
-}: UiSelectItemProps) => {
+const UiSelectItem = ({ selected, id, title, imageSrc, onHandleClick }: UiSelectItemProps) => {
   const [showIcon] = useState(false);
 
   const checkValidHandleClick = () => {
@@ -25,9 +19,7 @@ const UiSelectItem = ({
       className={`ui-select-item ${selected && "ui-select-item_selected"}`}
     >
       <div className="ui-select-item__inner">
-        {imageSrc && showIcon && (
-          <UiImage className="ui-select-item__icon" src={imageSrc} />
-        )}
+        {imageSrc && showIcon && <UiImage className="ui-select-item__icon" src={imageSrc} />}
         <div className="ui-select-item__label">{title}</div>
       </div>
     </div>

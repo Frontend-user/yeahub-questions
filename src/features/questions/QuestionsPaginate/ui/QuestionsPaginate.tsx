@@ -11,16 +11,13 @@ export const QuestionsPaginate = () => {
     (state: AppStateType) => state.questions.questionsPaginateParams,
   );
 
-  const [searchParams, setSearchParams]: [URLSearchParams, SetURLSearchParams] =
-    useSearchParams();
+  const [searchParams, setSearchParams]: [URLSearchParams, SetURLSearchParams] = useSearchParams();
 
-  const [paginateParams, nextPage, selectPage, prevPage] = useQuestionsPaginate(
-    {
-      questionsPaginateParams,
-      searchParams,
-      setSearchParams,
-    },
-  );
+  const [paginateParams, nextPage, selectPage, prevPage] = useQuestionsPaginate({
+    questionsPaginateParams,
+    searchParams,
+    setSearchParams,
+  });
 
   return (
     <div>

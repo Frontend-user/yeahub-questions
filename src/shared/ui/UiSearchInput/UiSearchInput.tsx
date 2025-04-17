@@ -9,8 +9,7 @@ type UiSearchInputProps = {
 };
 
 const UiSearchInput = ({ onChange, value }: UiSearchInputProps) => {
-  const onHandleChange = (e: ChangeEvent<HTMLInputElement>) =>
-    onChange(e.target.value);
+  const onHandleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value);
 
   return (
     <div className="ui-input-search">

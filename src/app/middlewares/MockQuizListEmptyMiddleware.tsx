@@ -5,9 +5,7 @@ import { PAGES } from "@/shared/constats/constats.ts";
 import { ReactNode } from "react";
 
 const MockQuizListEmptyMiddleware = ({ children }: { children: ReactNode }) => {
-  const list = useSelector(
-    (state: AppStateType) => state.interviewPreparation.mockQuestionsList,
-  );
+  const list = useSelector((state: AppStateType) => state.interviewPreparation.mockQuestionsList);
   if (!list.length) {
     return <Navigate to={`/${PAGES.QUESTIONS}`} replace />;
   }

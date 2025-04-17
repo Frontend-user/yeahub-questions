@@ -1,10 +1,7 @@
 import { REQUEST_STATUSES } from "@/shared/constats/constats.ts";
 import { IRTKMutationResulT } from "@/features/auth/model/types.ts";
 import { isFetchBaseQueryError } from "@/features/auth/libs/helpers.ts";
-import {
-  AUTH_ERRORS,
-  VALIDATION_ERRORS,
-} from "@/features/auth/libs/constants.ts";
+import { AUTH_ERRORS, VALIDATION_ERRORS } from "@/features/auth/libs/constants.ts";
 
 export const UserNameValidationOptions = {
   minLength: {
@@ -38,9 +35,7 @@ export const defineApiErrors = (result: IRTKMutationResulT) => {
   return "";
 };
 
-export const ConfirmPasswordValidationOptions = (
-  cb: (value: string) => boolean,
-) => {
+export const ConfirmPasswordValidationOptions = (cb: (value: string) => boolean) => {
   return {
     minLength: {
       value: 8,
@@ -50,8 +45,7 @@ export const ConfirmPasswordValidationOptions = (
       value: true,
       message: VALIDATION_ERRORS.CONFIRM_PASSWORD.REQUIRED,
     },
-    validate: (value: string) =>
-      cb(value) || VALIDATION_ERRORS.CONFIRM_PASSWORD.COINCIDE_VALIDATE,
+    validate: (value: string) => cb(value) || VALIDATION_ERRORS.CONFIRM_PASSWORD.COINCIDE_VALIDATE,
     pattern: {
       value: /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
       message: VALIDATION_ERRORS.CONFIRM_PASSWORD.PATTERN,

@@ -24,9 +24,7 @@ const PassedQuestionsList = () => {
   return (
     <div className={classes.block}>
       <div className={classes.inner}>
-        <div className={classes.title}>
-          Список пройденных вопросов собеседования
-        </div>
+        <div className={classes.title}>Список пройденных вопросов собеседования</div>
         <div className={classes.listWrap}>
           {list.map((item) => (
             <PassedQuestionCard

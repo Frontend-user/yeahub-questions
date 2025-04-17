@@ -5,22 +5,14 @@ import { IPassedQuestionCardProps } from "@/entities/interview-preparation/model
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 import UiTextHtml from "@/shared/ui/UiTextHtml/UiTextHtml.tsx";
 
-const { info, image, title, block, inner, imageWrapper, statusButton } =
-  classes;
+const { info, image, title, block, inner, imageWrapper, statusButton } = classes;
 
-const PassedQuestionCard = ({
-  imageSrc,
-  question = "",
-  isUserKnow,
-}: IPassedQuestionCardProps) => {
+const PassedQuestionCard = ({ imageSrc, question = "", isUserKnow }: IPassedQuestionCardProps) => {
   return (
     <div className={block}>
       <div className={inner}>
         <div className={imageWrapper}>
-          <UiImage
-            className={image}
-            src={imageSrc || passedQuestionStaticImage}
-          />
+          <UiImage className={image} src={imageSrc || passedQuestionStaticImage} />
         </div>
         <div className={info}>
           <UiTextHtml className={title}>{question}</UiTextHtml>

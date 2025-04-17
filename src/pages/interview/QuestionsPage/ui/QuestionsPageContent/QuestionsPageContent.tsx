@@ -25,18 +25,15 @@ const QuestionsPageContent = () => {
 
   const [searchParams] = useSearchParams();
 
-  const questions: IQuestion[] = useSelector(
-    (state: AppStateType) => state.questions.questions,
-  );
+  const questions: IQuestion[] = useSelector((state: AppStateType) => state.questions.questions);
 
-  const { isLoading: isQuestionsLoading, error: isQuestionsError } =
-    useGetQuestionsQuery(
-      defineParams({
-        questionsPaginateParams,
-        searchParams,
-        complexityList,
-      }),
-    );
+  const { isLoading: isQuestionsLoading, error: isQuestionsError } = useGetQuestionsQuery(
+    defineParams({
+      questionsPaginateParams,
+      searchParams,
+      complexityList,
+    }),
+  );
 
   const questionsContent = () => {
     let questionsContent;
@@ -44,9 +41,7 @@ const QuestionsPageContent = () => {
       questionsContent = <QuestionsSkeleton />;
     } else if (isQuestionsError) {
       questionsContent = (
-        <QuestionsFetchError
-          isQuestionsError={isQuestionsError as FetchBaseQueryError}
-        />
+        <QuestionsFetchError isQuestionsError={isQuestionsError as FetchBaseQueryError} />
       );
     } else if (!questions.length) {
       questionsContent = <QuestionsNotFound />;

@@ -11,13 +11,7 @@ export const MockQuestionUserKnowButtons = ({
 }: MockQuestionUserKnowButtonsProps) => {
   return (
     <>
-      <SetQuestionKnow
-        value={true}
-        text="Знаю"
-        type={"like"}
-        isUserKnow={isUserKnow}
-        id={id}
-      />
+      <SetQuestionKnow value={true} text="Знаю" type={"like"} isUserKnow={isUserKnow} id={id} />
       <SetQuestionKnow
         value={false}
         text="Не Знаю"

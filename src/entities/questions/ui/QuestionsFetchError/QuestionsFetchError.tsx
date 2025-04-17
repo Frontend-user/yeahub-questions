@@ -9,9 +9,7 @@ interface NotFoundQuestionsProps {
   isQuestionsError: FetchBaseQueryError;
 }
 
-export const QuestionsFetchError = ({
-  isQuestionsError,
-}: NotFoundQuestionsProps) => {
+export const QuestionsFetchError = ({ isQuestionsError }: NotFoundQuestionsProps) => {
   return (
     <div>
       <p>Не получилось загрузить вопросы </p>

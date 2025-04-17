@@ -18,11 +18,7 @@ export const LogoutButton = () => {
   };
 
   return (
-    <NavLink
-      onClick={deleteAccessToken}
-      to={`/${PAGES.LOGIN}`}
-      className="header__nav-item"
-    >
+    <NavLink onClick={deleteAccessToken} to={`/${PAGES.LOGIN}`} className="header__nav-item">
       <UiButton>Выйти</UiButton>
     </NavLink>
   );

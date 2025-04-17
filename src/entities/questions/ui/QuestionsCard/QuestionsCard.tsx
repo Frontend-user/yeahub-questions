@@ -16,13 +16,7 @@ type QuestionsCardProps = {
   rate?: string | number;
   complexity?: string | number;
 };
-export const QuestionsCard = ({
-  id,
-  rate,
-  complexity,
-  title,
-  shortAnswer,
-}: QuestionsCardProps) => {
+export const QuestionsCard = ({ id, rate, complexity, title, shortAnswer }: QuestionsCardProps) => {
   const [isToggled, toggle] = useToggle();
 
   return (
@@ -30,10 +24,7 @@ export const QuestionsCard = ({
       <div className="questions-card__head" onClick={toggle}>
         <div className="questions-card__custom-icon"></div>
         <div className="questions-card__title">{title}</div>
-        <UiImage
-          src={isToggled ? upIcon : downIcon}
-          className="questions-card__drop-down-button"
-        />
+        <UiImage src={isToggled ? upIcon : downIcon} className="questions-card__drop-down-button" />
       </div>
       <div
         className={`questions-card__shortAnswer ${isToggled && "questions-card__shortAnswer_open"}`}
@@ -49,10 +40,7 @@ export const QuestionsCard = ({
             </div>
           )}
 
-          <NavLink
-            className="questions-card__link"
-            to={`/question-details/${id}`}
-          >
+          <NavLink className="questions-card__link" to={`/question-details/${id}`}>
             <UiButton
               className="questions-card__read-more-button"
               text="Подробнее"

@@ -11,17 +11,11 @@ export const QuestionsListWithPaginate = () => {
     (state: AppStateType) => state.questions.questionsPaginateParams,
   );
 
-  const questions: IQuestion[] = useSelector(
-    (state: AppStateType) => state.questions.questions,
-  );
+  const questions: IQuestion[] = useSelector((state: AppStateType) => state.questions.questions);
 
   const showPaginate = useMemo(() => {
     if (questionsPaginateParams.total) {
-      return (
-        Math.ceil(
-          questionsPaginateParams.total / questionsPaginateParams.limit,
-        ) > 1
-      );
+      return Math.ceil(questionsPaginateParams.total / questionsPaginateParams.limit) > 1;
     }
 
     return false;
@@ -30,9 +24,7 @@ export const QuestionsListWithPaginate = () => {
   return (
     <div className="questions-list-with-paginate">
       <div className="questions-list-with-paginate__inner">
-        <div className="questions-list-with-paginate__title">
-          Вопросы React, JavaScript
-        </div>
+        <div className="questions-list-with-paginate__title">Вопросы React, JavaScript</div>
         <QuestionsList questions={questions} />
 
         {showPaginate && (

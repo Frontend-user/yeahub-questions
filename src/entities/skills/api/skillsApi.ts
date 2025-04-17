@@ -1,8 +1,5 @@
 import { API_ROUTES } from "@/shared/constats/constats.ts";
-import {
-  setFormattedSkillsList,
-  setSkillsList,
-} from "@/entities/skills/model/skillsSlice.ts";
+import { setFormattedSkillsList, setSkillsList } from "@/entities/skills/model/skillsSlice.ts";
 import { commonApi } from "@/shared/api/commonApi.ts";
 
 const skillsApi = commonApi.injectEndpoints({

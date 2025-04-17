@@ -7,11 +7,7 @@ interface PropsUiProgressBar {
   passedCount: number;
 }
 
-const UiProgressBar = ({
-  title,
-  allCount,
-  passedCount,
-}: PropsUiProgressBar) => {
+const UiProgressBar = ({ title, allCount, passedCount }: PropsUiProgressBar) => {
   const progressRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {

@@ -17,10 +17,7 @@ export const QuizStepWidget = () => {
   const [showAnswer, toggle] = useToggle();
 
   const changeUserKnowButtonsRender = () => (
-    <MockQuestionUserKnowButtons
-      isUserKnow={currentQuestion.isUserKnow}
-      id={currentQuestion.id}
-    />
+    <MockQuestionUserKnowButtons isUserKnow={currentQuestion.isUserKnow} id={currentQuestion.id} />
   );
 
   const mockQuizCardNavButtonsRender = () => (
@@ -42,9 +39,7 @@ export const QuizStepWidget = () => {
     <div>
       <div className={classes.wrapper}>
         <div className={classes.inner}>
-          <div className={classes.buttonsWrapper}>
-            {mockQuizCardNavButtonsRender()}
-          </div>
+          <div className={classes.buttonsWrapper}>{mockQuizCardNavButtonsRender()}</div>
           <QuizQuestionInfo
             title={currentQuestion.title}
             shortAnswer={currentQuestion.shortAnswer}

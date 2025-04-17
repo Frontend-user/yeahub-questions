@@ -21,12 +21,8 @@ export const MockQuizCardNavButtons = ({
   showAnswer,
 }: MockQuizCardNavButtonsProps) => {
   const dispatch = useDispatch();
-  const currentPage = useSelector(
-    (state: AppStateType) => state.interviewPreparation.currentPage,
-  );
-  const totalPages = useSelector(
-    (state: AppStateType) => state.interviewPreparation.totalPages,
-  );
+  const currentPage = useSelector((state: AppStateType) => state.interviewPreparation.currentPage);
+  const totalPages = useSelector((state: AppStateType) => state.interviewPreparation.totalPages);
 
   const nextPage = () => {
     if (showAnswer) {

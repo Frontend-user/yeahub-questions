@@ -1,8 +1,5 @@
 import "./QuestionDetailsPage.scss";
-import {
-  QuestionsDetails,
-  useGetQuestionByIdQuery,
-} from "@/entities/questions";
+import { QuestionsDetails, useGetQuestionByIdQuery } from "@/entities/questions";
 import { useSelector } from "react-redux";
 import { AppStateType } from "@/app/AppStore.ts";
 import { useParams } from "react-router-dom";
@@ -12,17 +9,11 @@ const QuestionDetailsPage = () => {
   const { questionId } = useParams();
   const { isLoading } = useGetQuestionByIdQuery(questionId);
 
-  const question = useSelector(
-    (state: AppStateType) => state.questions.questionDetails,
-  );
+  const question = useSelector((state: AppStateType) => state.questions.questionDetails);
 
   return (
     <div className="questions-details-page">
-      {isLoading ? (
-        <QuestionsDetailsSkeleton />
-      ) : (
-        <QuestionsDetails question={question} />
-      )}
+      {isLoading ? <QuestionsDetailsSkeleton /> : <QuestionsDetails question={question} />}
     </div>
   );
 };

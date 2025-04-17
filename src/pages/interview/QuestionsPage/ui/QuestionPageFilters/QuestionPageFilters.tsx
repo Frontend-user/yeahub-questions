@@ -8,11 +8,7 @@ const QuestionPageFilters = () => {
   const { isLoading: isSkillsLoading } = useGetSkillsQuery({});
 
   const filterContent = () => {
-    return isSpecsLoading || isSkillsLoading ? (
-      <FiltersSkeleton />
-    ) : (
-      <QuestionsFilters />
-    );
+    return isSpecsLoading || isSkillsLoading ? <FiltersSkeleton /> : <QuestionsFilters />;
   };
 
   return <div>{filterContent()}</div>;

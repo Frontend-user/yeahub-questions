@@ -17,10 +17,7 @@ export const SearchQuestions = () => {
     setSearchParams(searchParams);
   };
 
-  const debouncedDefineQueryKeywordsParam = useDebouncedCallback(
-    defineQueryKeywordsParam,
-    700,
-  );
+  const debouncedDefineQueryKeywordsParam = useDebouncedCallback(defineQueryKeywordsParam, 700);
 
   const handleInputChange = (newValue: string) => {
     searchParams.set("page", "1");

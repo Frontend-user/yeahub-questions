@@ -28,10 +28,7 @@ export const useQuestionsPaginate = ({
     currentPage: 1,
   });
 
-  function defineShowPages(
-    currentPage: number,
-    lastPage = paginateParams.lastPage,
-  ) {
+  function defineShowPages(currentPage: number, lastPage = paginateParams.lastPage) {
     const defineLastPage = lastPage;
     let start = currentPage - 3;
     let result = [];
@@ -93,9 +90,7 @@ export const useQuestionsPaginate = ({
 
   useEffect(() => {
     if (!questionsPaginateParams.total) return;
-    const lastPage = Math.ceil(
-      questionsPaginateParams.total / questionsPaginateParams.limit,
-    );
+    const lastPage = Math.ceil(questionsPaginateParams.total / questionsPaginateParams.limit);
     const showPages = defineShowPages(questionsPaginateParams.page, lastPage);
     if (showPages.some((i) => isNaN(i))) {
       return;

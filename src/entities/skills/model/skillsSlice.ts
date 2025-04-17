@@ -1,8 +1,4 @@
-import {
-  IFormattedSkill,
-  ISkill,
-  ISkillsInitialState,
-} from "@/entities/skills";
+import { IFormattedSkill, ISkill, ISkillsInitialState } from "@/entities/skills";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: ISkillsInitialState = {
@@ -20,10 +16,7 @@ const skillsSlice = createSlice({
       state.skills = action.payload;
     },
 
-    setFormattedSkillsList: (
-      state,
-      action: PayloadAction<IFormattedSkill[]>,
-    ) => {
+    setFormattedSkillsList: (state, action: PayloadAction<IFormattedSkill[]>) => {
       state.formattedSkills = action.payload.map((formattedSkill) => ({
         id: formattedSkill.id,
         title: formattedSkill.title,
@@ -48,6 +41,5 @@ const skillsSlice = createSlice({
     },
   },
 });
-export const { setSkillsList, setFormattedSkillsList, chooseSkills } =
-  skillsSlice.actions;
+export const { setSkillsList, setFormattedSkillsList, chooseSkills } = skillsSlice.actions;
 export { skillsSlice };

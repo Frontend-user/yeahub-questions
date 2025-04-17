@@ -30,11 +30,7 @@ const UiPaginate = ({
 
   return (
     <div className="ui-paginate">
-      <UiImage
-        src={prevPageArrow}
-        onClick={onHandlePrevPage}
-        className="ui-paginate__prev-page"
-      />
+      <UiImage src={prevPageArrow} onClick={onHandlePrevPage} className="ui-paginate__prev-page" />
       {shouldShowFirstPageAndDots && (
         <FirstPageBlock firstPage={firstPage} selectPage={selectPage} />
       )}
@@ -50,15 +46,9 @@ const UiPaginate = ({
         ))}
       </div>
 
-      {shouldShowLastPageAndDots && (
-        <LastPageBlock lastPage={lastPage} selectPage={selectPage} />
-      )}
+      {shouldShowLastPageAndDots && <LastPageBlock lastPage={lastPage} selectPage={selectPage} />}
 
-      <UiImage
-        src={nextPageArrow}
-        onClick={onHandleNextPage}
-        className="ui-paginate__next-page"
-      />
+      <UiImage src={nextPageArrow} onClick={onHandleNextPage} className="ui-paginate__next-page" />
     </div>
   );
 };

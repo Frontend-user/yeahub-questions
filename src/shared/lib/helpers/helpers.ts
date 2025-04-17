@@ -29,7 +29,7 @@ export const parseJwt = (token: string) => {
   }
 };
 
-export const getTokenExpiredSecsLeft = (token:string) => {
+export const getTokenExpiredSecsLeft = (token: string) => {
   if (!token) return -1;
   const decodedToken = parseJwt(token);
   const expTime = decodedToken.exp * 1000;

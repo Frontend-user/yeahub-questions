@@ -14,17 +14,13 @@ interface PropsQuestionsDetails {
 }
 
 export const QuestionsDetails = ({ question }: PropsQuestionsDetails) => {
-  const shouldShowAuthorInfo =
-    question?.createdBy?.firstName || question?.createdBy.lastName;
+  const shouldShowAuthorInfo = question?.createdBy?.firstName || question?.createdBy.lastName;
 
   return (
     <div className="questions-details">
       <div className="questions-details__inner">
         <div className="questions-details__route-wrap">
-          <NavLink
-            className="questions-details__link"
-            to={`/${PAGES.QUESTIONS}`}
-          >
+          <NavLink className="questions-details__link" to={`/${PAGES.QUESTIONS}`}>
             {" "}
             <UiButton type="arrow-left" text="Назад" />
           </NavLink>

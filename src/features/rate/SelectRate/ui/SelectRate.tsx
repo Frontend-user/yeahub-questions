@@ -7,10 +7,7 @@ import { chooseRate } from "@/entities/rate";
 import { useChangeParams } from "@/shared/hooks/useChangeParams.ts";
 
 export const SelectRate = () => {
-  const [onHandleChooseRate, defineParamsInState] = useChangeParams(
-    chooseRate,
-    "rate",
-  );
+  const [onHandleChooseRate, defineParamsInState] = useChangeParams(chooseRate, "rate");
 
   const rateList = useSelector((state: AppStateType) => state.rate.rateList);
 

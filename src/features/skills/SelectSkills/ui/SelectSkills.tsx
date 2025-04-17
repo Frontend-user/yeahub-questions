@@ -8,18 +8,10 @@ import { ISelectItem } from "@/shared/types/types.ts";
 import { useChangeParams } from "@/shared/hooks/useChangeParams.ts";
 import { DEFAULT_SKILLS_SLICE_COUNT } from "@/shared/constats/constats.ts";
 
-export const SelectSkills = ({
-  sliceCount = DEFAULT_SKILLS_SLICE_COUNT,
-  title = "Навыки",
-}) => {
-  const [onChooseItem, defineParamsInState] = useChangeParams(
-    chooseSkills,
-    "skills",
-  );
+export const SelectSkills = ({ sliceCount = DEFAULT_SKILLS_SLICE_COUNT, title = "Навыки" }) => {
+  const [onChooseItem, defineParamsInState] = useChangeParams(chooseSkills, "skills");
 
-  const list: ISelectItem[] = useSelector(
-    (state: AppStateType) => state.skills.formattedSkills,
-  );
+  const list: ISelectItem[] = useSelector((state: AppStateType) => state.skills.formattedSkills);
 
   useEffect(() => {
     defineParamsInState();
@@ -27,12 +19,7 @@ export const SelectSkills = ({
 
   return (
     <div className="select-skills">
-      <UiSelect
-        sliceCount={sliceCount}
-        onHandleClick={onChooseItem}
-        title={title}
-        list={list}
-      />
+      <UiSelect sliceCount={sliceCount} onHandleClick={onChooseItem} title={title} list={list} />
     </div>
   );
 };

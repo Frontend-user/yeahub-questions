@@ -11,13 +11,7 @@ interface SetQuestionKnowProps {
   type: LikeTypes;
 }
 
-export const SetQuestionKnow = ({
-  id,
-  type,
-  isUserKnow,
-  value,
-  text,
-}: SetQuestionKnowProps) => {
+export const SetQuestionKnow = ({ id, type, isUserKnow, value, text }: SetQuestionKnowProps) => {
   const dispatch = useDispatch();
   const setMockQuestionUserKnow = () => {
     dispatch(

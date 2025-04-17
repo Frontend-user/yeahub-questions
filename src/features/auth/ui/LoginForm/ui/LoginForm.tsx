@@ -60,10 +60,7 @@ export const LoginForm = () => {
             <br />
           </div>
         )}
-        <UiInput
-          placeholder="Введите почту"
-          {...register("username", emailValidationOptions)}
-        />
+        <UiInput placeholder="Введите почту" {...register("username", emailValidationOptions)} />
         <UiInput
           placeholder="Введите пароль"
           {...register("password", passwordValidationOptions)}

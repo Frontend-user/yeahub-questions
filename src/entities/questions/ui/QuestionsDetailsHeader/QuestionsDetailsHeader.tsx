@@ -7,11 +7,7 @@ interface QuestionsDetailsHeaderProps {
   description?: string;
 }
 
-const QuestionsDetailsHeader = ({
-  imageSrc,
-  title,
-  description,
-}: QuestionsDetailsHeaderProps) => {
+const QuestionsDetailsHeader = ({ imageSrc, title, description }: QuestionsDetailsHeaderProps) => {
   return (
     <div className="questions-details-header">
       <div className="questions-details-header__inner">

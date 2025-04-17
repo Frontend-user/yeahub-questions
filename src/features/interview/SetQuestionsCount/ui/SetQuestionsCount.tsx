@@ -11,9 +11,7 @@ import { useToggle } from "@/shared/hooks/useToggle.tsx";
 export const SetQuestionsCount = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [isFirstRender, toggle] = useToggle();
-  const [questionsCount, setQuestionsCount] = useState(
-    MOCK_LIMIT_DEFAULT_VALUE,
-  );
+  const [questionsCount, setQuestionsCount] = useState(MOCK_LIMIT_DEFAULT_VALUE);
 
   const onHandleIncrement = () => {
     if (questionsCount >= DEFAULT_MOCK_QUESTIONS_MAX_COUNT) return;
@@ -28,10 +26,8 @@ export const SetQuestionsCount = () => {
       const stringLimit = searchParams.get("limit");
       const limit = stringLimit ? Number(stringLimit) : null;
 
-      const existLimitAndMoreThanMinCount =
-        limit && limit > DEFAULT_MOCK_QUESTIONS_MIN_COUNT;
-      const limitLessThanMaxCount =
-        limit && limit < DEFAULT_MOCK_QUESTIONS_MAX_COUNT;
+      const existLimitAndMoreThanMinCount = limit && limit > DEFAULT_MOCK_QUESTIONS_MIN_COUNT;
+      const limitLessThanMaxCount = limit && limit < DEFAULT_MOCK_QUESTIONS_MAX_COUNT;
 
       if (existLimitAndMoreThanMinCount && limitLessThanMaxCount) {
         setQuestionsCount(limit);

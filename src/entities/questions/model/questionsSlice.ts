@@ -21,10 +21,6 @@ const questionsSlice = createSlice({
     },
   },
 });
-export const {
-  addQuestion,
-  setQuestionsList,
-  setQuestionDetails,
-  setQuestionsPaginateParams,
-} = questionsSlice.actions;
+export const { addQuestion, setQuestionsList, setQuestionDetails, setQuestionsPaginateParams } =
+  questionsSlice.actions;
 export { questionsSlice };

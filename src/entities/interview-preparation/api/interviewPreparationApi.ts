@@ -21,6 +21,5 @@ const interviewPreparationApi = commonApi.injectEndpoints({
   }),
 });
 
-export const { useGetMockQuizzesQuery, useLazyGetMockQuizzesQuery } =
-  interviewPreparationApi;
+export const { useGetMockQuizzesQuery, useLazyGetMockQuizzesQuery } = interviewPreparationApi;
 export { interviewPreparationApi };

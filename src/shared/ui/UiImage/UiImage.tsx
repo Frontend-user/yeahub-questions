@@ -10,16 +10,7 @@ interface PropsUiImage {
 
 const UiImage = ({ src, className, onClick, alt }: PropsUiImage) => {
   return (
-    <>
-      {src && (
-        <img
-          src={src}
-          onClick={onClick}
-          alt={alt}
-          className={`ui-image ${className}`}
-        />
-      )}
-    </>
+    <>{src && <img src={src} onClick={onClick} alt={alt} className={`ui-image ${className}`} />}</>
   );
 };
 

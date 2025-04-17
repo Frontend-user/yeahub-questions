@@ -7,14 +7,9 @@ import { chooseComplexity } from "@/entities/complexity";
 import { useChangeParams } from "@/shared/hooks/useChangeParams.ts";
 
 export const SelectComplexity = () => {
-  const list = useSelector(
-    (state: AppStateType) => state.complexity.complexityList,
-  );
+  const list = useSelector((state: AppStateType) => state.complexity.complexityList);
 
-  const [onHandleClick, defineParamsInState] = useChangeParams(
-    chooseComplexity,
-    "complexity",
-  );
+  const [onHandleClick, defineParamsInState] = useChangeParams(chooseComplexity, "complexity");
 
   useEffect(() => {
     defineParamsInState();

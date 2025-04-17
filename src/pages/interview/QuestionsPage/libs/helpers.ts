@@ -8,14 +8,7 @@ interface PropsDefineParams {
 }
 
 interface IQuestionPageParams {
-  name:
-    | "specialization"
-    | "keywords"
-    | "rate"
-    | "skills"
-    | "limit"
-    | "page"
-    | "complexity";
+  name: "specialization" | "keywords" | "rate" | "skills" | "limit" | "page" | "complexity";
   type: "number" | "string";
   action: "get" | "getAll";
   defaultValue?: number;
@@ -77,12 +70,9 @@ export function defineParams({
   questionPageParams.forEach((item: IQuestionPageParams) => {
     if (searchParams.get(item.name)) {
       const getValue: string | string[] | null =
-        item.action === "get"
-          ? searchParams.get(item.name)
-          : searchParams.getAll(item.name);
+        item.action === "get" ? searchParams.get(item.name) : searchParams.getAll(item.name);
       if (getValue) {
-        resultParams[item.name] =
-          item.type === "number" ? Number(getValue) : getValue;
+        resultParams[item.name] = item.type === "number" ? Number(getValue) : getValue;
       }
     } else if (item.defaultValue) {
       resultParams[item.name] = item.defaultValue;
@@ -97,9 +87,7 @@ export function getComplexityIdsByQuery(
   complexityList: ISelectItem[],
 ): number[] {
   return queryList.reduce((acc: number[], itemId: string) => {
-    const findedItem = complexityList.find(
-      (complexityItem) => complexityItem.id === +itemId,
-    );
+    const findedItem = complexityList.find((complexityItem) => complexityItem.id === +itemId);
     if (findedItem && findedItem.value) {
       return [...acc, ...findedItem.value];
     }

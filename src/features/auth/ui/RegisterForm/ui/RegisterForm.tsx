@@ -36,8 +36,7 @@ export const RegisterForm = () => {
     reset();
   };
 
-  const isPasswordFieldsCoincidence = () =>
-    watch("password") === watch("confirmPassword");
+  const isPasswordFieldsCoincidence = () => watch("password") === watch("confirmPassword");
   const formErrors = defineFormErrors(errors);
   const apiErrors = defineApiErrors(result);
 
@@ -55,14 +54,8 @@ export const RegisterForm = () => {
             <br />
           </div>
         )}
-        <UiInput
-          placeholder="Введите имя"
-          {...register("username", UserNameValidationOptions)}
-        />
-        <UiInput
-          placeholder="Введите почту"
-          {...register("email", emailValidationOptions)}
-        />
+        <UiInput placeholder="Введите имя" {...register("username", UserNameValidationOptions)} />
+        <UiInput placeholder="Введите почту" {...register("email", emailValidationOptions)} />
         <UiInput
           placeholder="Введите пароль"
           {...register("password", passwordValidationOptions)}

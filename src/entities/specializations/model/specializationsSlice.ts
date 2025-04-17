@@ -1,8 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {
-  ISpecialization,
-  ISpecializationsSliceInitialState,
-} from "@/entities/specializations";
+import { ISpecialization, ISpecializationsSliceInitialState } from "@/entities/specializations";
 
 const initialState: ISpecializationsSliceInitialState = {
   specializations: [],
@@ -14,10 +11,7 @@ const specializationsSlice = createSlice({
   name: "specializations",
   initialState,
   reducers: {
-    setSpecializationsList: (
-      state,
-      action: PayloadAction<ISpecialization[]>,
-    ) => {
+    setSpecializationsList: (state, action: PayloadAction<ISpecialization[]>) => {
       state.specializations = action.payload;
     },
     chooseSpecialization: (state, action) => {
@@ -30,10 +24,7 @@ const specializationsSlice = createSlice({
         }
       });
     },
-    setFormattedSpecializations: (
-      state,
-      action: PayloadAction<ISpecialization[]>,
-    ) => {
+    setFormattedSpecializations: (state, action: PayloadAction<ISpecialization[]>) => {
       state.formattedSpecializations = action.payload.map((spec) => ({
         ...spec,
         selected: false,
@@ -44,8 +35,5 @@ const specializationsSlice = createSlice({
 });
 
 export { specializationsSlice };
-export const {
-  setSpecializationsList,
-  chooseSpecialization,
-  setFormattedSpecializations,
-} = specializationsSlice.actions;
+export const { setSpecializationsList, chooseSpecialization, setFormattedSpecializations } =
+  specializationsSlice.actions;
