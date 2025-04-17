@@ -1,7 +1,7 @@
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
 import { changeUserKnowStatus } from "@/entities/interview-preparation";
-import { useDispatch } from "react-redux";
 import { LikeTypes } from "@/shared/types/types.ts";
+import { useAppDispatch } from "@/shared/hooks/useAppSelector.ts";
 
 interface SetQuestionKnowProps {
   id: number;
@@ -12,7 +12,7 @@ interface SetQuestionKnowProps {
 }
 
 export const SetQuestionKnow = ({ id, type, isUserKnow, value, text }: SetQuestionKnowProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const setMockQuestionUserKnow = () => {
     dispatch(
       changeUserKnowStatus({

@@ -1,12 +1,12 @@
-import { useSelector } from "react-redux";
-import { AppStateType } from "@/app/AppStore.ts";
 import { Navigate } from "react-router-dom";
 import { PAGES } from "@/shared/constats/constats.ts";
 import { ReactNode } from "react";
+import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
+import { getMockQuestionList } from "@/entities/interview-preparation";
 
 const MockQuizListEmptyMiddleware = ({ children }: { children: ReactNode }) => {
-  const list = useSelector((state: AppStateType) => state.interviewPreparation.mockQuestionsList);
-  if (!list.length) {
+  const mockQuestionsList = useAppSelector(getMockQuestionList);
+  if (!mockQuestionsList.length) {
     return <Navigate to={`/${PAGES.QUESTIONS}`} replace />;
   }
   return <>{children}</>;

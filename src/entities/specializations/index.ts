@@ -12,3 +12,5 @@ export type {
   IFormattedSpecialization,
   ISpecializationsSliceInitialState,
 } from "./model/types.ts";
+
+export { getFormattedSpecializations } from "./model/selectors/specializationsSelectors";

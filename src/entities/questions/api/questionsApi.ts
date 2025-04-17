@@ -54,5 +54,4 @@ export const questionsApi = commonApi.injectEndpoints({
   }),
 });
 
-export const { getQuestions } = questionsApi.endpoints;
 export const { useGetQuestionsQuery, useGetQuestionByIdQuery } = questionsApi;

@@ -4,12 +4,13 @@ import { Header } from "@/widgets/header";
 import { Suspense } from "react";
 import { PageLoadingSkeleton } from "@/widgets/loader/PageLoadingSkeleton";
 import { getCookie } from "@/shared/lib/utils/getCookie.ts";
-import { useDispatch } from "react-redux";
 import { setIsAuth } from "@/entities/auth";
+import { useAppDispatch } from "@/shared/hooks/useAppSelector.ts";
 
 function BaseLayout() {
-  const dispatch = useDispatch();
   const isAuth = getCookie("isAuth");
+  const dispatch = useAppDispatch();
+
   if (isAuth === "true") {
     dispatch(setIsAuth(true));
   } else {

@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import "./SelectSpecializations.scss";
 import UiSelect from "@/shared/ui/UiSelect/UiSelect.tsx";
-import { useSelector } from "react-redux";
-import { chooseSpecialization } from "@/entities/specializations";
-import { AppStateType } from "@/app/AppStore.ts";
+import { chooseSpecialization, getFormattedSpecializations } from "@/entities/specializations";
 import { useChangeParams } from "@/shared/hooks/useChangeParams.ts";
 import { DEFAULT_SPECIALIZATIONS_SLICE_COUNT, SELECT_TYPE } from "@/shared/constats/constats.ts";
+import { useAppSelector } from "@/shared/hooks/useAppSelector.ts";
 
 export const SelectSpecializations = () => {
-  const list = useSelector((state: AppStateType) => state.specializations.formattedSpecializations);
+  const list = useAppSelector(getFormattedSpecializations);
 
   const [onChooseItem, defineParamsInState] = useChangeParams(
     chooseSpecialization,

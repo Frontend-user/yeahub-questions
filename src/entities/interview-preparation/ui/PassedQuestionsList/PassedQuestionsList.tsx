@@ -1,20 +1,16 @@
 import classes from "./PassedQuestionsList.module.scss";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { PAGES } from "@/shared/constats/constats.ts";
 import { resetMockPassage } from "@/entities/interview-preparation/model/interviewPreparationSlice.ts";
 import { IMockQuestion } from "@/entities/interview-preparation/model/types.ts";
-import { AppStateType } from "@/app/AppStore.ts";
-import { PassedQuestionCard } from "@/entities/interview-preparation";
+import { getMockQuestionList, PassedQuestionCard } from "@/entities/interview-preparation";
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/useAppSelector.ts";
 
 const PassedQuestionsList = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const list: IMockQuestion[] = useSelector(
-    (state: AppStateType) => state.interviewPreparation.mockQuestionsList,
-  );
+  const dispatch = useAppDispatch();
+  const list: IMockQuestion[] = useAppSelector(getMockQuestionList);
 
   const trySameQuestions = () => {
     dispatch(resetMockPassage());
