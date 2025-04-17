@@ -1,9 +1,9 @@
 import "./QuestionsFilters.scss";
 import { SelectSpecializations } from "@/features/specializations/SelectSpecializations";
 import { SelectSkills } from "@/features/skills/SelectSkills";
-import { SelectRate } from "@/features/rate/SelectRate";
-import { SelectComplexity } from "@/features/complexity/SelectComplexity";
 import { SearchQuestions } from "@/features/questions/SearchQuestions";
+import { SelectComplexity } from "@/features/questions/SelectComplexity";
+import { SelectRate } from "@/features/questions/SelectRate";
 
 export const QuestionsFilters = () => {
   return (
