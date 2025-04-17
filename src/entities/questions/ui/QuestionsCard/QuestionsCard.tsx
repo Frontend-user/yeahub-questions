@@ -1,5 +1,4 @@
 import "./QuestionsCard.scss";
-import parse from "html-react-parser";
 
 import downIcon from "icons/down-icon.svg";
 import upIcon from "icons/up-icon.svg";
@@ -8,6 +7,7 @@ import UiTag from "@/shared/ui/UiTag/UiTag.tsx";
 import { NavLink } from "react-router-dom";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
 import { useToggle } from "@/shared/hooks/useToggle.tsx";
+import UiTextHtml from "@/shared/ui/UiTextHtml/UiTextHtml.tsx";
 
 type QuestionsCardProps = {
   id: number;
@@ -45,7 +45,7 @@ export const QuestionsCard = ({
                 {rate && <UiTag label="Рейтинг" value={rate} />}
                 {complexity && <UiTag label="Сложность" value={complexity} />}
               </div>
-              {parse(shortAnswer)}
+              <UiTextHtml>{shortAnswer}</UiTextHtml>
             </div>
           )}
 
