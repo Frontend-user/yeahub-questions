@@ -1,9 +1,9 @@
 import classes from "./PassedQuestionCard.module.scss";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
-import parse from "html-react-parser";
 import passedQuestionStaticImage from "images/static-passed-question-image.svg";
 import { IPassedQuestionCardProps } from "@/entities/interview-preparation/model/types.ts";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
+import UiTextHtml from "@/shared/ui/UiTextHtml/UiTextHtml.tsx";
 
 const { info, image, title, block, inner, imageWrapper, statusButton } =
   classes;
@@ -23,7 +23,7 @@ const PassedQuestionCard = ({
           />
         </div>
         <div className={info}>
-          <div className={title}>{parse(question)}</div>
+          <UiTextHtml className={title}>{question}</UiTextHtml>
           {isUserKnow ? (
             <UiButton className={statusButton} type="like">
               Я знаю

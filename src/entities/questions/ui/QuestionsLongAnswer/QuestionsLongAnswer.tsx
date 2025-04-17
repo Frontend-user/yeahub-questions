@@ -1,13 +1,12 @@
+import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
+import { useLayoutEffect, useRef } from "react";
+import { useToggle } from "@/shared/hooks/useToggle.tsx";
+import UiTextHtml from "@/shared/ui/UiTextHtml/UiTextHtml.tsx";
 import "./QuestionsLongAnswer.scss";
 
 interface QuestionsLongAnswerProps {
   longAnswer: string;
 }
-
-import parse from "html-react-parser";
-import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
-import { useLayoutEffect, useRef } from "react";
-import { useToggle } from "@/shared/hooks/useToggle.tsx";
 
 const QuestionsLongAnswer = ({ longAnswer }: QuestionsLongAnswerProps) => {
   const [showAll, toggleShowAll] = useToggle();
@@ -35,7 +34,7 @@ const QuestionsLongAnswer = ({ longAnswer }: QuestionsLongAnswerProps) => {
                 text={showAll ? "Скрыть" : "Развернуть"}
               />
             </div>
-            {parse(longAnswer)}
+            <UiTextHtml>{longAnswer}</UiTextHtml>
           </div>
         </div>
       </div>

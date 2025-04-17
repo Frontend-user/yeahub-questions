@@ -1,9 +1,9 @@
 import classes from "./QuizQuestionInfo.module.scss";
 import UiButton from "@/shared/ui/UiButton/UiButton.tsx";
-import parse from "html-react-parser";
 import quizImage from "@/shared/assets/images/quiz-img.png";
 import { ReactNode } from "react";
 import UiImage from "@/shared/ui/UiImage/UiImage.tsx";
+import UiTextHtml from "@/shared/ui/UiTextHtml/UiTextHtml.tsx";
 
 interface IQuizQuestionInfoProps {
   changeUserKnowButtonsRender?: ReactNode;
@@ -26,21 +26,14 @@ const QuizQuestionInfo = ({
         <div className={classes.title}>{title}</div>
 
         <UiButton
-          className={
-            showAnswer ? classes.hideShowAnswerButton : classes.showAnswerButton
-          }
+          className={showAnswer ? classes.hideShowAnswerButton : classes.showAnswerButton}
           onClick={toggleShowAnswerButton}
           type={showAnswer ? `select_open` : `select`}
           text={showAnswer ? "Скрыть" : "Посмотреть ответ"}
         />
+        {showAnswer && <UiTextHtml className={classes.shortAnswerBlock}>{shortAnswer}</UiTextHtml>}
 
-        {showAnswer && (
-          <div className={classes.shortAnswerBlock}>{parse(shortAnswer)}</div>
-        )}
-
-        <div className={classes.likeButtonsWrap}>
-          {changeUserKnowButtonsRender}
-        </div>
+        <div className={classes.likeButtonsWrap}>{changeUserKnowButtonsRender}</div>
       </div>
       <UiImage src={quizImage} className={classes.image} />
     </div>
