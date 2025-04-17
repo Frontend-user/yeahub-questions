@@ -38,8 +38,10 @@ export const LoginForm = () => {
     login(body);
     reset();
   };
+
   const formErrors = defineFormErrors(errors);
   const { responseError, accessToken } = useHandleResponse(result);
+
   useEffect(() => {
     if (accessToken) {
       saveCookie("Authorization", `Bearer ${accessToken}`);

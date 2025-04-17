@@ -31,6 +31,7 @@ export const RegisterForm = () => {
       confirmPassword: "",
     },
   });
+
   const onSubmit: SubmitHandler<RegisterFormInputs> = (body) => {
     signUp(body);
     reset();
